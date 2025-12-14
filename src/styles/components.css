@@ -304,25 +304,15 @@
 /* Navigation */
 .site-nav {
   display: flex;
-  gap: var(--space-sm);
+  flex-wrap: wrap;
+  gap: var(--space-xs);
   list-style: none;
   margin: 0;
   padding: 0;
-
-  /* Mobile: horizontal scroll (NO hamburger - Phase 2 rule) */
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
-}
-
-.site-nav::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
 }
 
 .site-nav__item {
   margin: 0;
-  white-space: nowrap;
-  flex-shrink: 0;
 }
 
 .site-nav__link {
@@ -347,27 +337,7 @@
   background-color: var(--color-bg-tertiary);
 }
 
-/* Scroll indicator (visual cue that nav is scrollable) */
-.site-nav::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 2rem;
-  background: linear-gradient(to left, var(--color-bg-primary), transparent);
-  pointer-events: none;
-}
-
 @media (min-width: 768px) {
-  .site-nav {
-    overflow-x: visible;
-  }
-
-  .site-nav::after {
-    display: none;
-  }
-
   .site-nav__link {
     font-size: var(--font-size-body);
   }
