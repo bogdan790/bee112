@@ -14,6 +14,13 @@
  * </BaseLayout>
  */
 
+// CSS imports - MUST be imported this way for production build
+import "../styles/global.css";
+import "../styles/typography.css";
+import "../styles/layout.css";
+import "../styles/components.css";
+import "../styles/utilities.css";
+
 interface Props {
   title?: string;
   description?: string;
@@ -88,13 +95,6 @@ const structuredData = Astro.site ? {
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-    <!-- CSS - Design System (imported in order of specificity) -->
-    <link rel="stylesheet" href="/src/styles/global.css" />
-    <link rel="stylesheet" href="/src/styles/typography.css" />
-    <link rel="stylesheet" href="/src/styles/layout.css" />
-    <link rel="stylesheet" href="/src/styles/components.css" />
-    <link rel="stylesheet" href="/src/styles/utilities.css" />
 
     <!-- Structured Data (JSON-LD for SEO) -->
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
