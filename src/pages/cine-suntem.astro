@@ -1,0 +1,192 @@
+---
+/**
+ * Cine Suntem - BEE112
+ *
+ * BMAD Phase 4: Secondary pages
+ * Phase 9: Content Freeze ACTIVE - text is LOCKED
+ *
+ * Source of truth: .bmad/content/phase4-cine-suntem.md
+ */
+
+import PageLayout from '../layouts/PageLayout.astro';
+import CallButton from '../components/CallButton.astro';
+
+const title = 'Cine suntem – BEE112';
+const description = 'BEE112 este o inițiativă civică de salvare a albinelor din mediul urban și periurban, bazată pe intervenții rapide, realizate de apicultori cu experiență.';
+---
+
+<PageLayout title={title} description={description}>
+
+  <section class="content-section">
+    <div class="container">
+
+      <h1>Cine este BEE112</h1>
+
+      <p>
+        <strong>BEE112</strong> este o inițiativă civică de salvare a albinelor din mediul urban și periurban, bazată pe intervenții rapide, realizate de apicultori cu experiență.
+      </p>
+
+      <p>
+        Am apărut dintr-o nevoie reală:
+      </p>
+
+      <p>
+        👉 oamenii găseau roiuri de albine și <strong>nu știau pe cine să sune</strong>.
+      </p>
+
+      <p>
+        De multe ori, din panică sau lipsă de informații, albinele erau distruse inutil.
+      </p>
+
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+
+      <h2>De ce „112"</h2>
+
+      <p>
+        Numele <strong>BEE112</strong> nu este întâmplător.
+      </p>
+
+      <p>
+        Așa cum 112 este numărul unic pentru urgențe, <strong>BEE112</strong> este punctul de contact pentru situații urgente care implică albine.
+      </p>
+
+      <p>
+        Nu suntem 112.
+      </p>
+
+      <p>
+        Dar <strong>funcționăm după aceeași logică</strong>:
+      </p>
+
+      <ul>
+        <li>suni</li>
+        <li>discutăm calm</li>
+        <li>trimitem ajutorul potrivit</li>
+      </ul>
+
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+
+      <h2>Ce facem, concret</h2>
+
+      <ul>
+        <li>
+          Salvăm roiuri de albine din:
+          <ul>
+            <li>copaci</li>
+            <li>balcoane</li>
+            <li>clădiri</li>
+            <li>spații publice</li>
+          </ul>
+        </li>
+        <li>Relocăm albinele în stupine sigure</li>
+        <li>Nu folosim substanțe toxice</li>
+        <li>Nu distrugem coloniile</li>
+      </ul>
+
+      <p>
+        <strong>Scopul nostru este salvarea, nu eliminarea.</strong>
+      </p>
+
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+
+      <h2>Cine sunt oamenii din spatele BEE112</h2>
+
+      <p>
+        BEE112 este format din:
+      </p>
+
+      <ul>
+        <li>apicultori autorizați</li>
+        <li>voluntari cu experiență</li>
+        <li>oameni care cunosc comportamentul albinelor în mediul urban</li>
+      </ul>
+
+      <p>
+        Avem experiență în intervenții reale, inclusiv în situații sensibile, în zone aglomerate sau în colaborare cu autoritățile locale.
+      </p>
+
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+
+      <h2>Colaborări</h2>
+
+      <p>
+        De-a lungul timpului, am colaborat sau am fost solicitați de:
+      </p>
+
+      <ul>
+        <li>serviciul 112</li>
+        <li>autorități locale</li>
+        <li>instituții publice</li>
+        <li>cetățeni</li>
+      </ul>
+
+      <p>
+        Scopul comun a fost întotdeauna <strong>siguranța oamenilor și protejarea albinelor</strong>.
+      </p>
+
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <p>👉 <strong>Ai găsit un roi de albine?</strong></p>
+      <CallButton sticky={false} />
+      <p class="cta-subtitle">📞 <strong>Sună și discutăm calm.</strong></p>
+    </div>
+  </section>
+
+</PageLayout>
+
+<style>
+  .content-section {
+    padding: var(--space-lg) 0;
+  }
+
+  .content-section:nth-child(even) {
+    background-color: var(--color-bg-secondary);
+  }
+
+  .content-section h1 {
+    margin-bottom: var(--space-lg);
+  }
+
+  .content-section h2 {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-section p {
+    margin-bottom: var(--space-md);
+  }
+
+  .content-section ul {
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-section {
+    padding: var(--space-xl) 0;
+    text-align: center;
+    background-color: var(--color-bg-tertiary);
+  }
+
+  .cta-subtitle {
+    margin-top: var(--space-md);
+    font-size: var(--font-size-body);
+  }
+</style>

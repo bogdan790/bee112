@@ -1,0 +1,170 @@
+---
+/**
+ * Importanța Albinelor - BEE112
+ *
+ * BMAD Phase 4: Secondary pages
+ * Phase 9: Content Freeze ACTIVE - text is LOCKED
+ *
+ * Source of truth: .bmad/content/phase4-importanta-albinelor.md
+ */
+
+import PageLayout from '../layouts/PageLayout.astro';
+import CallButton from '../components/CallButton.astro';
+
+const title = 'Importanța albinelor – BEE112';
+const description = 'Albinele sunt esențiale pentru polenizarea plantelor, echilibrul naturii și hrana pe care o consumăm zilnic. Află de ce trebuie protejate.';
+---
+
+<PageLayout title={title} description={description}>
+
+  <section class="content-section">
+    <div class="container">
+
+      <h1>De ce sunt albinele importante</h1>
+
+      <p>
+        Albinele nu sunt doar insecte care produc miere.
+      </p>
+
+      <p>
+        Ele sunt esențiale pentru:
+      </p>
+
+      <ul>
+        <li>polenizarea plantelor</li>
+        <li>echilibrul naturii</li>
+        <li>hrana pe care o consumăm zilnic</li>
+      </ul>
+
+      <p>
+        Fără albine, multe plante nu ar mai putea produce fructe sau semințe.
+      </p>
+
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+
+      <h2>Albinele nu sunt agresive</h2>
+
+      <p>
+        Un lucru important de știut:
+      </p>
+
+      <p>
+        👉 <strong>albinele NU sunt agresive din fire</strong>
+      </p>
+
+      <p>
+        Un roi:
+      </p>
+
+      <ul>
+        <li>nu are stup</li>
+        <li>nu are miere de apărat</li>
+        <li>este, de obicei, liniștit</li>
+      </ul>
+
+      <p>
+        Majoritatea înțepăturilor apar din panică sau intervenții greșite.
+      </p>
+
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+
+      <h2>Albine, viespi sau altceva?</h2>
+
+      <p>
+        Mulți oameni confundă albinele cu:
+      </p>
+
+      <ul>
+        <li>viespile</li>
+        <li>hornetele</li>
+        <li>bondarii</li>
+      </ul>
+
+      <p>
+        Aceste insecte au comportamente diferite.
+      </p>
+
+      <p>
+        Dacă nu ești sigur ce ai găsit, <strong>nu interveni</strong> — sună și te ajutăm să identifici situația.
+      </p>
+
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+
+      <h2>Ce se întâmplă dacă un roi este distrus</h2>
+
+      <p>
+        Distrugerea unui roi înseamnă:
+      </p>
+
+      <ul>
+        <li>pierderea unei colonii întregi</li>
+        <li>afectarea ecosistemului local</li>
+        <li>un pericol inutil pentru oameni</li>
+      </ul>
+
+      <p>
+        De cele mai multe ori, roiurile pot fi salvate <strong>rapid și sigur</strong>.
+      </p>
+
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <p>👉 <strong>Ai găsit un roi de albine?</strong></p>
+      <CallButton sticky={false} />
+      <p class="cta-subtitle">📞 <strong>Sună la BEE112 și rezolvăm corect.</strong></p>
+    </div>
+  </section>
+
+</PageLayout>
+
+<style>
+  .content-section {
+    padding: var(--space-lg) 0;
+  }
+
+  .content-section:nth-child(even) {
+    background-color: var(--color-bg-secondary);
+  }
+
+  .content-section h1 {
+    margin-bottom: var(--space-lg);
+  }
+
+  .content-section h2 {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-section p {
+    margin-bottom: var(--space-md);
+  }
+
+  .content-section ul {
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-section {
+    padding: var(--space-xl) 0;
+    text-align: center;
+    background-color: var(--color-bg-tertiary);
+  }
+
+  .cta-subtitle {
+    margin-top: var(--space-md);
+    font-size: var(--font-size-body);
+  }
+</style>
