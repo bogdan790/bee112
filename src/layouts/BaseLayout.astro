@@ -1,0 +1,109 @@
+---
+/**
+ * BaseLayout - Base HTML Structure
+ *
+ * Provides:
+ * - Meta tags (SEO, OG, theme)
+ * - CSS imports (design system)
+ * - Structured data (LocalBusiness schema)
+ * - Semantic HTML5 structure
+ *
+ * Usage:
+ * <BaseLayout title="Page Title" description="Page description">
+ *   ...content...
+ * </BaseLayout>
+ */
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "BEE112 – Salvare albine urbane în București și Ilfov",
+  description = "Ai găsit un roi de albine? Nu le omorî. Sună-ne. Intervenim rapid, gratuit și fără substanțe toxice. Patrula Apicolă Urbană București."
+} = Astro.props;
+
+// Canonical URL (full path) - only if site is configured
+const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : null;
+
+// Site metadata (BMAD Phase 4: Contact)
+const SITE_NAME = "BEE112";
+const PHONE_NUMBER = "0761 330 577";
+const PHONE_LINK = "0761330577";
+const SERVICE_AREA = "București și Ilfov, România";
+
+// Structured Data (LocalBusiness schema for SEO) - only if site is configured
+const structuredData = Astro.site ? {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "BEE112 - Patrula Apicolă Urbană",
+  "description": "Serviciu de intervenție civică pentru salvarea albinelor din mediul urban și periurban",
+  "url": Astro.site.toString(),
+  "telephone": `+40${PHONE_LINK}`,
+  "areaServed": {
+    "@type": "City",
+    "name": "București",
+    "containedInPlace": {
+      "@type": "Country",
+      "name": "România"
+    }
+  },
+  "serviceType": "Salvare albine, Relocare roiuri, Intervenții non-letale",
+  "priceRange": "Gratuit",
+  "paymentAccepted": "N/A",
+  "openingHours": "Mo-Su",
+  "image": `${Astro.site}favicon.svg`
+} : null;
+---
+
+<!doctype html>
+<html lang="ro">
+  <head>
+    <!-- Character encoding -->
+    <meta charset="utf-8" />
+
+    <!-- Viewport (mobile-first) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Title -->
+    <title>{title}</title>
+
+    <!-- Meta description (SEO) -->
+    <meta name="description" content={description} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph (social sharing) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:locale" content="ro_RO" />
+
+    <!-- Theme color (mobile browser) -->
+    <meta name="theme-color" content="#2D7A5F" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- CSS - Design System (imported in order of specificity) -->
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    <link rel="stylesheet" href="/src/styles/typography.css" />
+    <link rel="stylesheet" href="/src/styles/layout.css" />
+    <link rel="stylesheet" href="/src/styles/components.css" />
+    <link rel="stylesheet" href="/src/styles/utilities.css" />
+
+    <!-- Structured Data (JSON-LD for SEO) -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+    <!-- Preconnect (if needed for external resources - currently none) -->
+    <!-- <link rel="preconnect" href="https://example.com" crossorigin> -->
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>

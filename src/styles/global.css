@@ -1,0 +1,302 @@
+/* ============================================================================
+   BEE112.RO - GLOBAL STYLES
+   Design System Foundation - CSS Custom Properties & Reset
+
+   BMAD Phase Alignment:
+   - Phase 2 (UX): Calm colors, breathing space, mobile-first
+   - Phase 9 (Content Freeze): ZERO text content in CSS
+   ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+   CSS RESET - Minimal, Modern
+   ---------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* ----------------------------------------------------------------------------
+   CSS CUSTOM PROPERTIES - Design System Tokens
+   ---------------------------------------------------------------------------- */
+
+:root {
+  /* -------------------------------------------------------------------------
+     COLOR PALETTE - "Medical Calm"
+     Phase 2: Light blue, warm gray, pale green - NO red/orange/yellow/black
+     ------------------------------------------------------------------------- */
+
+  /* Primary Action - Calm Forest Green (nature, trust, life) */
+  --color-primary: #2D7A5F;
+  --color-primary-hover: #236048;
+  --color-primary-active: #1A4835;
+
+  /* Secondary - Sky Blue (calm, open, breathable) */
+  --color-secondary: #7BA8C1;
+  --color-secondary-light: #C8DCE8;
+  --color-secondary-hover: #6092AC;
+
+  /* Neutrals - Warm Grays (NOT cold, NOT pure black) */
+  --color-text-primary: #2C3338;
+  --color-text-secondary: #5A6169;
+  --color-text-tertiary: #8B9299;
+
+  /* Backgrounds - Calming Whites */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F7F9FA;
+  --color-bg-tertiary: #EDF2F5;
+
+  /* Semantic Colors - Calm Versions (NO alarming reds/oranges) */
+  --color-warning-bg: #FFF8E6;
+  --color-warning-border: #E6D59E;
+  --color-warning-text: #5C4F2C;
+
+  --color-info-bg: #E8F4F8;
+  --color-info-border: #B3D9E6;
+  --color-info-text: #2C4F5C;
+
+  /* Borders & Dividers */
+  --color-border-light: #E5E9EC;
+  --color-border-medium: #CDD5DB;
+
+  /* -------------------------------------------------------------------------
+     TYPOGRAPHY - System Font Stack (ZERO web fonts for speed)
+     Phase 2: Round, airy, text "breathes"
+     ------------------------------------------------------------------------- */
+
+  /* Font Family */
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                      "Helvetica Neue", Arial, sans-serif;
+
+  /* Font Sizes - Mobile First (16px base) */
+  --font-size-h1: 2.0rem;      /* 32px - Mobile hero */
+  --font-size-h2: 1.5rem;      /* 24px - Section headers */
+  --font-size-h3: 1.25rem;     /* 20px - Sub-sections */
+  --font-size-body: 1rem;      /* 16px - Main text */
+  --font-size-small: 0.875rem; /* 14px - Captions, footer */
+  --font-size-tiny: 0.75rem;   /* 12px - Meta info only */
+  --font-size-button: 1.125rem; /* 18px - Call buttons (larger for emphasis) */
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+
+  /* Line Heights - "Breathing Space" */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.01em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.02em;
+
+  /* -------------------------------------------------------------------------
+     SPACING SYSTEM - 8px Grid
+     Phase 2: Lots of white space, breathing layouts
+     ------------------------------------------------------------------------- */
+
+  --space-xs: 0.5rem;   /* 8px - Tight spacing */
+  --space-sm: 1rem;     /* 16px - Standard spacing */
+  --space-md: 1.5rem;   /* 24px - Section padding */
+  --space-lg: 2rem;     /* 32px - Large gaps */
+  --space-xl: 3rem;     /* 48px - Major sections */
+  --space-2xl: 4rem;    /* 64px - Hero sections */
+  --space-3xl: 6rem;    /* 96px - Desktop mega-spacing */
+
+  /* Component-specific spacing */
+  --space-section: var(--space-xl);
+  --space-content: var(--space-md);
+
+  /* -------------------------------------------------------------------------
+     LAYOUT - Containers & Constraints
+     ------------------------------------------------------------------------- */
+
+  --container-max-width: 680px;
+  --container-padding: var(--space-sm);
+
+  /* Touch Targets - Phase 2: Mobile-first, finger-friendly */
+  --touch-target-min: 44px;
+  --button-height-min: 48px;
+
+  /* -------------------------------------------------------------------------
+     BORDERS & RADII
+     ------------------------------------------------------------------------- */
+
+  --border-radius-sm: 4px;
+  --border-radius-md: 6px;
+  --border-radius-lg: 8px;
+
+  --border-width-thin: 1px;
+  --border-width-medium: 2px;
+  --border-width-thick: 4px;
+
+  /* -------------------------------------------------------------------------
+     SHADOWS - Subtle Depth (NO heavy shadows, calm aesthetic)
+     ------------------------------------------------------------------------- */
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.12);
+
+  /* Primary button shadow (tinted with green) */
+  --shadow-button-primary: 0 2px 8px rgba(45, 122, 95, 0.2);
+  --shadow-button-primary-hover: 0 4px 12px rgba(45, 122, 95, 0.3);
+
+  /* -------------------------------------------------------------------------
+     Z-INDEX SCALE - Layering System
+     ------------------------------------------------------------------------- */
+
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+
+  /* -------------------------------------------------------------------------
+     TRANSITIONS - Subtle, NOT aggressive (Phase 2: ZERO bounce/pulse/shake)
+     ------------------------------------------------------------------------- */
+
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+}
+
+/* ----------------------------------------------------------------------------
+   RESPONSIVE DESIGN TOKENS - Desktop Overrides
+   Breakpoint: 768px+ (tablets and up)
+   ---------------------------------------------------------------------------- */
+
+@media (min-width: 768px) {
+  :root {
+    /* Desktop typography scaling */
+    --font-size-h1: 2.5rem;       /* 40px */
+    --font-size-h2: 1.75rem;      /* 28px */
+    --font-size-body: 1.125rem;   /* 18px - more readable on large screens */
+
+    /* Desktop spacing */
+    --space-section: var(--space-3xl);
+    --container-padding: var(--space-lg);
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   BASE ELEMENT STYLES
+   ---------------------------------------------------------------------------- */
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+}
+
+/* ----------------------------------------------------------------------------
+   ACCESSIBILITY - Focus Visible (NOT aggressive outline)
+   ---------------------------------------------------------------------------- */
+
+*:focus-visible {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+/* Remove outline for mouse users (keep for keyboard) */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ----------------------------------------------------------------------------
+   SMOOTH SCROLLING - Accessibility-safe (respects prefers-reduced-motion)
+   ---------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   PRINT STYLES - Basic Print Optimization
+   ---------------------------------------------------------------------------- */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href^="tel:"]::after {
+    content: " (" attr(href) ")";
+  }
+
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

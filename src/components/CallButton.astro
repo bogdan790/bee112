@@ -1,0 +1,54 @@
+---
+/**
+ * CallButton - Primary CTA Component
+ *
+ * CRITICAL COMPONENT - Phase 3 (UI)
+ * - Most important UI element on site
+ * - Sticky bottom on mobile (fixed position)
+ * - Direct phone call functionality (tel: link)
+ * - Largest, most prominent element
+ *
+ * Usage:
+ * <CallButton />  (default: sticky on mobile)
+ * <CallButton sticky={false} />  (inline, not sticky)
+ *
+ * Phase 9 (Content Freeze): Text is LOCKED, cannot be changed
+ */
+
+interface Props {
+  sticky?: boolean;
+  variant?: 'primary' | 'secondary';
+}
+
+const {
+  sticky = true,
+  variant = 'primary'
+} = Astro.props;
+
+// Phone number (BMAD Phase 4: Contact page)
+const PHONE_NUMBER = '0761330577';
+const PHONE_LINK = `tel:${PHONE_NUMBER}`;
+
+// ARIA label for accessibility
+const ariaLabel = `Sună BEE112 la ${PHONE_NUMBER}`;
+
+// CSS classes
+const buttonClasses = [
+  'call-button',
+  variant === 'secondary' ? 'call-button--secondary' : '',
+  sticky ? 'call-button--sticky' : ''
+].filter(Boolean).join(' ');
+---
+
+<a
+  href={PHONE_LINK}
+  class={buttonClasses}
+  aria-label={ariaLabel}
+>
+  📞 Sună acum – BEE112
+</a>
+
+<!--
+  NO scoped styles needed - all styles in components.css
+  This keeps the component lightweight and maintainable
+-->

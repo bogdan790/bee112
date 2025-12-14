@@ -1,0 +1,57 @@
+---
+/**
+ * PageLayout - Standard Page Layout
+ *
+ * Extends BaseLayout and adds:
+ * - Site Header (navigation)
+ * - Site Footer
+ * - Main content wrapper
+ *
+ * This is the STANDARD layout for all pages.
+ * Use this instead of BaseLayout directly.
+ *
+ * Usage:
+ * <PageLayout title="Page Title" description="Page description">
+ *   ...content...
+ * </PageLayout>
+ *
+ * Phase 3 (UI): Consistent structure across all pages
+ * Phase 8 (Validation): Header/Footer appear on all pages
+ */
+
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Site Header (sticky navigation) -->
+  <Header />
+
+  <!-- Main Content Area -->
+  <main>
+    <slot />
+  </main>
+
+  <!-- Site Footer -->
+  <Footer />
+</BaseLayout>
+
+<!--
+  Layout Structure:
+  1. BaseLayout (meta tags, CSS, structured data)
+     ├── Header (sticky, navigation)
+     ├── Main (content wrapper, flex:1 for sticky footer)
+     └── Footer
+
+  NO scoped styles needed - all layout handled by:
+  - layout.css (sticky footer pattern: body = flex column)
+  - components.css (header, footer styles)
+-->

@@ -1,0 +1,49 @@
+---
+/**
+ * FinalCTA - Final Call-to-Action Section
+ *
+ * BMAD Phase 7, Message #7
+ * Purpose: Reassuring closing section with final encouragement to call
+ *
+ * Features:
+ * - Calm, reassuring message
+ * - Centered layout
+ * - Includes call button (not sticky)
+ * - Subtle background to separate from main content
+ *
+ * Usage:
+ * <FinalCTA />
+ *
+ * Typically placed at end of page, before footer.
+ *
+ * Phase 9 (Content Freeze): Text is LOCKED, cannot be changed
+ */
+
+import CallButton from './CallButton.astro';
+
+interface Props {
+  variant?: 'default' | 'minimal';
+}
+
+const { variant = 'default' } = Astro.props;
+
+// BMAD Phase 7, Message #7 (LOCKED content)
+const FINAL_MESSAGE = 'Nu ești singur. Sună-ne. Vorbim calm.';
+
+const sectionClasses = [
+  'final-cta',
+  variant === 'minimal' ? 'final-cta--minimal' : ''
+].filter(Boolean).join(' ');
+---
+
+<section class={sectionClasses}>
+  <div class="container">
+    <p class="final-cta__message">{FINAL_MESSAGE}</p>
+    <CallButton sticky={false} />
+  </div>
+</section>
+
+<!--
+  NO scoped styles needed - all styles in components.css
+  Uses CallButton component with sticky=false (inline button, not fixed)
+-->

@@ -1,0 +1,303 @@
+/* ============================================================================
+   BEE112.RO - LAYOUT SYSTEM
+   Containers, grid, spacing, structural patterns
+
+   BMAD Phase Alignment:
+   - Phase 2 (UX): Lots of white space, max 1 message/screen
+   - Phase 3 (UI): 6-zone structure on Home, clear hierarchy
+   ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+   CONTAINER - Content Wrapper (680px max-width for readability)
+   ---------------------------------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* Full-width container (for backgrounds that extend edge-to-edge) */
+.container-fluid {
+  width: 100%;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* ----------------------------------------------------------------------------
+   SECTIONS - Vertical Rhythm
+   Phase 2: Breathing space between major sections
+   ---------------------------------------------------------------------------- */
+
+section {
+  margin-bottom: var(--space-section);
+}
+
+/* First section on page - no top margin */
+section:first-of-type {
+  margin-top: 0;
+}
+
+/* Last section on page - no bottom margin */
+section:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Alternate background sections (visual variety) */
+section.bg-secondary {
+  background-color: var(--color-bg-secondary);
+  padding: var(--space-xl) 0;
+}
+
+section.bg-tertiary {
+  background-color: var(--color-bg-tertiary);
+  padding: var(--space-xl) 0;
+}
+
+/* ----------------------------------------------------------------------------
+   MAIN CONTENT AREA
+   ---------------------------------------------------------------------------- */
+
+main {
+  flex: 1; /* Allows sticky footer pattern */
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-xl);
+}
+
+/* First child in main - no extra top margin */
+main > *:first-child {
+  margin-top: 0;
+}
+
+/* ----------------------------------------------------------------------------
+   FLEXBOX UTILITIES - Simple Layouts
+   ---------------------------------------------------------------------------- */
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-gap {
+  gap: var(--space-md);
+}
+
+.flex-gap-sm {
+  gap: var(--space-sm);
+}
+
+.flex-gap-lg {
+  gap: var(--space-lg);
+}
+
+/* ----------------------------------------------------------------------------
+   GRID UTILITIES - NOT heavily used in BEE112 v1, but prepared
+   ---------------------------------------------------------------------------- */
+
+.grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Mobile: single column, Desktop: 2 columns */
+@media (min-width: 768px) {
+  .grid-md-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   SPACING UTILITIES - Margin & Padding Helpers (minimal, only most used)
+   Phase 2: Adequate spacing without overcomplexity
+   ---------------------------------------------------------------------------- */
+
+/* Margin top utilities */
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.mt-sm {
+  margin-top: var(--space-sm);
+}
+
+.mt-md {
+  margin-top: var(--space-md);
+}
+
+.mt-lg {
+  margin-top: var(--space-lg);
+}
+
+.mt-xl {
+  margin-top: var(--space-xl);
+}
+
+/* Margin bottom utilities */
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.mb-sm {
+  margin-bottom: var(--space-sm);
+}
+
+.mb-md {
+  margin-bottom: var(--space-md);
+}
+
+.mb-lg {
+  margin-bottom: var(--space-lg);
+}
+
+.mb-xl {
+  margin-bottom: var(--space-xl);
+}
+
+/* Padding utilities (less common, but useful) */
+.p-sm {
+  padding: var(--space-sm);
+}
+
+.p-md {
+  padding: var(--space-md);
+}
+
+.p-lg {
+  padding: var(--space-lg);
+}
+
+/* ----------------------------------------------------------------------------
+   STICKY FOOTER PATTERN - Ensures footer stays at bottom
+   ---------------------------------------------------------------------------- */
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ----------------------------------------------------------------------------
+   CONTENT STACK - Default vertical spacing for direct children
+   Phase 2: Breathing room between elements
+   ---------------------------------------------------------------------------- */
+
+.content-stack > * + * {
+  margin-top: var(--space-content);
+}
+
+.content-stack-sm > * + * {
+  margin-top: var(--space-sm);
+}
+
+.content-stack-lg > * + * {
+  margin-top: var(--space-lg);
+}
+
+/* ----------------------------------------------------------------------------
+   CARD PATTERN - Boxed Content (used for warnings, info boxes)
+   ---------------------------------------------------------------------------- */
+
+.card {
+  background-color: var(--color-bg-primary);
+  border: var(--border-width-thin) solid var(--color-border-light);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-md);
+}
+
+.card-bordered {
+  border: var(--border-width-medium) solid var(--color-border-medium);
+}
+
+/* ----------------------------------------------------------------------------
+   RESPONSIVE LAYOUT ADJUSTMENTS
+   ---------------------------------------------------------------------------- */
+
+@media (min-width: 768px) {
+  main {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-2xl);
+  }
+
+  section.bg-secondary,
+  section.bg-tertiary {
+    padding: var(--space-2xl) 0;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   MOBILE SAFE AREA - iOS Notch Support
+   Ensures content doesn't hide under notch or home indicator
+   ---------------------------------------------------------------------------- */
+
+@supports (padding: max(0px)) {
+  body {
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+
+  main {
+    padding-bottom: max(var(--space-xl), env(safe-area-inset-bottom));
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   HIDDEN UTILITIES - Responsive Visibility
+   ---------------------------------------------------------------------------- */
+
+.hidden {
+  display: none !important;
+}
+
+/* Hide on mobile, show on desktop */
+.hidden-mobile {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hidden-mobile {
+    display: block;
+  }
+}
+
+/* Hide on desktop, show on mobile */
+.hidden-desktop {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .hidden-desktop {
+    display: none;
+  }
+}

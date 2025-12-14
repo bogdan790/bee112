@@ -1,0 +1,484 @@
+/* ============================================================================
+   BEE112.RO - COMPONENT STYLES
+   Reusable UI components (buttons, warnings, banners, navigation)
+
+   BMAD Phase Alignment:
+   - Phase 3 (UI): CallButton (primary CTA), sticky on mobile
+   - Phase 7 (Critical Messages): SafetyWarning, GeographicLimit, FinalCTA
+   ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+   CALL BUTTON - Primary CTA (Most Critical Component)
+   Phase 3: Sticky bottom on mobile, tap = direct call, largest element
+   ---------------------------------------------------------------------------- */
+
+.call-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+
+  /* Sizing */
+  min-height: var(--button-height-min);
+  padding: 1rem 2rem;
+  width: 100%;
+
+  /* Typography */
+  font-size: var(--font-size-button);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: var(--letter-spacing-normal);
+
+  /* Colors */
+  color: #FFFFFF;
+  background-color: var(--color-primary);
+
+  /* Borders & Radius */
+  border: none;
+  border-radius: var(--border-radius-lg);
+
+  /* Effects */
+  box-shadow: var(--shadow-button-primary);
+  transition: all var(--transition-base);
+
+  /* Accessibility */
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.call-button:hover {
+  background-color: var(--color-primary-hover);
+  box-shadow: var(--shadow-button-primary-hover);
+  color: #FFFFFF;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.call-button:active {
+  background-color: var(--color-primary-active);
+  box-shadow: 0 1px 4px rgba(45, 122, 95, 0.3);
+  transform: translateY(0);
+}
+
+.call-button:focus-visible {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 3px;
+}
+
+/* Sticky call button on mobile (Phase 3 requirement) */
+@media (max-width: 767px) {
+  .call-button--sticky {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-radius: 0;
+    z-index: var(--z-fixed);
+
+    /* iOS safe area */
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Desktop: inline, NOT sticky */
+@media (min-width: 768px) {
+  .call-button {
+    width: auto;
+    min-width: 280px;
+  }
+
+  .call-button--sticky {
+    position: static;
+    border-radius: var(--border-radius-lg);
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   CALL BUTTON SECONDARY - Outlined Version (for secondary CTAs)
+   ---------------------------------------------------------------------------- */
+
+.call-button--secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: var(--border-width-medium) solid var(--color-primary);
+  box-shadow: none;
+}
+
+.call-button--secondary:hover {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-button-primary);
+}
+
+.call-button--secondary:active {
+  background-color: var(--color-primary-active);
+}
+
+/* ----------------------------------------------------------------------------
+   SAFETY WARNING BOX - Phase 7 Message #3
+   "Nu pulveriza roiul cu substanțe chimice"
+   ---------------------------------------------------------------------------- */
+
+.safety-warning {
+  display: flex;
+  gap: var(--space-md);
+  background-color: var(--color-warning-bg);
+  border: var(--border-width-medium) solid var(--color-warning-border);
+  border-left: var(--border-width-thick) solid var(--color-warning-border);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-md);
+  margin: var(--space-lg) 0;
+}
+
+.safety-warning__icon {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.safety-warning__content {
+  flex: 1;
+}
+
+.safety-warning__title {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-warning-text);
+  margin: 0 0 var(--space-xs) 0;
+  line-height: var(--line-height-tight);
+}
+
+.safety-warning__text {
+  font-size: var(--font-size-body);
+  color: var(--color-warning-text);
+  margin: 0;
+  line-height: var(--line-height-normal);
+}
+
+/* Compact variant - smaller spacing */
+.safety-warning--compact {
+  padding: var(--space-sm);
+  gap: var(--space-sm);
+}
+
+.safety-warning--compact .safety-warning__icon {
+  font-size: 1.5rem;
+}
+
+.safety-warning--compact .safety-warning__title {
+  font-size: var(--font-size-body);
+}
+
+.safety-warning--compact .safety-warning__text {
+  font-size: var(--font-size-small);
+}
+
+/* ----------------------------------------------------------------------------
+   GEOGRAPHIC LIMIT BANNER - Phase 7 Message #1
+   "Zona de intervenție: București și Ilfov"
+   ---------------------------------------------------------------------------- */
+
+.geographic-limit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  background-color: var(--color-info-bg);
+  border: var(--border-width-thin) solid var(--color-info-border);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-sm) var(--space-md);
+  margin: var(--space-md) 0;
+  text-align: center;
+}
+
+.geographic-limit__icon {
+  font-size: 1.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.geographic-limit__text {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-info-text);
+}
+
+/* Prominent variant - larger, more visible */
+.geographic-limit--prominent {
+  padding: var(--space-md);
+  border-width: var(--border-width-medium);
+}
+
+.geographic-limit--prominent .geographic-limit__icon {
+  font-size: 1.5rem;
+}
+
+.geographic-limit--prominent .geographic-limit__text {
+  font-size: var(--font-size-body);
+}
+
+@media (min-width: 768px) {
+  .geographic-limit__text {
+    font-size: var(--font-size-body);
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   FINAL CTA SECTION - Phase 7 Message #7
+   "Nu ești singur. Sună-ne. Vorbim calm."
+   ---------------------------------------------------------------------------- */
+
+.final-cta {
+  background-color: var(--color-bg-secondary);
+  border-top: var(--border-width-thin) solid var(--color-border-light);
+  padding: var(--space-xl);
+  text-align: center;
+  margin-top: var(--space-section);
+}
+
+.final-cta__message {
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+  font-weight: var(--font-weight-regular);
+}
+
+/* Minimal variant - less padding, no border */
+.final-cta--minimal {
+  background-color: transparent;
+  border-top: none;
+  padding: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .final-cta {
+    padding: var(--space-2xl);
+  }
+
+  .final-cta--minimal {
+    padding: var(--space-xl);
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   SITE HEADER - Navigation
+   Phase 2: Minimal, non-intrusive, horizontal scroll on mobile
+   ---------------------------------------------------------------------------- */
+
+.site-header {
+  background-color: var(--color-bg-primary);
+  border-bottom: var(--border-width-thin) solid var(--color-border-light);
+  padding: var(--space-sm) 0;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.site-header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+/* Logo */
+.site-header__logo {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.site-header__logo:hover {
+  color: var(--color-primary);
+}
+
+/* Navigation */
+.site-nav {
+  display: flex;
+  gap: var(--space-sm);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  /* Mobile: horizontal scroll (NO hamburger - Phase 2 rule) */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+}
+
+.site-nav::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.site-nav__item {
+  margin: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.site-nav__link {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.site-nav__link:hover {
+  color: var(--color-primary);
+  background-color: var(--color-bg-secondary);
+}
+
+/* Active page indicator */
+.site-nav__link--active {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+  background-color: var(--color-bg-tertiary);
+}
+
+/* Scroll indicator (visual cue that nav is scrollable) */
+.site-nav::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 2rem;
+  background: linear-gradient(to left, var(--color-bg-primary), transparent);
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .site-nav {
+    overflow-x: visible;
+  }
+
+  .site-nav::after {
+    display: none;
+  }
+
+  .site-nav__link {
+    font-size: var(--font-size-body);
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   SITE FOOTER
+   Phase 6: Transparency, volunteer reminder, contact
+   ---------------------------------------------------------------------------- */
+
+.site-footer {
+  background-color: var(--color-bg-tertiary);
+  border-top: var(--border-width-thin) solid var(--color-border-medium);
+  padding: var(--space-xl) 0;
+  margin-top: var(--space-section);
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-small);
+}
+
+.site-footer__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.site-footer__section {
+  margin: 0;
+}
+
+.site-footer__heading {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.site-footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-footer__link {
+  color: var(--color-text-tertiary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.site-footer__link:hover {
+  color: var(--color-primary);
+}
+
+.site-footer__copyright {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: var(--border-width-thin) solid var(--color-border-light);
+  text-align: center;
+  font-size: var(--font-size-tiny);
+}
+
+@media (min-width: 768px) {
+  .site-footer__container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .site-footer__section {
+    flex: 1;
+  }
+
+  .site-footer__copyright {
+    text-align: left;
+    border-top: none;
+    padding-top: 0;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   INFO BOX - Generic Informational Component
+   Used for various calm messages, tips, notes
+   ---------------------------------------------------------------------------- */
+
+.info-box {
+  background-color: var(--color-info-bg);
+  border: var(--border-width-thin) solid var(--color-info-border);
+  border-left: var(--border-width-thick) solid var(--color-secondary);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-md);
+  margin: var(--space-md) 0;
+  color: var(--color-info-text);
+}
+
+.info-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* ----------------------------------------------------------------------------
+   ICON - Simple Icon Styling (for emojis or SVG icons)
+   ---------------------------------------------------------------------------- */
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.icon--lg {
+  width: 1.5em;
+  height: 1.5em;
+}

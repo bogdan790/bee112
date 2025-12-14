@@ -1,0 +1,44 @@
+---
+/**
+ * GeographicLimit - Service Area Information Banner
+ *
+ * BMAD Phase 7, Message #1
+ * Purpose: Clearly communicate service area limitation (București și Ilfov)
+ *
+ * Features:
+ * - Info banner with calm blue background (NOT red - PANIC rule)
+ * - Centered text for prominence
+ * - Can be placed in header area or early in content
+ * - Icon for visual identification
+ *
+ * Usage:
+ * <GeographicLimit />
+ *
+ * Phase 9 (Content Freeze): Text is LOCKED, cannot be changed
+ */
+
+interface Props {
+  variant?: 'default' | 'prominent';
+}
+
+const { variant = 'default' } = Astro.props;
+
+// BMAD Phase 7, Message #1 (LOCKED content)
+// Service area limitation must be clear from the start
+const AREA_MESSAGE = 'Zona de intervenție: București și Ilfov';
+
+const componentClasses = [
+  'geographic-limit',
+  variant === 'prominent' ? 'geographic-limit--prominent' : ''
+].filter(Boolean).join(' ');
+---
+
+<div class={componentClasses} role="status" aria-live="polite">
+  <span class="geographic-limit__icon" aria-hidden="true">📍</span>
+  <span class="geographic-limit__text">{AREA_MESSAGE}</span>
+</div>
+
+<!--
+  NO scoped styles needed - all styles in components.css
+  Component uses semantic HTML with ARIA attributes for accessibility
+-->

@@ -1,0 +1,47 @@
+---
+/**
+ * SafetyWarning - Critical Safety Message Component
+ *
+ * BMAD Phase 7, Message #3
+ * Purpose: Prevent users from using toxic substances on bee swarms
+ *
+ * Features:
+ * - Warning visual hierarchy (icon + heading + description)
+ * - Accessible markup (role="alert")
+ * - Amber background (NOT red/orange per PANIC rules)
+ * - Can be used inline or in dedicated section
+ *
+ * Usage:
+ * <SafetyWarning />
+ *
+ * Phase 9 (Content Freeze): Text is LOCKED, cannot be changed
+ */
+
+interface Props {
+  variant?: 'default' | 'compact';
+}
+
+const { variant = 'default' } = Astro.props;
+
+// BMAD Phase 7, Message #3 (LOCKED content)
+const WARNING_TITLE = 'Atenție: Nu pulveriza roiul cu substanțe chimice!';
+const WARNING_TEXT = 'Îi vei omorî și nu rezolvi problema. Albinele mor, dar roiul rămâne activ 24-48h și devine agresiv.';
+
+const componentClasses = [
+  'safety-warning',
+  variant === 'compact' ? 'safety-warning--compact' : ''
+].filter(Boolean).join(' ');
+---
+
+<div class={componentClasses} role="alert" aria-live="polite">
+  <div class="safety-warning__icon" aria-hidden="true">⚠️</div>
+  <div class="safety-warning__content">
+    <h3 class="safety-warning__title">{WARNING_TITLE}</h3>
+    <p class="safety-warning__text">{WARNING_TEXT}</p>
+  </div>
+</div>
+
+<!--
+  NO scoped styles needed - all styles in components.css
+  Component uses semantic HTML with ARIA attributes for accessibility
+-->

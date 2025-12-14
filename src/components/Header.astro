@@ -1,0 +1,63 @@
+---
+/**
+ * Header - Site Header with Navigation
+ *
+ * Phase 2 (UX): Minimal, non-intrusive, horizontal scroll on mobile (NO hamburger)
+ * Phase 3 (UI): Sticky header, consistent across all pages
+ *
+ * Features:
+ * - Sticky positioning (scrolls with user)
+ * - Horizontal scroll navigation on mobile (visual indicator)
+ * - Active page highlighting
+ * - Logo links to home
+ */
+
+// Get current path for active page highlighting
+const currentPath = Astro.url.pathname;
+
+// Navigation links (BMAD Phase 4: All secondary pages)
+const navLinks = [
+  { href: '/cine-suntem', label: 'Cine suntem' },
+  { href: '/importanta-albinelor', label: 'Importanța albinelor' },
+  { href: '/intrebari-frecvente', label: 'Întrebări frecvente' },
+  { href: '/contact', label: 'Contact' },
+];
+
+// Check if link is active (current page)
+function isActive(href: string): boolean {
+  // Exact match or starts with (for sub-pages)
+  return currentPath === href || currentPath.startsWith(href + '/');
+}
+---
+
+<header class="site-header">
+  <div class="site-header__container container">
+    <!-- Logo -->
+    <a href="/" class="site-header__logo">
+      BEE112
+    </a>
+
+    <!-- Navigation - Horizontal scroll on mobile, inline on desktop -->
+    <nav aria-label="Navigare principală">
+      <ul class="site-nav">
+        {navLinks.map((link) => (
+          <li class="site-nav__item">
+            <a
+              href={link.href}
+              class={isActive(link.href) ? 'site-nav__link site-nav__link--active' : 'site-nav__link'}
+              aria-current={isActive(link.href) ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!--
+  NO scoped styles needed - all styles in components.css
+  Header is sticky via CSS (.site-header)
+  Navigation scrolls horizontally on mobile via CSS (.site-nav)
+-->
