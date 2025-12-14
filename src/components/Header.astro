@@ -37,8 +37,15 @@ function isActive(href: string): boolean {
       BEE112
     </a>
 
-    <!-- Navigation - Horizontal scroll on mobile, inline on desktop -->
-    <nav aria-label="Navigare principală">
+    <!-- Hamburger Button (mobile only) -->
+    <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="site-header__nav" aria-label="Navigare principală">
       <ul class="site-nav">
         {navLinks.map((link) => (
           <li class="site-nav__item">
@@ -56,8 +63,16 @@ function isActive(href: string): boolean {
   </div>
 </header>
 
-<!--
-  NO scoped styles needed - all styles in components.css
-  Header is sticky via CSS (.site-header)
-  Navigation scrolls horizontally on mobile via CSS (.site-nav)
--->
+<script>
+  // Simple hamburger toggle (vanilla JS, no libraries)
+  const hamburger = document.querySelector('.hamburger');
+  const nav = document.querySelector('.site-header__nav');
+
+  if (hamburger && nav) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('site-header__nav--open');
+      hamburger.setAttribute('aria-expanded', isOpen.toString());
+      hamburger.classList.toggle('hamburger--open');
+    });
+  }
+</script>
