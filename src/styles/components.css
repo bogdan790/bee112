@@ -23,15 +23,16 @@
   padding: 1rem 2rem;
   width: 100%;
 
-  /* Typography */
-  font-size: var(--font-size-button);
+  /* Typography - HARD FIX: Ensure text is always visible */
+  font-size: var(--font-size-body) !important;
+  color: #FFFFFF !important;
+  line-height: 1.2 !important;
   font-weight: var(--font-weight-medium);
   text-align: center;
   text-decoration: none;
   letter-spacing: var(--letter-spacing-normal);
 
   /* Colors */
-  color: #FFFFFF;
   background-color: var(--color-primary);
 
   /* Borders & Radius */
@@ -45,6 +46,12 @@
   /* Accessibility */
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+}
+
+/* HARD FIX: Force all child elements to be visible */
+.call-button * {
+  display: inline !important;
+  visibility: visible !important;
 }
 
 .call-button:hover {

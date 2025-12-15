@@ -28,12 +28,14 @@
 }
 
 /* ----------------------------------------------------------------------------
-   SECTIONS - Vertical Rhythm
+   SECTIONS - Vertical Rhythm & Visual Separation
    Phase 2: Breathing space between major sections
+   GLOBAL: Alternating backgrounds + subtle separators for clear visual rhythm
    ---------------------------------------------------------------------------- */
 
 section {
-  margin-bottom: var(--space-section);
+  margin-bottom: 0; /* Remove margin, use padding for spacing */
+  padding: var(--space-xl) 0;
 }
 
 /* First section on page - no top margin */
@@ -46,15 +48,27 @@ section:last-of-type {
   margin-bottom: 0;
 }
 
-/* Alternate background sections (visual variety) */
+/* STRONGER ALTERNATING BACKGROUNDS - More visible contrast */
+main > section:nth-child(odd) {
+  background-color: var(--color-bg-primary);  /* White */
+}
+
+main > section:nth-child(even) {
+  background-color: var(--color-bg-tertiary);  /* Light grey - stronger contrast */
+}
+
+/* SUBTLE VISUAL SEPARATORS - Clear section boundaries */
+main > section + section {
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* Manual override classes (for special cases) */
 section.bg-secondary {
-  background-color: var(--color-bg-secondary);
-  padding: var(--space-xl) 0;
+  background-color: var(--color-bg-secondary) !important;
 }
 
 section.bg-tertiary {
-  background-color: var(--color-bg-tertiary);
-  padding: var(--space-xl) 0;
+  background-color: var(--color-bg-tertiary) !important;
 }
 
 /* ----------------------------------------------------------------------------

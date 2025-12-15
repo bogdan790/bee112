@@ -9,7 +9,6 @@
  */
 
 import PageLayout from '../layouts/PageLayout.astro';
-import CallButton from '../components/CallButton.astro';
 import GeographicLimit from '../components/GeographicLimit.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 
@@ -24,9 +23,6 @@ const description = 'Ai găsit un roi de albine? Nu le omorî. Sună-ne. Interve
     <div class="container">
       <h1>Ai găsit un roi de albine?</h1>
       <p class="hero-subtitle"><strong>Nu le omorî. Sună-ne.</strong></p>
-
-      <CallButton sticky={false} />
-
       <p class="hero-subtext">Vorbim calm. Evaluăm situația. Trimitem un apicultor.</p>
     </div>
   </section>
@@ -74,8 +70,6 @@ const description = 'Ai găsit un roi de albine? Nu le omorî. Sună-ne. Interve
         Albinele nu sunt agresive când roiesc.
         În majoritatea cazurilor, intervenția este simplă și sigură.
       </p>
-
-      <CallButton sticky={false} variant="secondary" />
     </div>
   </section>
 
@@ -87,9 +81,7 @@ const description = 'Ai găsit un roi de albine? Nu le omorî. Sună-ne. Interve
 <style>
   /* Hero Section - Zona 1 */
   .hero-section {
-    padding: var(--space-xl) 0;
     text-align: center;
-    background-color: var(--color-bg-primary);
   }
 
   .hero-section h1 {
@@ -112,11 +104,6 @@ const description = 'Ai găsit un roi de albine? Nu le omorî. Sună-ne. Interve
   }
 
   /* How It Works - Zona 2 */
-  .how-it-works-section {
-    padding: var(--space-xl) 0;
-    background-color: var(--color-bg-secondary);
-  }
-
   .how-it-works-section h2 {
     text-align: center;
     margin-bottom: var(--space-lg);
@@ -136,10 +123,6 @@ const description = 'Ai găsit un roi de albine? Nu le omorî. Sună-ne. Interve
   }
 
   /* Education - Zona 3 */
-  .education-section {
-    padding: var(--space-xl) 0;
-  }
-
   .education-section h2 {
     text-align: center;
     margin-bottom: var(--space-lg);
@@ -181,8 +164,6 @@ const description = 'Ai găsit un roi de albine? Nu le omorî. Sună-ne. Interve
 
   /* Reassurance - Zona 4 */
   .reassurance-section {
-    padding: var(--space-xl) 0;
-    background-color: var(--color-bg-secondary);
     text-align: center;
   }
 
