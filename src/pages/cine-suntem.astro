@@ -145,7 +145,8 @@ const description = 'BEE112 este o inițiativă civică de salvare a albinelor d
 
   <section class="cta-section">
     <div class="container">
-      <p>👉 <strong>Ai găsit un roi de albine?</strong></p>
+      <p class="cta-text">Ai nevoie de ajutor pentru un roi de albine?</p>
+      <p class="cta-subtext">Vorbim calm și încercăm să te ajutăm.</p>
       <CallButton sticky={false} />
     </div>
   </section>
@@ -184,8 +185,17 @@ const description = 'BEE112 este o inițiativă civică de salvare a albinelor d
     background-color: var(--color-bg-tertiary);
   }
 
-  .cta-subtitle {
-    margin-top: var(--space-md);
+  .cta-text {
+    font-size: var(--font-size-h4);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .cta-subtext {
     font-size: var(--font-size-body);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-lg);
+    line-height: var(--line-height-relaxed);
   }
 </style>
