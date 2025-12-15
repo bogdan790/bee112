@@ -22,7 +22,7 @@ const description = 'Ai găsit un roi de albine? Nu le omorî. Sună-ne. Interve
   <section class="hero-section">
     <div class="container">
       <h1>Ai găsit un roi de albine?</h1>
-      <p class="hero-subtitle"><strong>Nu le omorî. Sună-ne.</strong></p>
+      <p class="hero-subtitle"><strong>Nu le omorî. <a href="tel:0761330577">Sună-ne</a>.</strong></p>
       <p class="hero-subtext">Vorbim calm. Evaluăm situația. Trimitem un apicultor.</p>
     </div>
   </section>
@@ -94,6 +94,17 @@ const description = 'Ai găsit un roi de albine? Nu le omorî. Sună-ne. Interve
     font-size: var(--font-size-h3);
     margin-bottom: var(--space-lg);
     color: var(--color-text-primary);
+  }
+
+  .hero-subtitle a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  .hero-subtitle a:hover {
+    text-decoration-thickness: 2px;
   }
 
   .hero-subtext {
