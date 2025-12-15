@@ -22,7 +22,10 @@ const description = 'Ai găsit un roi de albine? Nu le omorî. Sună-ne. Interve
   <section class="hero-section">
     <div class="container">
       <h1>Ai găsit un roi de albine?</h1>
-      <p class="hero-subtitle"><strong>Nu le omorî. <a href="tel:0761330577">Sună-ne</a>.</strong></p>
+      <p class="hero-subtitle"><strong>Nu le omorî</strong></p>
+      <a href="tel:0761330577" class="call-button hero-cta" aria-label="Sună BEE112 la 0761330577">
+        📞 Sună-ne
+      </a>
       <p class="hero-subtext">Vorbim calm. Evaluăm situația. Trimitem un apicultor.</p>
     </div>
   </section>
@@ -92,20 +95,13 @@ const description = 'Ai găsit un roi de albine? Nu le omorî. Sună-ne. Interve
 
   .hero-subtitle {
     font-size: var(--font-size-h3);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
     color: var(--color-text-primary);
   }
 
-  .hero-subtitle a {
-    color: var(--color-primary);
-    font-weight: 600;
-    text-decoration: none;
-    padding: 2px 4px;
-    border-radius: 2px;
-  }
-
-  .hero-subtitle a:hover {
-    background-color: rgba(45, 122, 95, 0.08);
+  .hero-cta {
+    display: inline-block;
+    margin-bottom: var(--space-lg);
   }
 
   .hero-subtext {
