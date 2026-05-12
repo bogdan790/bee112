@@ -1,170 +1,104 @@
 ---
-/**
- * Importanța Albinelor - BEE112
- *
- * BMAD Phase 4: Secondary pages
- * Phase 9: Content Freeze ACTIVE - text is LOCKED
- *
- * Source of truth: .bmad/content/phase4-importanta-albinelor.md
- */
-
 import PageLayout from '../layouts/PageLayout.astro';
-import CallButton from '../components/CallButton.astro';
-
 const title = 'Importanța albinelor – BEE112';
-const description = 'Albinele sunt esențiale pentru polenizarea plantelor, echilibrul naturii și hrana pe care o consumăm zilnic. Află de ce trebuie protejate.';
+const description = 'De ce albinele sunt esențiale și de ce un roi nu este o amenințare. Ghid de identificare și informații de la BEE112.';
 ---
-
 <PageLayout title={title} description={description}>
+  <div class="page-fade">
+    <section class="page-head">
+      <div class="shell">
+        <div class="eyebrow" style="margin-bottom:18px">Educație</div>
+        <h1>Albinele nu sunt doar insecte care produc miere.</h1>
+        <p class="lede">Sunt esențiale pentru polenizarea plantelor, echilibrul naturii și hrana pe care o consumăm zilnic. Fără ele, multe plante nu ar mai putea produce fructe sau semințe.</p>
+      </div>
+    </section>
 
-  <section class="content-section">
-    <div class="container">
+    <section style="padding-top:0">
+      <div class="shell">
+        <div class="stats-strip">
+          <div class="stat"><div class="stat-num">75%</div><div class="stat-lbl">din culturile alimentare globale depind de polenizatori</div></div>
+          <div class="stat"><div class="stat-num">3</div><div class="stat-lbl">din 4 fructe consumate vin via polenizare</div></div>
+          <div class="stat"><div class="stat-num">~90%</div><div class="stat-lbl">din roiurile urbane pot fi salvate intact</div></div>
+          <div class="stat"><div class="stat-num">0</div><div class="stat-lbl">substanțe toxice folosite în intervenții</div></div>
+        </div>
+      </div>
+    </section>
 
-      <h1>De ce sunt albinele importante</h1>
+    <section>
+      <div class="shell">
+        <div class="prose">
+          <h2>Albinele NU sunt agresive</h2>
+          <p>Un lucru important de știut: <strong>albinele nu sunt agresive din fire</strong>. Un roi:</p>
+          <ul>
+            <li>nu are stup</li>
+            <li>nu are miere de apărat</li>
+            <li>este, de obicei, liniștit</li>
+          </ul>
+          <p>Majoritatea înțepăturilor apar din panică sau din intervenții greșite — niciodată din inițiativă proprie a albinelor.</p>
 
-      <p>
-        Albinele nu sunt doar insecte care produc miere.
-      </p>
+          <h2>Albine, viespi sau altceva?</h2>
+          <p>Mulți oameni confundă albinele cu viespile, hornetele sau bondarii. Comportamentele lor sunt diferite. Dacă nu ești sigur ce ai găsit, <strong>nu interveni</strong> — sună-ne și te ajutăm să identifici situația.</p>
+          <div class="callout">
+            <div class="ttl">Spune-ne la telefon</div>
+            <p>Pe baza descrierii — sau a unei poze, dacă poți face — îți confirmăm dacă sunt albine sau altceva. Fără ipoteze, fără riscuri.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <p>
-        Ele sunt esențiale pentru:
-      </p>
+    <section class="section-alt">
+      <div class="shell">
+        <div class="sect-head">
+          <div>
+            <div class="eyebrow" style="margin-bottom:16px">Identifică</div>
+            <h2>Ce ai în fața ta?</h2>
+          </div>
+          <p class="sub">Trei comportamente. Trei reacții potrivite. Pentru orice altceva — sună.</p>
+        </div>
+        <div class="id-grid">
+          <div class="id-card">
+            <div class="photo"></div>
+            <div class="body">
+              <span class="verdict ok">Roi compact</span>
+              <h3 style="margin-top:10px">Roi de albine staționat</h3>
+              <p>Bilă densă, agățată de o creangă, balcon sau structură. Calmă. Acesta este momentul potrivit să suni.</p>
+            </div>
+          </div>
+          <div class="id-card">
+            <div class="photo"></div>
+            <div class="body">
+              <span class="verdict no">Cuib viespi</span>
+              <h3 style="margin-top:10px">Cuib de viespi / hornete</h3>
+              <p>Cuib gri, în formă de balon, sub streașină sau în spații închise. Mai agresive — păstrează distanță.</p>
+            </div>
+          </div>
+          <div class="id-card">
+            <div class="photo"></div>
+            <div class="body">
+              <span class="verdict maybe">Câteva albine</span>
+              <h3 style="margin-top:10px">Albine cercetaș</h3>
+              <p>Câteva albine care zboară individual. Nu este o urgență. Dacă apare roiul în câteva ore, atunci suni.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <ul>
-        <li>polenizarea plantelor</li>
-        <li>echilibrul naturii</li>
-        <li>hrana pe care o consumăm zilnic</li>
-      </ul>
-
-      <p>
-        Fără albine, multe plante nu ar mai putea produce fructe sau semințe.
-      </p>
-
-    </div>
-  </section>
-
-  <section class="content-section">
-    <div class="container">
-
-      <h2>Albinele nu sunt agresive</h2>
-
-      <p>
-        Un lucru important de știut:
-      </p>
-
-      <p>
-        👉 <strong>albinele NU sunt agresive din fire</strong>
-      </p>
-
-      <p>
-        Un roi:
-      </p>
-
-      <ul>
-        <li>nu are stup</li>
-        <li>nu are miere de apărat</li>
-        <li>este, de obicei, liniștit</li>
-      </ul>
-
-      <p>
-        Majoritatea înțepăturilor apar din panică sau intervenții greșite.
-      </p>
-
-    </div>
-  </section>
-
-  <section class="content-section">
-    <div class="container">
-
-      <h2>Albine, viespi sau altceva?</h2>
-
-      <p>
-        Mulți oameni confundă albinele cu:
-      </p>
-
-      <ul>
-        <li>viespile</li>
-        <li>hornetele</li>
-        <li>bondarii</li>
-      </ul>
-
-      <p>
-        Aceste insecte au comportamente diferite.
-      </p>
-
-      <p>
-        Dacă nu ești sigur ce ai găsit, <strong>nu interveni</strong> — sună și te ajutăm să identifici situația.
-      </p>
-
-    </div>
-  </section>
-
-  <section class="content-section">
-    <div class="container">
-
-      <h2>Ce se întâmplă dacă un roi este distrus</h2>
-
-      <p>
-        Distrugerea unui roi înseamnă:
-      </p>
-
-      <ul>
-        <li>pierderea unei colonii întregi</li>
-        <li>afectarea ecosistemului local</li>
-        <li>un pericol inutil pentru oameni</li>
-      </ul>
-
-      <p>
-        De cele mai multe ori, roiurile pot fi salvate <strong>rapid și sigur</strong>.
-      </p>
-
-    </div>
-  </section>
-
-  <section class="cta-section">
-    <div class="container">
-      <p class="cta-text">Ai nevoie de ajutor pentru un roi de albine?</p>
-      <p class="cta-subtext">Vorbim calm și încercăm să te ajutăm.</p>
-      <CallButton sticky={false} />
-    </div>
-  </section>
-
+    <section>
+      <div class="shell">
+        <div class="reassure">
+          <div>
+            <h2>Ce se întâmplă dacă un roi este distrus.</h2>
+            <p>Pierderea unei colonii întregi. Afectarea ecosistemului local. Un pericol inutil pentru oameni. De cele mai multe ori, roiurile pot fi salvate <strong>rapid și sigur</strong>. Sună înainte să faci ceva.</p>
+          </div>
+          <div class="right">
+            <a href="tel:+40761330577" class="btn-phone">
+              <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span><span class="lbl">Sună — răspundem cu calm</span><span class="num">0761 330 577</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </PageLayout>
-
-<style>
-  .content-section h1 {
-    margin-bottom: var(--space-lg);
-  }
-
-  .content-section h2 {
-    margin-top: var(--space-xl);
-    margin-bottom: var(--space-md);
-  }
-
-  .content-section p {
-    margin-bottom: var(--space-md);
-  }
-
-  .content-section ul {
-    margin-bottom: var(--space-md);
-  }
-
-  .cta-section {
-    text-align: center;
-    background-color: var(--color-bg-tertiary);
-  }
-
-  .cta-text {
-    font-size: var(--font-size-h4);
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-sm);
-    font-weight: var(--font-weight-medium);
-  }
-
-  .cta-subtext {
-    font-size: var(--font-size-body);
-    color: var(--color-text-secondary);
-    margin-bottom: var(--space-lg);
-    line-height: var(--line-height-relaxed);
-  }
-</style>

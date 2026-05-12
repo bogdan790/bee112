@@ -1,306 +1,56 @@
 ---
-/**
- * Întrebări Frecvente - BEE112
- *
- * BMAD Phase 4: Secondary pages
- * Phase 9: Content Freeze ACTIVE - text is LOCKED
- *
- * Source of truth: .bmad/content/phase4-intrebari-frecvente.md
- */
-
 import PageLayout from '../layouts/PageLayout.astro';
-import CallButton from '../components/CallButton.astro';
-
 const title = 'Întrebări frecvente – BEE112';
-const description = 'Răspunsuri la cele mai frecvente întrebări despre salvarea albinelor, intervenții și serviciile BEE112.';
+const description = 'Răspunsuri scurte la întrebări reale despre roiuri de albine, intervenții și serviciile BEE112.';
+
+const faqItems = [
+  { q: "Costă intervenția?", a: "<p><strong>Intervenția în sine este gratuită.</strong> Suntem voluntari, iar scopul nostru este salvarea albinelor.</p><p>În anumite situații pot apărea costuri colaterale legate de contextul în care se află roiul (acces dificil). Toate detaliile sunt discutate clar la telefon, înainte de orice intervenție.</p>" },
+  { q: "Ce faceți cu albinele după ce le luați?", a: "<p>Albinele sunt relocate în <strong>stupinele noastre</strong>, unde își pot continua viața normal. Preluăm orice mărime de roi.</p>" },
+  { q: "Este normal să fie atât de multe albine în oraș?", a: "<p><strong>Da, este normal.</strong> Există o perioadă a anului — mai ales primăvara, lunile mai–iunie — când albinele devin mult mai vizibile, datorită roirii. Albinele există de milioane de ani și s-au adaptat la prezența noastră.</p>" },
+  { q: "Interveniți noaptea?", a: "<p>În principiu, <strong>nu intervenim noaptea</strong>. Pentru o recuperare sigură este nevoie de vizibilitate. De obicei recuperăm roiurile pe timpul zilei și revenim pe înserat pentru a ridica cutiile.</p>" },
+  { q: "Ce fac dacă nu sunt sigur că sunt albine?", a: "<p>Procedați exact la fel ca și cum ați ști sigur: <strong>ne sunați</strong>. Pe baza descrierii și a unor fotografii vă putem ajuta să identificați corect insecta.</p>" },
+  { q: "Ce fac dacă sunt viespi?", a: "<p>Viespile sunt mai agresive. Nu le provocați, nu încercați să interveniți singur. Sunați-ne și vă oferim explicații clare despre ce să NU faceți și ce opțiuni aveți.</p>" },
+  { q: "Ce fac dacă roiul este într-o zonă periculoasă?", a: "<p>Roiurile de albine <strong>nu sunt agresive</strong>. Am avut intervenții în școli, hoteluri, zone publice. Ce trebuie să faceți: păstrați distanța, nu interveniți, sunați.</p>" },
+  { q: "Ce fac dacă roiul pleacă singur?", a: "<p>Îi urați drum bun 😊. Și — vă rugăm — ne anunțați telefonic, ca să nu venim degeaba și să putem redirecționa intervenția.</p>" },
+  { q: "Ce fac dacă sunt alergic?", a: "<p>Dacă sunteți înțepat și știți că aveți alergie, <strong>apelați imediat serviciile medicale de urgență</strong>. Noi suntem apicultori, nu medici.</p>" },
+  { q: "Interveniți și în afara Bucureștiului?", a: "<p>Intervenim în București, mare parte din Ilfov și localitățile limitrofe. Avem colaboratori și în alte localități și putem redirecționa solicitarea.</p>" },
+  { q: "Roiul a plecat și echipa e deja pe drum. Ce fac?", a: "<p>Sunați-ne cât mai repede. Un simplu apel ne ajută să evităm deplasări inutile și să redirecționăm resursele.</p>" },
+];
 ---
-
 <PageLayout title={title} description={description}>
+  <div class="page-fade">
+    <section class="page-head">
+      <div class="shell">
+        <div class="eyebrow" style="margin-bottom:18px">Întrebări frecvente</div>
+        <h1>Răspunsuri scurte la întrebări reale.</h1>
+        <p class="lede">Întrebări care apar des, în mijlocul situațiilor reale. Răspunsuri date la telefon, transcrise aici pentru cei care vor mai întâi să citească.</p>
+      </div>
+    </section>
 
-  <section class="content-section">
-    <div class="container">
-      <h1>Întrebări frecvente</h1>
-    </div>
-  </section>
+    <section>
+      <div class="narrow">
+        <div class="faq-list">
+          {faqItems.map((item) => (
+            <details class="faq-item">
+              <summary>
+                <span>{item.q}</span>
+                <span class="faq-chevron">+</span>
+              </summary>
+              <div class="faq-body" set:html={item.a} />
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
 
-  <section class="faq-section">
-    <div class="container">
-
-      <h2>❓ Costă intervenția?</h2>
-      <p><strong>Intervenția în sine este gratuită.</strong></p>
-      <p>Suntem voluntari, iar scopul nostru este salvarea albinelor.</p>
-      <p>În anumite situații pot apărea <strong>costuri colaterale</strong>, care nu țin de intervenția apicultorului, ci de contextul în care se află roiul (de exemplu, acces dificil sau lucrări necesare pentru a ajunge în siguranță la albine).</p>
-      <p>👉 <strong>Toate detaliile sunt discutate clar și deschis la telefon</strong>, înainte de orice intervenție.</p>
-
-    </div>
-  </section>
-
-  <section class="faq-section">
-    <div class="container">
-
-      <h2>❓ Ce faceți cu albinele după ce le luați?</h2>
-      <p>Albinele sunt <strong>relocate în stupinele noastre</strong>, unde își pot continua viața normal, cu ajutor din partea noastră în dezvoltare.</p>
-      <p>Preluăm <strong>orice mărime de roi</strong>, iar ulterior:</p>
-      <ul>
-        <li>le ajutăm să crească</li>
-        <li>le oferim condiții sigure</li>
-        <li>ne asigurăm că își pot îndeplini rolul lor natural cât mai bine</li>
-      </ul>
-
-    </div>
-  </section>
-
-  <section class="faq-section">
-    <div class="container">
-
-      <h2>❓ Este normal să fie atât de multe albine în oraș?</h2>
-      <p><strong>Da, este normal.</strong></p>
-      <p>Există o perioadă a anului în care albinele devin mult mai vizibile pentru oameni, în special <strong>primăvara, în lunile mai–iunie</strong>, când are loc roirea.</p>
-      <p>Albinele:</p>
-      <ul>
-        <li>există de milioane de ani</li>
-        <li>s-au adaptat și la mediul urban</li>
-        <li>trăiesc alături de oameni de foarte mult timp</li>
-      </ul>
-      <p>Ele s-au adaptat la prezența noastră, iar <strong>noi ne putem adapta la prezența lor</strong>, cu informare și calm.</p>
-
-    </div>
-  </section>
-
-  <section class="faq-section">
-    <div class="container">
-
-      <h2>❓ Interveniți noaptea?</h2>
-      <p>În principiu, <strong>nu intervenim noaptea</strong>.</p>
-      <p>Pentru o recuperare sigură este nevoie de <strong>vizibilitate</strong>, iar noaptea nu este un moment oportun pentru intervenții.</p>
-      <p>De obicei:</p>
-      <ul>
-        <li>recuperăm roiurile <strong>pe timpul zilei</strong></li>
-        <li>revenim <strong>pe înserat</strong> pentru a ridica cutiile, când toată albina se întoarce „acasă"</li>
-      </ul>
-
-    </div>
-  </section>
-
-  <section class="faq-section">
-    <div class="container">
-
-      <h2>❓ Ce fac dacă nu sunt sigur că sunt albine?</h2>
-      <p>Procedați <strong>exact la fel</strong> ca și cum ați ști sigur.</p>
-      <p>👉 <strong>Ne sunați.</strong></p>
-      <p>Pe baza descrierii oferite de dumneavoastră de la fața locului și, dacă este posibil, cu ajutorul uneia sau a două fotografii, vă putem ajuta să <strong>identificați corect insecta</strong>.</p>
-
-    </div>
-  </section>
-
-  <section class="faq-section">
-    <div class="container">
-
-      <h2>❓ Ce fac dacă sunt viespi?</h2>
-      <p>Viespile, prin natura lor, sunt <strong>mai agresive</strong>.</p>
-      <ul>
-        <li>nu le provocați</li>
-        <li>nu încercați să interveniți singur</li>
-      </ul>
-      <p>Ne puteți suna și vă oferim <strong>explicații clare despre ce să NU faceți</strong> și ce opțiuni aveți mai departe.</p>
-
-    </div>
-  </section>
-
-  <section class="faq-section">
-    <div class="container">
-
-      <h2>❓ Ce fac dacă roiul este într-o zonă periculoasă?</h2>
-      <p>Roiurile de albine <strong>nu sunt agresive</strong>.</p>
-      <p>În momentul roirii, albinele:</p>
-      <ul>
-        <li>pleacă din vechea casă cu gusa plină de miere</li>
-        <li>au polen în săculeții de polen</li>
-        <li>sunt concentrate pe găsirea unei noi locații</li>
-      </ul>
-      <p>Din acest motiv, ele pot fi <strong>vulnerabile</strong>.</p>
-      <p>Am avut intervenții în:</p>
-      <ul>
-        <li>școli și licee</li>
-        <li>hoteluri</li>
-        <li>zone publice</li>
-        <li>piețe și spații comerciale mari</li>
-      </ul>
-      <p>👉 <strong>Ce trebuie să faceți:</strong></p>
-      <ul>
-        <li>păstrați distanța</li>
-        <li>nu interveniți</li>
-        <li><strong>ne sunați</strong></li>
-      </ul>
-
-    </div>
-  </section>
-
-  <section class="faq-section">
-    <div class="container">
-
-      <h2>❓ Ce fac dacă roiul pleacă singur?</h2>
-      <p>Îi urați <strong>drum bun</strong> și le doriți o casă primitoare acolo unde ajung 😊</p>
-      <p>De multe ori, albinele cercetaș din roi găsesc o locație mai potrivită, iar roiul pleacă de la sine, mai ales dacă locul inițial este nepotrivit pentru ele.</p>
-
-    </div>
-  </section>
-
-  <section class="faq-section">
-    <div class="container">
-
-      <h2>❓ Ce fac dacă sunt alergic?</h2>
-      <p>Dacă sunteți înțepat și știți că aveți <strong>alergie la veninul de albine</strong>, <strong>apelați imediat serviciile medicale de urgență</strong>.</p>
-      <p>👉 Noi suntem <strong>apicultori și salvatori de albine</strong>, <strong>nu medici</strong>.</p>
-
-    </div>
-  </section>
-
-  <section class="faq-section">
-    <div class="container">
-
-      <h2>❓ Interveniți și în afara Bucureștiului?</h2>
-      <p>Intervenim, de regulă, într-o zonă care acoperă:</p>
-      <ul>
-        <li>București</li>
-        <li>o mare parte din Ilfov</li>
-        <li>localități limitrofe</li>
-      </ul>
-      <p>În multe cazuri avem <strong>colegi sau colaboratori</strong> și în alte localități sau județe și putem redirecționa solicitarea.</p>
-
-    </div>
-  </section>
-
-  <section class="faq-section">
-    <div class="container">
-
-      <h2>❓ Ce fac dacă albinele au plecat, iar echipa este deja pe drum?</h2>
-      <p>Vă rugăm să ne sunați și să ne anunțați cât mai repede.</p>
-      <p><strong>Comunicarea este foarte importantă.</strong></p>
-      <p>BEE112 funcționează pe bază de voluntariat, iar intervențiile sunt realizate în timpul nostru liber, fără a fi plătiți pentru acest serviciu oferit comunității.</p>
-      <p>Un simplu apel ne ajută să:</p>
-      <ul>
-        <li>evităm deplasări inutile</li>
-        <li>economisim resurse</li>
-        <li>redirecționăm timpul către alte situații unde ajutorul este necesar</li>
-      </ul>
-      <p>Vă mulțumim pentru înțelegere și sprijin.</p>
-
-    </div>
-  </section>
-
-  <section class="faq-section">
-    <div class="container">
-
-      <h2>❓ Ce fac dacă observ că un alt apicultor intervine deja la locație?</h2>
-      <p>Vă rugăm, la fel, să ne sunați și să ne anunțați.</p>
-      <p>Facem acest lucru din aceleași motive:</p>
-      <p>suntem voluntari, avem și alte responsabilități, iar timpul nostru este limitat — mai ales în perioadele de roire, când primim <strong>sute de apeluri pe săptămână</strong>.</p>
-      <p>Dacă un alt apicultor se ocupă deja de situație:</p>
-      <ul>
-        <li>lăsați-l să își continue intervenția</li>
-        <li>anunțați-ne, pentru a putea redirecționa resursele către un alt roi care are nevoie de ajutor</li>
-      </ul>
-      <p>Gestul dumneavoastră ne ajută enorm și face diferența.</p>
-
-    </div>
-  </section>
-
-  <section class="volunteer-section">
-    <div class="container">
-
-      <h2>🐝 Vrei să ajuți?</h2>
-      <h3>Vrei să fii parte din echipa voluntarilor PAB?</h3>
-      <p>Dacă ești:</p>
-      <ul>
-        <li>apicultor</li>
-        <li>pasionat de protejarea albinelor</li>
-        <li>sau vrei să ajuți comunitatea</li>
-      </ul>
-      <p>ne poți contacta pentru a deveni voluntar în <strong>Patrula Apicolă Urbană (PAB)</strong>.</p>
-      <p>📞 Sună și discutăm.</p>
-
-    </div>
-  </section>
-
-  <section class="cta-section">
-    <div class="container">
-      <p class="cta-text">Ai nevoie de ajutor pentru un roi de albine?</p>
-      <p class="cta-subtext">Vorbim calm și încercăm să te ajutăm.</p>
-      <CallButton sticky={false} />
-    </div>
-  </section>
-
+    <section class="section-alt">
+      <div class="shell" style="text-align:center">
+        <p style="font-size:19px;color:var(--ink-soft);margin-bottom:32px;max-width:48ch;margin-left:auto;margin-right:auto">Nu ai găsit răspunsul? Sună-ne direct — răspundem calm la orice întrebare.</p>
+        <a href="tel:+40761330577" class="btn-phone">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span><span class="lbl">Sună — răspundem cu calm</span><span class="num">0761 330 577</span></span>
+        </a>
+      </div>
+    </section>
+  </div>
 </PageLayout>
-
-<style>
-  .content-section {
-    background-color: var(--color-bg-secondary);
-  }
-
-  .content-section h1 {
-    margin-bottom: 0;
-  }
-
-  .faq-section {
-    border-bottom: var(--border-width-thin) solid var(--color-border-light);
-  }
-
-  .faq-section h2 {
-    margin-bottom: var(--space-md);
-    color: var(--color-primary);
-  }
-
-  .faq-section p {
-    margin-bottom: var(--space-sm);
-  }
-
-  .faq-section ul {
-    margin-bottom: var(--space-md);
-    padding-left: var(--space-lg);
-  }
-
-  .faq-section ul li {
-    margin-bottom: var(--space-xs);
-  }
-
-  .volunteer-section {
-    background-color: var(--color-bg-tertiary);
-  }
-
-  .volunteer-section h2 {
-    margin-bottom: var(--space-md);
-  }
-
-  .volunteer-section h3 {
-    margin-bottom: var(--space-md);
-    font-size: var(--font-size-h4);
-  }
-
-  .volunteer-section p {
-    margin-bottom: var(--space-sm);
-  }
-
-  .volunteer-section ul {
-    margin-bottom: var(--space-md);
-  }
-
-  .cta-section {
-    text-align: center;
-    background-color: var(--color-bg-primary);
-  }
-
-  .cta-text {
-    font-size: var(--font-size-h4);
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-sm);
-    font-weight: var(--font-weight-medium);
-  }
-
-  .cta-subtext {
-    font-size: var(--font-size-body);
-    color: var(--color-text-secondary);
-    margin-bottom: var(--space-lg);
-    line-height: var(--line-height-relaxed);
-  }
-</style>

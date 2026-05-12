@@ -1,0 +1,95 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+const title = 'Voluntariat – BEE112';
+const description = 'Vrei să fii parte din echipa de voluntari BEE112? Aflați cum poți deveni parte din Patrula Apicolă Urbană.';
+---
+<PageLayout title={title} description={description}>
+  <div class="page-fade">
+    <section class="page-head">
+      <div class="shell">
+        <div class="eyebrow" style="margin-bottom:18px">Patrula Apicolă Urbană</div>
+        <h1>Vrei să fii parte din echipa de voluntari?</h1>
+        <p class="lede">Dacă ești apicultor, pasionat de protejarea albinelor sau pur și simplu vrei să ajuți comunitatea, ne poți contacta pentru a deveni voluntar PAB.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="shell" style="display:grid;grid-template-columns:1fr 1fr;gap:56px">
+        <div class="prose">
+          <h2>Cine poate deveni voluntar</h2>
+          <p>Apicultori cu experiență, persoane cu cursuri apicole, pasionați dispuși să învețe alături de un mentor. Validarea noastră nu este birocratică — este <strong>umană</strong>.</p>
+
+          <h2>Ce căutăm</h2>
+          <ul>
+            <li>oameni care iubesc albina</li>
+            <li>care înțeleg frica omului</li>
+            <li>care știu să vorbească calm</li>
+            <li>care nu judecă, nu fac scandal</li>
+          </ul>
+
+          <h2>Ce nu contează</h2>
+          <ul>
+            <li>câți stupi ai</li>
+            <li>ce producție faci</li>
+            <li>ce rang ai în asociație</li>
+          </ul>
+
+          <div class="callout">
+            <div class="ttl">Cel mai simplu mod</div>
+            <p>Sună-ne. Discutăm. Dacă ne potrivim, te invităm la o intervenție și vezi cum lucrăm.</p>
+          </div>
+          <a href="tel:+40761330577" class="btn-phone">
+            <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span><span class="lbl">Sună — răspundem cu calm</span><span class="num">0761 330 577</span></span>
+          </a>
+        </div>
+        <div class="contact-card">
+          <h3 style="font-size:24px;margin-bottom:8px">Sau scrie-ne câteva rânduri</h3>
+          <p style="color:var(--ink-soft);font-size:14px;margin-bottom:24px">Te contactăm la telefon. Fără birocrație, fără CV.</p>
+          <form id="vol-form">
+            <div class="field"><label>Numele tău</label><input type="text" placeholder="Cum te cheamă" required /></div>
+            <div class="field"><label>Telefon</label><input type="tel" placeholder="07xx xxx xxx" required /></div>
+            <div class="field"><label>Oraș</label><input type="text" placeholder="București, Pipera, Otopeni..." /></div>
+            <div class="field">
+              <label>Experiență</label>
+              <select>
+                <option>Apicultor cu stupi proprii</option>
+                <option>Curs apicol absolvit</option>
+                <option>Pasionat, vreau să învăț</option>
+                <option>Vreau să ajut altcumva</option>
+              </select>
+            </div>
+            <div class="field"><label>Câteva rânduri despre tine</label><textarea placeholder="Ce te-a făcut să vrei să te alături?" rows="4"></textarea></div>
+            <button type="submit" class="btn-phone" style="padding:14px 22px;font-size:16px">
+              <span class="ico" style="width:32px;height:32px">→</span>
+              <span><span class="num">Trimite</span></span>
+            </button>
+          </form>
+          <div id="vol-thanks" class="callout" style="display:none;margin:0">
+            <div class="ttl">Mulțumim</div>
+            <p>Mesajul tău a ajuns. Te sunăm în 24–48 ore. Între timp — albinele îți mulțumesc.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</PageLayout>
+
+<script>
+  const form = document.getElementById('vol-form') as HTMLFormElement | null;
+  const thanks = document.getElementById('vol-thanks') as HTMLElement | null;
+  if (form && thanks) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      form.style.display = 'none';
+      thanks.style.display = 'block';
+    });
+  }
+</script>
+
+<style>
+  @media (max-width: 920px) {
+    .shell > div[style*="grid-template-columns"] { display: block !important; }
+    .contact-card { margin-top: 40px; }
+  }
+</style>

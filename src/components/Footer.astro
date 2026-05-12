@@ -1,89 +1,60 @@
 ---
-/**
- * Footer - Site Footer
- *
- * Phase 6 (Tone): Transparency, volunteer reminder, contact
- * Phase 7 (Critical Messages): Volunteer service reminder
- *
- * Features:
- * - Quick links (same as navigation)
- * - Contact information (phone)
- * - Volunteer reminder (Phase 7 Message #3)
- * - Copyright
- *
- * Layout: Single column mobile, 2-column desktop
- */
-
-// Phone number (consistent with CallButton)
-const PHONE_NUMBER = '0761 330 577';
-const PHONE_LINK = 'tel:0761330577';
-
-// Current year for copyright
 const currentYear = new Date().getFullYear();
-
-// Quick links (same as Header navigation)
-const footerLinks = [
-  { href: '/cine-suntem', label: 'Cine suntem' },
-  { href: '/importanta-albinelor', label: 'Importanța albinelor' },
-  { href: '/intrebari-frecvente', label: 'Întrebări frecvente' },
-  { href: '/contact', label: 'Contact' },
-];
 ---
 
-<footer class="site-footer">
-  <div class="site-footer__container container">
-    <!-- Quick Links Section -->
-    <div class="site-footer__section">
-      <h4 class="site-footer__heading">Navigare</h4>
-      <ul class="site-footer__links">
-        {footerLinks.map((link) => (
-          <li>
-            <a href={link.href} class="site-footer__link">
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    <!-- Contact & Info Section -->
-    <div class="site-footer__section">
-      <h4 class="site-footer__heading">Contact</h4>
-      <p>
-        <strong>Telefon:</strong> <a href={PHONE_LINK} class="site-footer__link">{PHONE_NUMBER}</a>
-      </p>
-      <p>
-        <strong>Zonă:</strong> București și Ilfov
-      </p>
-      <p>
-        <a href="https://www.facebook.com/p/Patrula-Apicola-Urbana-100068758055323/?locale=ro_RO" class="site-footer__link" target="_blank" rel="noopener noreferrer">
-          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="#1877F2" style="display: inline-block; vertical-align: middle; margin-right: 0.35rem;">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+<footer>
+  <div class="shell">
+    <div class="foot-grid">
+      <div>
+        <div style="margin-bottom:16px">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 75" style="height:52px;width:auto;display:block">
+            <g transform="translate(0,5)">
+              <path d="M 0 35 Q 45 28 95 18" stroke="#888b8d" stroke-width="12" stroke-linecap="round" fill="none"/>
+              <path d="M 75 18 Q 80 5 95 5 Q 90 15 80 20 Z" fill="#5a8a3a"/>
+              <path d="M 30 30 Q 25 15 15 18 Q 20 28 28 32 Z" fill="#5a8a3a"/>
+              <path d="M 12 34 C 20 28, 28 32, 35 28 C 40 22, 45 20, 50 25 C 55 16, 65 14, 72 20 C 80 18, 85 24, 86 32 C 88 55, 65 70, 48 65 C 30 60, 15 45, 12 34 Z" fill="#4a2e15"/>
+              <path d="M 25 45 C 35 52, 45 50, 55 45 M 35 55 C 45 60, 55 58, 65 50 M 65 30 C 72 35, 75 40, 75 45" stroke="#f4f1ea" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.8"/>
+            </g>
+            <text x="105" y="52" font-family="var(--font-heading,ui-sans-serif,system-ui,sans-serif)" font-size="36" font-weight="900" fill="#ffffff" letter-spacing="-0.5">BEE<tspan fill="var(--primary)">112</tspan></text>
           </svg>
-          Patrula Apicolă Urbană
-        </a>
-      </p>
+        </div>
+        <p style="max-width:32ch;font-size:14px;line-height:1.6">
+          Inițiativă civică de voluntariat. Salvăm roiuri de albine în București și Ilfov, fără substanțe toxice, fără taxe.
+        </p>
+        <a href="tel:+40761330577" class="foot-cta" style="margin-top:22px">📞 0761 330 577</a>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <ul>
+          <li><a href="/">Acasă</a></li>
+          <li><a href="/cine-suntem">Cine suntem</a></li>
+          <li><a href="/cum-functioneaza">Cum funcționează</a></li>
+          <li><a href="/importanta-albinelor">Importanța albinelor</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resurse</h4>
+        <ul>
+          <li><a href="/ce-sa-nu-faci">Ce să NU faci</a></li>
+          <li><a href="/autoritati">Lucrăm cu autoritățile</a></li>
+          <li><a href="/intrebari-frecvente">Întrebări frecvente</a></li>
+          <li><a href="/voluntariat">Voluntariat</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+40761330577">0761 330 577</a></li>
+          <li>București &amp; Ilfov</li>
+          <li><a href="mailto:contact@bee112.ro">contact@bee112.ro</a></li>
+          <li><a href="https://www.facebook.com/p/Patrula-Apicola-Urbana-100068758055323/?locale=ro_RO" target="_blank" rel="noopener">Facebook · Patrula Apicolă</a></li>
+          <li><a href="/contact">Toate datele</a></li>
+        </ul>
+      </div>
     </div>
-
-    <!-- Volunteer Reminder Section (Phase 7 Message #3) -->
-    <div class="site-footer__section">
-      <h4 class="site-footer__heading">Vrei să ajuți?</h4>
-      <p>
-        Suntem voluntari din Patrula Apicolă Urbană.<br />
-        Dacă ești apicultor sau pasionat de protejarea albinelor, <a href={PHONE_LINK} class="site-footer__link">sună-ne</a>.
-      </p>
+    <div class="foot-bottom">
+      <span>BEE112 · Patrula Apicolă Urbană · serviciu voluntar, fără scop comercial</span>
+      <span>© {currentYear} bee112.ro</span>
     </div>
-  </div>
-
-  <!-- Copyright -->
-  <div class="container">
-    <p class="site-footer__copyright">
-      © {currentYear} BEE112 – Inițiativă civică de salvare a albinelor
-    </p>
   </div>
 </footer>
-
-<!--
-  NO scoped styles needed - all styles in components.css
-  Footer layout (single column mobile, 2-column desktop) handled by CSS
--->

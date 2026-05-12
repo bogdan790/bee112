@@ -1,78 +1,81 @@
 ---
-/**
- * Header - Site Header with Navigation
- *
- * Phase 2 (UX): Minimal, non-intrusive, horizontal scroll on mobile (NO hamburger)
- * Phase 3 (UI): Sticky header, consistent across all pages
- *
- * Features:
- * - Sticky positioning (scrolls with user)
- * - Horizontal scroll navigation on mobile (visual indicator)
- * - Active page highlighting
- * - Logo links to home
- */
-
-// Get current path for active page highlighting
 const currentPath = Astro.url.pathname;
 
-// Navigation links (BMAD Phase 4: All secondary pages)
 const navLinks = [
   { href: '/cine-suntem', label: 'Cine suntem' },
+  { href: '/cum-functioneaza', label: 'Cum funcționează' },
   { href: '/importanta-albinelor', label: 'Importanța albinelor' },
-  { href: '/intrebari-frecvente', label: 'Întrebări frecvente' },
+  { href: '/ce-sa-nu-faci', label: 'Ce să NU faci' },
+  { href: '/autoritati', label: 'Autorități' },
+  { href: '/intrebari-frecvente', label: 'Întrebări' },
+  { href: '/voluntariat', label: 'Voluntariat' },
   { href: '/contact', label: 'Contact' },
 ];
 
-// Check if link is active (current page)
 function isActive(href: string): boolean {
-  // Exact match or starts with (for sub-pages)
   return currentPath === href || currentPath.startsWith(href + '/');
 }
 ---
 
-<header class="site-header">
-  <div class="site-header__container container">
-    <!-- Logo -->
-    <a href="/" class="site-header__logo">
-      BEE112
-    </a>
+<div class="nav">
+  <div class="shell">
+    <div class="nav-inner">
+      <a href="/" class="brand" aria-label="BEE112 — acasă">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 75" style="height:48px;width:auto;display:block;flex-shrink:0">
+          <g transform="translate(0,5)">
+            <path d="M 0 35 Q 45 28 95 18" stroke="#888b8d" stroke-width="12" stroke-linecap="round" fill="none"/>
+            <path d="M 75 18 Q 80 5 95 5 Q 90 15 80 20 Z" fill="#5a8a3a"/>
+            <path d="M 30 30 Q 25 15 15 18 Q 20 28 28 32 Z" fill="#5a8a3a"/>
+            <path d="M 12 34 C 20 28, 28 32, 35 28 C 40 22, 45 20, 50 25 C 55 16, 65 14, 72 20 C 80 18, 85 24, 86 32 C 88 55, 65 70, 48 65 C 30 60, 15 45, 12 34 Z" fill="#4a2e15"/>
+            <path d="M 25 45 C 35 52, 45 50, 55 45 M 35 55 C 45 60, 55 58, 65 50 M 65 30 C 72 35, 75 40, 75 45" stroke="#f4f1ea" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.8"/>
+          </g>
+          <text x="105" y="52" font-family="var(--font-heading,ui-sans-serif,system-ui,sans-serif)" font-size="36" font-weight="900" fill="var(--ink)" letter-spacing="-0.5">BEE<tspan fill="var(--primary)">112</tspan></text>
+        </svg>
+      </a>
 
-    <!-- Hamburger Button (mobile only) -->
-    <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
-      <span class="hamburger__line"></span>
-      <span class="hamburger__line"></span>
-      <span class="hamburger__line"></span>
-    </button>
-
-    <!-- Navigation -->
-    <nav class="site-header__nav" aria-label="Navigare principală">
-      <ul class="site-nav">
+      <nav class="nav-links" aria-label="Navigare principală">
         {navLinks.map((link) => (
-          <li class="site-nav__item">
-            <a
-              href={link.href}
-              class={isActive(link.href) ? 'site-nav__link site-nav__link--active' : 'site-nav__link'}
-              aria-current={isActive(link.href) ? 'page' : undefined}
-            >
-              {link.label}
-            </a>
-          </li>
+          <a
+            href={link.href}
+            class={isActive(link.href) ? 'nav-link active' : 'nav-link'}
+            aria-current={isActive(link.href) ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
         ))}
-      </ul>
-    </nav>
+      </nav>
+
+      <a href="tel:+40761330577" class="nav-cta">
+        <span class="nav-pulse"></span>
+        <span style="font-family:var(--font-mono);font-size:13px">0761 330 577</span>
+      </a>
+
+      <button class="nav-burger" id="nav-burger" aria-label="Meniu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <div class="nav-sheet" id="nav-sheet">
+      <a href="/" class={currentPath === '/' ? 'nav-link active' : 'nav-link'}>Acasă</a>
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={isActive(link.href) ? 'nav-link active' : 'nav-link'}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
   </div>
-</header>
+</div>
 
 <script>
-  // Simple hamburger toggle (vanilla JS, no libraries)
-  const hamburger = document.querySelector('.hamburger');
-  const nav = document.querySelector('.site-header__nav');
-
-  if (hamburger && nav) {
-    hamburger.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('site-header__nav--open');
-      hamburger.setAttribute('aria-expanded', isOpen.toString());
-      hamburger.classList.toggle('hamburger--open');
+  const burger = document.getElementById('nav-burger');
+  const sheet = document.getElementById('nav-sheet');
+  if (burger && sheet) {
+    burger.addEventListener('click', () => {
+      const isOpen = sheet.classList.toggle('open');
+      burger.setAttribute('aria-expanded', isOpen.toString());
     });
   }
 </script>

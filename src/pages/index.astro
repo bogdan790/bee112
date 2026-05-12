@@ -1,197 +1,139 @@
 ---
-/**
- * Homepage - BEE112
- *
- * BMAD Phase 3: Home structure (6 zones)
- * Phase 9: Content Freeze ACTIVE - text is LOCKED
- *
- * Source of truth: .bmad/content/phase3-home.md
- */
-
 import PageLayout from '../layouts/PageLayout.astro';
-import GeographicLimit from '../components/GeographicLimit.astro';
-import FinalCTA from '../components/FinalCTA.astro';
-
 const title = 'BEE112 – Ai găsit un roi de albine?';
 const description = 'Ai găsit un roi de albine? Nu le omorî. Sună-ne. Intervenții gratuite, voluntari apicultori, București și Ilfov.';
 ---
 
 <PageLayout title={title} description={description}>
-
-  <!-- ZONA 1 – PANICĂ CONTROLATĂ -->
-  <section class="hero-section">
-    <div class="container">
-      <h1>Ai găsit un roi de albine?</h1>
-      <p class="hero-subtitle"><strong>Nu le omorî</strong></p>
-      <a href="tel:0761330577" class="call-button hero-cta" aria-label="Sună BEE112 la 0761330577">
-        📞 Sună-ne
-      </a>
-      <p class="hero-subtext">Vorbim calm. Evaluăm situația. Trimitem un apicultor.</p>
+  <!-- HERO -->
+  <section class="hero hero-panic">
+    <div class="shell">
+      <div class="hero-grid">
+        <div class="hero-msg">
+          <div class="eyebrow" style="margin-bottom:24px">Patrula Apicolă Urbană · București · Ilfov</div>
+          <h1>Ai găsit un roi de albine?<br /><span style="color:var(--primary)">E în regulă.</span> Te ajutăm.</h1>
+          <p class="lede">Vorbim calm, evaluăm situația, trimitem un apicultor voluntar. Fără formulare, fără grabă.</p>
+          <div class="cta-row">
+            <a href="tel:+40761330577" class="btn-phone">
+              <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span><span class="lbl">Sună — răspundem cu calm</span><span class="num">0761 330 577</span></span>
+            </a>
+            <a href="/cum-functioneaza" class="btn-ghost">Cum funcționează →</a>
+          </div>
+          <div class="hero-meta">
+            <span><b>Gratuit</b> · serviciu voluntar</span>
+            <span class="hero-meta-dot"><b>Non-letal</b> · fără substanțe</span>
+            <span class="hero-meta-dot"><b>Discret</b> · fără birocrație</span>
+          </div>
+        </div>
+        <div class="hero-side">
+          <div class="side-card-title">Despre intervenție</div>
+          <div class="side-card-row"><b>Cost</b><span class="val">Gratuit</span></div>
+          <div class="side-card-row"><b>Echipă</b><span class="val">Apicultori voluntari</span></div>
+          <div class="side-card-row"><b>Acoperire</b><span class="val">București &amp; Ilfov</span></div>
+          <div class="side-card-row"><b>Timp răspuns</b><span class="val">~30 min telefon</span></div>
+          <div class="side-card-row"><b>Program</b><span class="val">Lumina zilei</span></div>
+          <div class="live-strip">
+            <span class="nav-pulse"></span>
+            <span>Echipa disponibilă · răspundem direct la telefon</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Geographic Limit Banner (Phase 7, Message #1) -->
-  <GeographicLimit />
-
-  <!-- ZONA 2 – CUM FUNCȚIONEAZĂ -->
-  <section class="how-it-works-section">
-    <div class="container">
-      <h2>Cum funcționează BEE112</h2>
-      <ol class="steps-list">
-        <li>
-          <strong>Suni și discutăm calm</strong>
-        </li>
-        <li>
-          <strong>Trimitem un apicultor voluntar</strong>
-        </li>
-      </ol>
+  <!-- CUM FUNCTIONEAZA -->
+  <section>
+    <div class="shell">
+      <div class="sect-head">
+        <div>
+          <div class="eyebrow" style="margin-bottom:16px">Procesul</div>
+          <h2>Cum funcționează BEE112. Doi pași. Nici un formular.</h2>
+        </div>
+        <p class="sub">Fluxul este simplu pentru că oamenii speriați nu completează formulare. Tot ce avem nevoie discutăm la telefon.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num"><span>01</span><span>Apel telefonic</span></div>
+          <h3>Suni și discutăm calm</h3>
+          <p>Răspundem direct la 0761 330 577. Te întrebăm unde este roiul, cât de mare pare și dacă este accesibil. Fără formulare, fără cont, fără pași inutili.</p>
+        </div>
+        <div class="step">
+          <div class="step-num"><span>02</span><span>Intervenție</span></div>
+          <h3>Trimitem un apicultor voluntar</h3>
+          <p>Stabilim ora, ne deplasăm și recuperăm roiul în siguranță. Albinele sunt relocate în stupinele noastre. Nu folosim substanțe toxice.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ZONA 3 – EDUCAȚIE SCURTĂ -->
-  <section class="education-section">
-    <div class="container">
-      <h2>Ce să NU faci dacă vezi un roi</h2>
-      <ul class="dont-list">
-        <li>Nu stropi cu insecticide</li>
-        <li>Nu arunca cu apă</li>
-        <li>Nu încerca să îl distrugi</li>
-      </ul>
-
-      <p>
-        <a href="/importanta-albinelor" class="secondary-link">
-          Află mai multe despre roiuri
-        </a>
-      </p>
+  <!-- AUTORITATI -->
+  <section class="section-alt">
+    <div class="shell">
+      <div class="sect-head">
+        <div>
+          <div class="eyebrow" style="margin-bottom:16px">Colaborăm</div>
+          <h2>Nu suntem singuri. Lucrăm cu autoritățile.</h2>
+        </div>
+        <p class="sub">Mulți cetățeni sună la 112 sau la Poliția Locală. Apelurile ajung la noi prin redirecționare. Pentru cazurile dificile, intervenim împreună cu ISU.</p>
+      </div>
+      <div class="auth-grid">
+        <div class="auth-card">
+          <span class="badge">112 · ISU</span>
+          <h3>Serviciul de urgență &amp; Pompierii</h3>
+          <p>Pentru situații dificile — etaje superioare, acces periculos — pompierii ISU vin alături de noi cu echipamente speciale.</p>
+        </div>
+        <div class="auth-card">
+          <span class="badge">Sectoarele 1–6</span>
+          <h3>Administrația Domeniului Public</h3>
+          <p>ADP ne sprijină cu acces și logistică în intervențiile urbane. Este coloana tăcută a multor recuperări de roiuri.</p>
+        </div>
+        <div class="auth-card">
+          <span class="badge">Primul contact</span>
+          <h3>Poliția Locală</h3>
+          <p>Adesea primul contact al cetățeanului. Redirecționează sesizările către echipa BEE112 — scopul comun este calmul și siguranța.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ZONA 4 – REASIGURARE FINALĂ -->
-  <section class="reassurance-section">
-    <div class="container">
-      <p class="reassurance-text">
-        Albinele nu sunt agresive când roiesc.
-        În majoritatea cazurilor, intervenția este simplă și sigură.
-      </p>
+  <!-- CE SA NU FACI -->
+  <section>
+    <div class="shell">
+      <div class="sect-head">
+        <div>
+          <div class="eyebrow" style="margin-bottom:16px">Educație</div>
+          <h2>Ce să NU faci dacă vezi un roi de albine.</h2>
+        </div>
+        <p class="sub">Cele mai multe înțepături nu vin de la roi. Vin de la oamenii care încearcă să facă „ceva" înainte să sune.</p>
+      </div>
+      <div class="avoid-grid">
+        <div class="avoid-item"><div class="avoid-icon">✕</div><div><h4>Nu stropi cu insecticide</h4><p>Sunt toxice și nu rezolvă problema — roiul rămâne pe loc.</p></div></div>
+        <div class="avoid-item"><div class="avoid-icon">✕</div><div><h4>Nu folosi foc sau spumă</h4><p>Pericol grav de incendiu și de înțepături în masă.</p></div></div>
+        <div class="avoid-item"><div class="avoid-icon">✕</div><div><h4>Nu arunca cu apă</h4><p>Apa nu îndepărtează roiul. Doar enervează albinele.</p></div></div>
+        <div class="avoid-item"><div class="avoid-icon">✕</div><div><h4>Nu interveni fără experiență</h4><p>Mută copiii și animalele, apoi sună. Restul îl facem noi.</p></div></div>
+      </div>
+      <div style="margin-top:40px">
+        <a href="/ce-sa-nu-faci" class="btn-ghost">Vezi ghidul complet →</a>
+      </div>
     </div>
   </section>
 
-  <!-- ZONA 5 – FINAL CALM (Phase 7, Message #8) -->
-  <FinalCTA />
-
+  <!-- REASIGURARE -->
+  <section class="section-alt">
+    <div class="shell">
+      <div class="reassure">
+        <div>
+          <h2>Albinele nu sunt agresive când roiesc.</h2>
+          <p>În peste 90% din cazuri, intervenția este simplă și sigură. Roiul nu are stup, nu are miere de apărat — este, de obicei, liniștit și concentrat să-și găsească o casă nouă.</p>
+        </div>
+        <div class="right">
+          <a href="tel:+40761330577" class="btn-phone">
+            <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span><span class="lbl">Sună — răspundem cu calm</span><span class="num">0761 330 577</span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </PageLayout>
-
-<style>
-  /* Hero Section - Zona 1 */
-  .hero-section {
-    text-align: center;
-  }
-
-  .hero-section h1 {
-    font-size: var(--font-size-h1);
-    margin-bottom: var(--space-md);
-    color: var(--color-text-primary);
-  }
-
-  .hero-subtitle {
-    font-size: var(--font-size-h3);
-    margin-bottom: var(--space-md);
-    color: var(--color-text-primary);
-  }
-
-  .hero-cta {
-    display: inline-block;
-    margin-bottom: var(--space-lg);
-  }
-
-  .hero-subtext {
-    font-size: var(--font-size-body);
-    color: var(--color-text-secondary);
-    margin-top: var(--space-lg);
-    line-height: var(--line-height-relaxed);
-  }
-
-  /* How It Works - Zona 2 */
-  .how-it-works-section h2 {
-    text-align: center;
-    margin-bottom: var(--space-lg);
-  }
-
-  .steps-list {
-    list-style: decimal;
-    padding-left: var(--space-xl);
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .steps-list li {
-    font-size: var(--font-size-h4);
-    margin-bottom: var(--space-md);
-    line-height: var(--line-height-normal);
-  }
-
-  /* Education - Zona 3 */
-  .education-section h2 {
-    text-align: center;
-    margin-bottom: var(--space-lg);
-  }
-
-  .dont-list {
-    list-style: none;
-    padding: 0;
-    max-width: 600px;
-    margin: 0 auto var(--space-lg);
-  }
-
-  .dont-list li {
-    font-size: var(--font-size-body);
-    margin-bottom: var(--space-sm);
-    padding-left: var(--space-md);
-    position: relative;
-  }
-
-  .dont-list li::before {
-    content: '❌';
-    position: absolute;
-    left: 0;
-  }
-
-  .secondary-link {
-    display: inline-block;
-    text-align: center;
-    width: 100%;
-    color: var(--color-secondary);
-    text-decoration: underline;
-    font-weight: var(--font-weight-medium);
-  }
-
-  .secondary-link:hover {
-    color: var(--color-secondary);
-    text-decoration: none;
-  }
-
-  /* Reassurance - Zona 4 */
-  .reassurance-section {
-    text-align: center;
-  }
-
-  .reassurance-text {
-    font-size: var(--font-size-h4);
-    line-height: var(--line-height-relaxed);
-    color: var(--color-text-secondary);
-    margin-bottom: var(--space-lg);
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  @media (min-width: 768px) {
-    .hero-section h1 {
-      font-size: 3rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1.75rem;
-    }
-  }
-</style>
