@@ -252,7 +252,7 @@ main { flex: 1; }
   padding: calc(18px * var(--phone-scale)) calc(28px * var(--phone-scale));
   background: var(--primary);
   color: white;
-  border-radius: 999px;
+  border-radius: 8px;
   font-family: var(--font-heading);
   font-size: calc(20px * var(--phone-scale));
   font-weight: 600;
@@ -269,7 +269,7 @@ main { flex: 1; }
 }
 .btn-phone:active { transform: translateY(0); }
 .dir-linia112 .btn-phone { border-radius: 2px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; }
-.dir-editorial .btn-phone { border-radius: 999px; font-style: normal; font-weight: 600; }
+.dir-editorial .btn-phone { border-radius: 8px; font-style: normal; font-weight: 600; }
 
 .btn-phone .ico {
   width: calc(40px * var(--phone-scale));
@@ -304,7 +304,7 @@ main { flex: 1; }
   border: 1px solid var(--line);
   background: transparent;
   color: var(--ink);
-  border-radius: 999px;
+  border-radius: 8px;
   font-size: 14px;
   font-weight: 500;
   transition: background .15s, border-color .15s;
