@@ -15,7 +15,7 @@ const description = 'BEE112 — Patrula Apicolă Urbană este o inițiativă civ
     </section>
 
     <section>
-      <div class="shell" style="display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start">
+      <div class="shell about-grid">
         <div class="prose">
           <h2>De unde vine numele „112"</h2>
           <p>Așa cum 112 este numărul unic pentru urgențe, <strong>BEE112</strong> este punctul de contact pentru situații care implică albine. Nu suntem 112. Dar funcționăm după aceeași logică: suni, discutăm calm, trimitem ajutorul potrivit.</p>
@@ -69,9 +69,15 @@ const description = 'BEE112 — Patrula Apicolă Urbană este o inițiativă civ
 </PageLayout>
 
 <style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
+    align-items: start;
+  }
   @media (max-width: 920px) {
-    .shell > div[style*="grid-template-columns"] {
-      display: block !important;
+    .about-grid {
+      display: block;
     }
     .contact-card { margin-top: 40px; }
   }
