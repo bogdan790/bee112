@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <title>BEE112 — Mobile preview</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    html, body { background: #1a1a1a; margin: 0; }
+    body { display: flex; justify-content: center; padding: 24px 0; min-height: 100vh; }
+    .device {
+      width: 390px;
+      background: var(--bg);
+      border-radius: 36px;
+      overflow: hidden;
+      border: 8px solid #111;
+      box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    }
+    #root { width: 390px; }
+    /* Force mobile layout regardless of viewport */
+    .nav-links { display: none !important; }
+    .nav-burger { display: inline-flex !important; }
+    .hero-panic .hero-grid,
+    .hero-split .hero-grid,
+    .reassure,
+    .contact-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+    .auth-grid, .id-grid, .steps, .avoid-grid { grid-template-columns: 1fr !important; }
+    .step:first-child { border-right: 0 !important; border-bottom: 1px solid var(--line) !important; }
+    .avoid-item:nth-child(odd) { border-right: 0 !important; }
+    .stats-strip { grid-template-columns: 1fr 1fr !important; }
+    .stat:nth-child(2) { border-right: 0 !important; }
+    .stat:nth-child(1), .stat:nth-child(2) { border-bottom: 1px solid var(--line) !important; }
+    footer .foot-grid { grid-template-columns: 1fr 1fr !important; }
+    .sticky-mobile-cta { display: flex !important; }
+    .hero { padding-bottom: 120px !important; }
+    /* tighter padding for narrow */
+    .container { padding-left: 20px !important; padding-right: 20px !important; }
+    .hero h1 { font-size: clamp(40px, 11vw, 56px) !important; }
+  </style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="image-slot.js"></script>
+</head>
+<body class="dir-calm">
+  <div class="device"><div id="root"></div></div>
+
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="pages.jsx"></script>
+  <script type="text/babel" src="pages2.jsx"></script>
+  <script type="text/babel" src="app.jsx"></script>
+</body>
+</html>
