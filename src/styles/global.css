@@ -224,6 +224,7 @@ main { flex: 1; }
 }
 
 .nav-burger { display: none; }
+.nav-sheet { display: none; }
 @media (max-width: 920px) {
   .nav-links { display: none; }
   .nav-burger {
