@@ -16,7 +16,7 @@ galerie:
   - imagine: /images/in-tei-langa-cuib-albine.jpg
     legenda: pe langa cuibul de albine din tei
   - imagine: /images/asigurare-ham.jpg
-    legenda: siguranta cu ham de protecti lucru la inaltime
+    legenda: siguranta cu ham de protectie pentru lucru la inaltime
   - imagine: /images/costum-apicultor.jpg
     legenda: apicultor in costum
   - imagine: /images/pregatire-tei-geaman.jpg
@@ -33,6 +33,8 @@ galerie:
     legenda: scaunele din butuci de tei
   - imagine: /images/pregatire-tei-geaman.jpg
     legenda: tei geaman
+  - imagine: /images/radacina-tei2.jpg
+    legenda: 2 tei gemeni care au gazduit un ecosistem intreg
 ---
 Uneori mă întreabă lumea de ce fac toate astea. Dacă există bani în asta, dacă merită, dacă nu mi-e frică. După intervenția de la Rădulești, cred că am răspunsul mai clar ca niciodată: da, mi-a fost frică. Și este bine că mi-a fost. Frica te face atent, te obligă să nu faci greșeli. Iar această intervenție a testat tot ce aveam mai bun la mine: echipament, stăpânire de sine și valori.
 
