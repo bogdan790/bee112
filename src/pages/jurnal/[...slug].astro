@@ -65,17 +65,21 @@ const fmt = (dt: Date) => `${luni[dt.getMonth()]} ${dt.getFullYear()}`;
     const lbImg = document.getElementById('lightbox-img') as HTMLImageElement;
     const prevBtn = document.getElementById('lightbox-prev') as HTMLButtonElement;
     const nextBtn = document.getElementById('lightbox-next') as HTMLButtonElement;
-    const imgs = Array.from(document.querySelectorAll('.art-body img, .art-gallery img')) as HTMLImageElement[];
+    const all = Array.from(document.querySelectorAll('.art-body img, .art-gallery img')) as HTMLImageElement[];
+    // listă de poze UNICE (pozele apar și în text, și în galerie) — în ordinea apariției
+    const srcs: string[] = [];
+    const uniq: HTMLImageElement[] = [];
+    all.forEach((el) => { if (!srcs.includes(el.src)) { srcs.push(el.src); uniq.push(el); } });
     let idx = 0;
 
     // ascunde săgețile dacă e o singură poză
-    const multi = imgs.length > 1;
+    const multi = uniq.length > 1;
     prevBtn.hidden = !multi;
     nextBtn.hidden = !multi;
 
     const show = (i: number) => {
-      idx = (i + imgs.length) % imgs.length;
-      const el = imgs[idx];
+      idx = (i + uniq.length) % uniq.length;
+      const el = uniq[idx];
       lbImg.src = el.currentSrc || el.src;
       lbImg.alt = el.alt || '';
     };
@@ -84,9 +88,9 @@ const fmt = (dt: Date) => `${luni[dt.getMonth()]} ${dt.getFullYear()}`;
     const prev = () => show(idx - 1);
     const next = () => show(idx + 1);
 
-    imgs.forEach((el, i) => {
+    all.forEach((el) => {
       el.style.cursor = 'zoom-in';
-      el.addEventListener('click', () => open(i));
+      el.addEventListener('click', () => open(srcs.indexOf(el.src)));
     });
     prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
     nextBtn.addEventListener('click', (e) => { e.stopPropagation(); next(); });
