@@ -64,7 +64,7 @@ Am urcat din nou. O creangă pe care mă sprijineam a cedat fără avertisment. 
 
 Șase ore de muncă brută, la 35 de grade.
 
-![Rădăcinile celor doi tei gemeni, la final.](/images/radacini-tei-final.jpg)
+![Rădăcinile celor doi tei gemeni, la final.](/images/radacina-tei.jpg)
 
 ## Plecarea cu demnitate
 
