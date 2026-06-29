@@ -12,6 +12,27 @@ fotoHeroCaption: "Prima vedere la fața locului: cei doi tei gemeni."
 featured: true
 galerie:
   - imagine: /images/pregatire-ham.jpg
+    legenda: apicultor in tei
+  - imagine: /images/in-tei-langa-cuib-albine.jpg
+    legenda: pe langa cuibul de albine din tei
+  - imagine: /images/asigurare-ham.jpg
+    legenda: siguranta cu ham de protecti lucru la inaltime
+  - imagine: /images/costum-apicultor.jpg
+    legenda: apicultor in costum
+  - imagine: /images/pregatire-tei-geaman.jpg
+    legenda: pregatire taiere tei
+  - imagine: /images/faguri-puiet.jpg
+    legenda: faguri in trunchi de tei cu puiet
+  - imagine: /images/img-20260626-wa0033.jpg
+    legenda: tei uscat
+  - imagine: /images/albine-roinita.jpg
+    legenda: apicultor YO3BEE in actiune
+  - imagine: /images/larve-gandacul-rinocer.jpg
+    legenda: Larve de gandac rinocer
+  - imagine: /images/butuci-scaunele.jpg
+    legenda: scaunele din butuci de tei
+  - imagine: /images/pregatire-tei-geaman.jpg
+    legenda: tei geaman
 ---
 Uneori mă întreabă lumea de ce fac toate astea. Dacă există bani în asta, dacă merită, dacă nu mi-e frică. După intervenția de la Rădulești, cred că am răspunsul mai clar ca niciodată: da, mi-a fost frică. Și este bine că mi-a fost. Frica te face atent, te obligă să nu faci greșeli. Iar această intervenție a testat tot ce aveam mai bun la mine: echipament, stăpânire de sine și valori.
 
