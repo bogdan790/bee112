@@ -20,7 +20,8 @@ backend:
 # Pe bee112.ro este ignorat automat — acolo se folosește backend-ul github de mai sus.
 local_backend: true
 
-publish_mode: editorial_workflow
+# Publicare directă: când salvezi, modificarea ajunge direct pe site (după rebuild).
+# (Pentru flux cu ciorne + aprobare, adaugă înapoi: publish_mode: editorial_workflow)
 
 media_folder: "public/images"        # toate pozele
 public_folder: "/images"
