@@ -1,0 +1,68 @@
+{
+  "seoTitle": "Importanța albinelor – BEE112",
+  "seoDescription": "De ce albinele sunt esențiale și de ce un roi nu este o amenințare. Ghid de identificare și informații de la BEE112.",
+  "head": {
+    "eyebrow": "Educație",
+    "h1": "Albinele nu sunt doar insecte care produc miere.",
+    "lede": "Sunt esențiale pentru polenizarea plantelor, echilibrul naturii și hrana pe care o consumăm zilnic. Fără ele, multe plante nu ar mai putea produce fructe sau semințe."
+  },
+  "stats": [
+    { "num": "75%", "lbl": "din culturile alimentare globale depind de polenizatori" },
+    { "num": "3", "lbl": "din 4 fructe consumate vin via polenizare" },
+    { "num": "~90%", "lbl": "din roiurile urbane pot fi salvate intact" },
+    { "num": "0", "lbl": "substanțe toxice folosite în intervenții" }
+  ],
+  "notAggressive": {
+    "heading": "Albinele NU sunt agresive",
+    "intro": "Un lucru important de știut: <strong>albinele nu sunt agresive din fire</strong>. Un roi:",
+    "list": [
+      "nu are stup",
+      "nu are miere de apărat",
+      "este, de obicei, liniștit"
+    ],
+    "outro": "Majoritatea înțepăturilor apar din panică sau din intervenții greșite — niciodată din inițiativă proprie a albinelor."
+  },
+  "confusion": {
+    "heading": "Albine, viespi sau altceva?",
+    "text": "Mulți oameni confundă albinele cu viespile, hornetele sau bondarii. Comportamentele lor sunt diferite. Dacă nu ești sigur ce ai găsit, <strong>nu interveni</strong> — sună-ne și te ajutăm să identifici situația.",
+    "callout": {
+      "title": "Spune-ne la telefon",
+      "text": "Pe baza descrierii — sau a unei poze, dacă poți face — îți confirmăm dacă sunt albine sau altceva. Fără ipoteze, fără riscuri."
+    }
+  },
+  "identify": {
+    "eyebrow": "Identifică",
+    "heading": "Ce ai în fața ta?",
+    "sub": "Trei comportamente. Trei reacții potrivite. Pentru orice altceva — sună.",
+    "cards": [
+      {
+        "imgSrc": "/images/roi-albine.jpg",
+        "imgAlt": "Roi compact de albine staționat pe o creangă",
+        "verdictClass": "ok",
+        "verdictLabel": "Roi compact",
+        "title": "Roi de albine staționat",
+        "text": "Bilă densă, agățată de o creangă, balcon sau structură. Calmă. Acesta este momentul potrivit să suni."
+      },
+      {
+        "imgSrc": "/images/cuib-viespi.jpg",
+        "imgAlt": "Cuib de viespi gri în formă de balon sub streașină",
+        "verdictClass": "no",
+        "verdictLabel": "Cuib viespi",
+        "title": "Cuib de viespi / hornete",
+        "text": "Cuib gri, în formă de balon, sub streașină sau în spații închise. Mai agresive — păstrează distanță."
+      },
+      {
+        "imgSrc": "/images/roirea-albinelor.jpg",
+        "imgAlt": "Nor dens de albine în zbor în timpul roirii — albinele caută o casă nouă",
+        "verdictClass": "maybe",
+        "verdictLabel": "Roi în zbor",
+        "title": "Roi în mișcare — roirea",
+        "text": "Nor dens de mii de albine în zbor. Pare înfricoșător, dar albinele sunt calme — caută o casă nouă. Durează 20–60 de minute. Nu interveni, sună-ne."
+      }
+    ]
+  },
+  "reassure": {
+    "heading": "Ce se întâmplă dacă un roi este distrus.",
+    "text": "Un roi distrus înseamnă o viitoare colonie care nu va mai exista. Pe termen lung, asta afectează ecosistemul — albinele sunt polenizatorii care ne aduc fructele și legumele pe masă. De cele mai multe ori intervențiile sunt <strong>rapide și sigure</strong>. Sună înainte să faci ceva."
+  }
+}

@@ -1,0 +1,60 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { getCollection } from 'astro:content';
+
+const luni = ['ianuarie','februarie','martie','aprilie','mai','iunie','iulie','august','septembrie','octombrie','noiembrie','decembrie'];
+const fmt = (d: Date) => `${luni[d.getMonth()]} ${d.getFullYear()}`;
+
+let posts = await getCollection('jurnal');
+posts.sort((a, b) => b.data.data.valueOf() - a.data.data.valueOf()); // cel mai NOU primul
+const [featured, ...rest] = posts;
+---
+
+<PageLayout title="Jurnal — Intervenții BEE112" description="Arhivă de intervenții BEE112: povești reale din teren, roiuri salvate în București, Ilfov și împrejurimi.">
+  <section class="page-head">
+    <div class="shell">
+      <div class="eyebrow" style="margin-bottom:18px">Arhivă de intervenții</div>
+      <h1>Jurnal</h1>
+      <p class="lede">Povești reale din teren — fiecare roi salvat are locul, ziua și oamenii lui. Cele mai recente intervenții apar primele.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="shell">
+      {featured && (
+        <a class="jrn-feature" href={`/jurnal/${featured.id}`}>
+          <div class="ph">
+            <img src={featured.data.fotoHero} alt={featured.data.title} />
+            {featured.data.eticheta && <span class="tag">{featured.data.eticheta}</span>}
+          </div>
+          <div class="body">
+            <span class="flag">● Cea mai recentă intervenție</span>
+            <div class="jrn-meta"><span>{featured.data.locatie}</span><span class="dot"></span><span>{fmt(featured.data.data)}</span></div>
+            <h2>{featured.data.title}</h2>
+            <p>{featured.data.rezumat}</p>
+            <span class="more">Citește povestea →</span>
+          </div>
+        </a>
+      )}
+
+      {rest.length > 0 && (
+        <div class="jrn-grid" style="margin-top:calc(28px * var(--space))">
+          {rest.map((p) => (
+            <a class="jrn-card" href={`/jurnal/${p.id}`}>
+              <div class="ph">
+                <img src={p.data.fotoHero} alt={p.data.title} />
+                {p.data.eticheta && <span class="tag">{p.data.eticheta}</span>}
+              </div>
+              <div class="body">
+                <div class="jrn-meta"><span>{p.data.locatie}</span><span class="dot"></span><span>{fmt(p.data.data)}</span></div>
+                <h3>{p.data.title}</h3>
+                <p>{p.data.rezumat}</p>
+                <span class="more">Citește povestea →</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</PageLayout>

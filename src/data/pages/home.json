@@ -1,0 +1,67 @@
+{
+  "seoTitle": "BEE112 – Ai găsit un roi de albine?",
+  "seoDescription": "Ai găsit un roi de albine? Nu le omorî. Sună-ne. Intervenții gratuite, voluntari apicultori, București și Ilfov.",
+  "hero": {
+    "eyebrow": "Patrula Apicolă Urbană · București · Ilfov",
+    "title": "Ai găsit un roi de albine?<br><span style=\"color:var(--primary)\">E în regulă.</span> Te ajutăm.",
+    "lede": "Vorbim calm, evaluăm situația, trimitem un apicultor voluntar. Fără formulare, fără grabă.",
+    "meta": [
+      { "strong": "Gratuit", "rest": " · serviciu voluntar" },
+      { "strong": "Non-letal", "rest": " · fără substanțe" },
+      { "strong": "Discret", "rest": " · fără birocrație" }
+    ]
+  },
+  "infoCard": {
+    "title": "Despre intervenție",
+    "rows": [
+      { "label": "Cost", "value": "Gratuit" },
+      { "label": "Echipă", "value": "Apicultori voluntari" },
+      { "label": "Acoperire", "value": "București & Ilfov" },
+      { "label": "Timp răspuns", "value": "~30 min telefon" },
+      { "label": "Program", "value": "Lumina zilei" }
+    ],
+    "live": "Echipa disponibilă · răspundem direct la telefon"
+  },
+  "sections": [
+    {
+      "kind": "process",
+      "eyebrow": "Procesul",
+      "heading": "Cum funcționează BEE112. Doi pași. Nici un formular.",
+      "sub": "Fluxul este simplu pentru că oamenii speriați nu completează formulare. Tot ce avem nevoie discutăm la telefon.",
+      "steps": [
+        { "num": "01", "kicker": "Apel telefonic", "title": "Suni și discutăm calm", "text": "Răspundem direct la 0761 330 577. Te întrebăm unde este roiul, cât de mare pare și dacă este accesibil. Fără formulare, fără cont, fără pași inutili." },
+        { "num": "02", "kicker": "Intervenție", "title": "Trimitem un apicultor voluntar", "text": "Stabilim ora, ne deplasăm și recuperăm roiul în siguranță. Albinele sunt relocate în stupinele noastre. Nu folosim substanțe toxice." }
+      ]
+    },
+    {
+      "kind": "authorities",
+      "eyebrow": "Colaborăm",
+      "heading": "Nu suntem singuri. Lucrăm cu autoritățile.",
+      "sub": "Mulți cetățeni sună la 112 sau la Poliția Locală. Apelurile ajung la noi prin redirecționare. Pentru cazurile dificile, intervenim împreună cu ISU.",
+      "cards": [
+        { "badge": "112 · ISU", "title": "Serviciul de urgență & Pompierii", "text": "Pentru situații dificile — etaje superioare, acces periculos — pompierii ISU vin alături de noi cu echipamente speciale." },
+        { "badge": "Sectoarele 1–6", "title": "Administrația Domeniului Public", "text": "ADP ne sprijină cu acces și logistică în intervențiile urbane. Este coloana tăcută a multor recuperări de roiuri." },
+        { "badge": "Primul contact", "title": "Poliția Locală", "text": "Adesea primul contact al cetățeanului. Redirecționează sesizările către echipa BEE112 — scopul comun este calmul și siguranța." }
+      ]
+    },
+    {
+      "kind": "avoid",
+      "eyebrow": "Educație",
+      "heading": "Ce să NU faci dacă vezi un roi de albine.",
+      "sub": "Cele mai multe înțepături nu vin de la roi. Vin de la oamenii care încearcă să facă „ceva\" înainte să sune.",
+      "items": [
+        { "title": "Nu stropi cu insecticide", "text": "Sunt toxice și nu rezolvă problema — roiul rămâne pe loc." },
+        { "title": "Nu folosi foc sau spumă", "text": "Pericol grav de incendiu și de înțepături în masă." },
+        { "title": "Nu arunca cu apă", "text": "Apa nu îndepărtează roiul. Doar enervează albinele." },
+        { "title": "Nu interveni fără experiență", "text": "Mută copiii și animalele, apoi sună. Restul îl facem noi." }
+      ],
+      "ctaLabel": "Vezi ghidul complet →",
+      "ctaHref": "/ce-sa-nu-faci"
+    },
+    {
+      "kind": "reassure",
+      "heading": "Albinele nu sunt agresive când roiesc.",
+      "text": "În peste 90% din cazuri, intervenția este simplă și sigură. Roiul nu are stup, nu are miere de apărat — este, de obicei, liniștit și concentrat să-și găsească o casă nouă."
+    }
+  ]
+}

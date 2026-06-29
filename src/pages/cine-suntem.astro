@@ -1,53 +1,52 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-const title = 'Cine suntem – BEE112';
-const description = 'BEE112 — Patrula Apicolă Urbană este o inițiativă civică de voluntariat, pornită în București, formată din apicultori voluntari care salvează roiuri.';
+import PhoneButton from '../components/PhoneButton.astro';
+import data from '../data/pages/cine-suntem.json';
+
+const { pageHead, about, summaryCard, noCharge } = data;
 ---
 
-<PageLayout title={title} description={description}>
+<PageLayout title={data.seoTitle} description={data.seoDescription}>
   <div class="page-fade">
     <section class="page-head">
       <div class="shell">
-        <div class="eyebrow" style="margin-bottom:18px">Despre BEE112</div>
-        <h1>O linie umană pentru albinele orașului.</h1>
-        <p class="lede">BEE112 — Patrula Apicolă Urbană este o inițiativă civică de voluntariat, pornită în București și extinsă la nivel național printr-o rețea de apicultori voluntari.</p>
+        <div class="eyebrow" style="margin-bottom:18px">{pageHead.eyebrow}</div>
+        <h1>{pageHead.title}</h1>
+        <p class="lede">{pageHead.lede}</p>
       </div>
     </section>
 
     <section>
       <div class="shell about-grid">
         <div class="prose">
-          <h2>De unde vine numele „112"</h2>
-          <p>Așa cum 112 este numărul unic pentru urgențe, <strong>BEE112</strong> este punctul de contact pentru situații care implică albine. Nu suntem 112. Dar funcționăm după aceeași logică: suni, discutăm calm, trimitem ajutorul potrivit.</p>
+          <h2>{about.nameOrigin.heading}</h2>
+          <p set:html={about.nameOrigin.text}></p>
 
-          <h2>Ce facem, concret</h2>
+          <h2>{about.whatWeDo.heading}</h2>
           <ul>
-            <li>Salvăm roiuri de albine din copaci, balcoane, clădiri, spații publice.</li>
-            <li>Relocăm albinele în stupinele noastre, în siguranță.</li>
-            <li>Nu folosim substanțe toxice.</li>
-            <li>Nu distrugem coloniile.</li>
+            {about.whatWeDo.items.map((it) => (
+              <li>{it}</li>
+            ))}
           </ul>
-          <p><strong>Scopul nostru este salvarea, nu eliminarea.</strong></p>
+          <p set:html={about.whatWeDo.summary}></p>
 
           <div class="callout">
-            <div class="ttl">Promisiunea noastră</div>
-            <p>Nu distruge. Sună. Rezolvăm.</p>
+            <div class="ttl">{about.callout.title}</div>
+            <p>{about.callout.text}</p>
           </div>
 
-          <h2>Oamenii din spatele BEE112</h2>
-          <p>BEE112 este format din apicultori autorizați, voluntari cu experiență și oameni care cunosc comportamentul albinelor în mediul urban. Validarea echipei nu este birocratică — este <strong>umană</strong>. Contează cum vorbești cu un om panicat. Nu câți stupi ai.</p>
+          <h2>{about.people.heading}</h2>
+          <p set:html={about.people.text}></p>
 
-          <h2>Intervenim prin colaborare</h2>
-          <p>De-a lungul timpului, am colaborat sau am fost solicitați de serviciul 112, autorități locale, instituții publice, cetățeni. Scopul comun a fost întotdeauna siguranța oamenilor și protejarea albinelor.</p>
+          <h2>{about.collaboration.heading}</h2>
+          <p>{about.collaboration.text}</p>
         </div>
         <div>
           <div class="contact-card">
-            <div class="side-card-title">Pe scurt</div>
-            <div class="contact-stat"><b>Origine</b><span>București, 2021</span></div>
-            <div class="contact-stat"><b>Acoperire</b><span>București &amp; Ilfov</span></div>
-            <div class="contact-stat"><b>Tip</b><span>Voluntariat</span></div>
-            <div class="contact-stat"><b>Mentorat de</b><span>ACA București</span></div>
-            <div class="contact-stat"><b>Cost intervenție</b><span>0 lei</span></div>
+            <div class="side-card-title">{summaryCard.title}</div>
+            {summaryCard.stats.map((s) => (
+              <div class="contact-stat"><b>{s.label}</b><span>{s.value}</span></div>
+            ))}
           </div>
         </div>
       </div>
@@ -55,14 +54,11 @@ const description = 'BEE112 — Patrula Apicolă Urbană este o inițiativă civ
 
     <section class="section-alt">
       <div class="shell" style="text-align:center">
-        <h2 style="font-size:clamp(28px,3.4vw,46px);max-width:22ch;margin:0 auto 24px;line-height:1.1">Intervenția nu se taxează.</h2>
+        <h2 style="font-size:clamp(28px,3.4vw,46px);max-width:22ch;margin:0 auto 24px;line-height:1.1">{noCharge.heading}</h2>
         <p style="max-width:52ch;margin:0 auto 36px;color:var(--ink-soft);font-size:17px">
-          Această activitate nu este o afacere. Nu există interese pecuniare — suntem iubitori de albine.
+          {noCharge.text}
         </p>
-        <a href="tel:+40761330577" class="btn-phone">
-          <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span><span class="lbl">Sună acum</span><span class="num">0761 330 577</span></span>
-        </a>
+        <PhoneButton />
       </div>
     </section>
   </div>

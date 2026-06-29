@@ -1,28 +1,25 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-const title = 'Ce să NU faci – BEE112';
-const description = 'Ghid esențial: ce să nu faci dacă ai găsit un roi de albine. Sfaturi de la Patrula Apicolă Urbană BEE112.';
+import PhoneButton from '../components/PhoneButton.astro';
+import data from '../data/pages/ce-sa-nu-faci.json';
 ---
 
-<PageLayout title={title} description={description}>
+<PageLayout title={data.seoTitle} description={data.seoDescription}>
   <div class="page-fade">
     <section class="page-head">
       <div class="shell">
-        <div class="eyebrow" style="margin-bottom:18px">Ghid esențial · 3 minute</div>
-        <h1>Ce să NU faci dacă ai găsit un roi de albine.</h1>
-        <p class="lede">Albinele nu sunt agresive în mod normal, însă pot reacționa dacă sunt deranjate. Cele mai multe înțepături apar din panică sau intervenții greșite.</p>
+        <div class="eyebrow" style="margin-bottom:18px">{data.head.eyebrow}</div>
+        <h1>{data.head.title}</h1>
+        <p class="lede">{data.head.lede}</p>
       </div>
     </section>
 
     <section>
       <div class="shell">
         <div class="avoid-grid">
-          <div class="avoid-item"><div class="avoid-icon">✕</div><div><h4>Nu folosi insecticide sau chimicale</h4><p>Poți omorî o parte din albine, dar nu rezolvi nimic — roiul rămâne, iar cele rămase devin agresive. Riscul crește, nu scade.</p></div></div>
-          <div class="avoid-item"><div class="avoid-icon">✕</div><div><h4>Nu folosi foc sau căldură</h4><p>Pericol grav de incendiu. Poți da foc la casă sau vegetație și nu faci decât să agravezi situația — dintr-un roi ajungi la intervenție cu pompierii. Cheamă pe cineva abilitat.</p></div></div>
-          <div class="avoid-item"><div class="avoid-icon">✕</div><div><h4>Nu pulveriza cu spumă poliuretanică</h4><p>Nu funcționează și agravează situația. Albinele ies prin spumă după ce se întărește — furioase. Dintr-un roi calm faci o urgență reală.</p></div></div>
-          <div class="avoid-item"><div class="avoid-icon">✕</div><div><h4>Nu arunca cu apă, ulei sau alte lichide</h4><p>Nu îndepărtează roiul. Doar îl enervează și complică intervenția apicultorului.</p></div></div>
-          <div class="avoid-item"><div class="avoid-icon">✕</div><div><h4>Nu încerca să muți roiul cu mâna</h4><p>Fără echipament și fără experiență, orice mișcare greșită creează discomfort coloniei și riști înțepături multiple. Lasă asta pe seama unui apicultor experimentat.</p></div></div>
-          <div class="avoid-item"><div class="avoid-icon">✕</div><div><h4>Nu chema deratizatori</h4><p>Deratizatorii nu sunt pregătiți pentru albine și, în cel mai bun caz, te vor îndruma să suni un apicultor. Sari peste un pas inutil — sună direct.</p></div></div>
+          {data.avoidItems.map((it) => (
+            <div class="avoid-item"><div class="avoid-icon">✕</div><div><h4>{it.title}</h4><p>{it.text}</p></div></div>
+          ))}
         </div>
       </div>
     </section>
@@ -31,28 +28,22 @@ const description = 'Ghid esențial: ce să nu faci dacă ai găsit un roi de al
       <div class="shell">
         <div class="sect-head">
           <div>
-            <div class="eyebrow" style="margin-bottom:16px">Ce să faci, în schimb</div>
-            <h2>Trei lucruri simple, înainte să suni.</h2>
+            <div class="eyebrow" style="margin-bottom:16px">{data.instead.eyebrow}</div>
+            <h2>{data.instead.heading}</h2>
           </div>
         </div>
         <div class="steps">
-          <div class="step">
-            <div class="step-num"><span>01</span><span>Distanță</span></div>
-            <h3>Păstrează distanța</h3>
-            <p>3-5 metri sunt suficienți. Roiul nu te va urmări. Mută copiii și animalele din zonă, dar fără panică.</p>
-          </div>
-          <div class="step">
-            <div class="step-num"><span>02</span><span>Acces</span></div>
-            <h3>Nu lăsa pe nimeni să intervină</h3>
-            <p>Vecinii bine intenționați, administratorul de bloc, deratizatorii — niciunul nu are echipament potrivit. Așteaptă apicultorul.</p>
-          </div>
+          {data.instead.steps.map((s) => (
+            <div class="step">
+              <div class="step-num"><span>{s.num}</span><span>{s.kicker}</span></div>
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+            </div>
+          ))}
         </div>
         <div style="margin-top:56px;text-align:center">
-          <a href="tel:+40761330577" class="btn-phone">
-            <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <span><span class="lbl">Sună acum</span><span class="num">0761 330 577</span></span>
-          </a>
-          <p style="margin-top:18px;color:var(--ink-soft);font-size:14px">Un apel ne ajută să înțelegem situația și să găsim cea mai bună soluție.</p>
+          <PhoneButton />
+          <p style="margin-top:18px;color:var(--ink-soft);font-size:14px">{data.instead.note}</p>
         </div>
       </div>
     </section>

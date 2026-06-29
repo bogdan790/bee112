@@ -1,42 +1,28 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-const title = 'Întrebări frecvente – BEE112';
-const description = 'Răspunsuri scurte la întrebări reale despre roiuri de albine, intervenții și serviciile BEE112.';
-
-const faqItems = [
-  { q: "Costă intervenția?", a: "<p><strong>Intervenția în sine este gratuită.</strong> Suntem voluntari, iar scopul nostru este salvarea albinelor.</p><p>În anumite situații pot apărea costuri colaterale legate de contextul în care se află roiul (acces dificil). Toate detaliile sunt discutate clar la telefon, înainte de orice intervenție.</p>" },
-  { q: "Ce faceți cu albinele după ce le luați?", a: "<p>Albinele sunt relocate în <strong>stupinele noastre</strong>, unde își pot continua viața normal. Preluăm orice mărime de roi.</p>" },
-  { q: "Este normal să fie atât de multe albine în oraș?", a: "<p><strong>Da, este normal.</strong> Există o perioadă a anului — mai ales primăvara, lunile mai–iunie — când albinele devin mult mai vizibile, datorită roirii. Albinele există de milioane de ani și s-au adaptat la prezența noastră.</p>" },
-  { q: "Interveniți noaptea?", a: "<p>În principiu, <strong>nu intervenim noaptea</strong>. Pentru o recuperare sigură este nevoie de vizibilitate. De obicei recuperăm roiurile pe timpul zilei și revenim pe înserat pentru a ridica cutiile.</p>" },
-  { q: "Ce fac dacă nu sunt sigur că sunt albine?", a: "<p>Procedați exact la fel ca și cum ați ști sigur: <strong>ne sunați</strong>. Pe baza descrierii și a unor fotografii vă putem ajuta să identificați corect insecta.</p>" },
-  { q: "Ce fac dacă sunt viespi?", a: "<p>Viespile sunt mai agresive. Nu le provocați, nu încercați să interveniți singur. Sunați-ne și vă oferim explicații clare despre ce să NU faceți și ce opțiuni aveți.</p>" },
-  { q: "Ce fac dacă roiul este într-o zonă periculoasă?", a: "<p>Roiurile de albine <strong>nu sunt agresive</strong>. Am avut intervenții în școli, hoteluri, zone publice. Ce trebuie să faceți: păstrați distanța, nu interveniți, sunați.</p>" },
-  { q: "Ce fac dacă roiul pleacă singur?", a: "<p>Îi urați drum bun 😊. Și — vă rugăm — ne anunțați telefonic, ca să nu venim degeaba și să putem redirecționa intervenția.</p>" },
-  { q: "Ce fac dacă sunt alergic?", a: "<p>Dacă sunteți înțepat și știți că aveți alergie, <strong>apelați imediat serviciile medicale de urgență</strong>. Noi suntem apicultori, nu medici.</p>" },
-  { q: "Interveniți și în afara Bucureștiului?", a: "<p>Intervenim în București, mare parte din Ilfov și localitățile limitrofe. Avem colaboratori și în alte localități și putem redirecționa solicitarea.</p>" },
-  { q: "Roiul a plecat și echipa e deja pe drum. Ce fac?", a: "<p>Sunați-ne cât mai repede. Un simplu apel ne ajută să evităm deplasări inutile și să redirecționăm resursele.</p>" },
-];
+import PhoneButton from '../components/PhoneButton.astro';
+import data from '../data/pages/intrebari-frecvente.json';
 ---
-<PageLayout title={title} description={description}>
+<PageLayout title={data.seoTitle} description={data.seoDescription}>
   <div class="page-fade">
     <section class="page-head">
       <div class="shell">
-        <div class="eyebrow" style="margin-bottom:18px">Întrebări frecvente</div>
-        <h1>Răspunsuri scurte la întrebări reale.</h1>
-        <p class="lede">Întrebări care apar des, în mijlocul situațiilor reale. Răspunsuri date la telefon, transcrise aici pentru cei care vor mai întâi să citească.</p>
+        <div class="eyebrow" style="margin-bottom:18px">{data.eyebrow}</div>
+        <h1>{data.heading}</h1>
+        <p class="lede">{data.lede}</p>
       </div>
     </section>
 
     <section>
       <div class="narrow">
         <div class="faq-list">
-          {faqItems.map((item) => (
+          {data.faqItems.map((item) => (
             <details class="faq-item">
               <summary>
-                <span>{item.q}</span>
+                <span>{item.question}</span>
                 <span class="faq-chevron">+</span>
               </summary>
-              <div class="faq-body" set:html={item.a} />
+              <div class="faq-body" set:html={item.answer} />
             </details>
           ))}
         </div>
@@ -45,11 +31,8 @@ const faqItems = [
 
     <section class="section-alt">
       <div class="shell" style="text-align:center">
-        <p style="font-size:19px;color:var(--ink-soft);margin-bottom:32px;max-width:48ch;margin-left:auto;margin-right:auto">Nu ai găsit răspunsul? Sună-ne direct — răspundem calm la orice întrebare.</p>
-        <a href="tel:+40761330577" class="btn-phone">
-          <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span><span class="lbl">Sună acum</span><span class="num">0761 330 577</span></span>
-        </a>
+        <p style="font-size:19px;color:var(--ink-soft);margin-bottom:32px;max-width:48ch;margin-left:auto;margin-right:auto">{data.ctaText}</p>
+        <PhoneButton />
       </div>
     </section>
   </div>

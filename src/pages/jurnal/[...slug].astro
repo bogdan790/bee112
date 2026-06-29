@@ -1,0 +1,74 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('jurnal');
+  return posts.map((p) => ({ params: { slug: p.id }, props: { post: p } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const d = post.data;
+const luni = ['ianuarie','februarie','martie','aprilie','mai','iunie','iulie','august','septembrie','octombrie','noiembrie','decembrie'];
+const fmt = (dt: Date) => `${luni[dt.getMonth()]} ${dt.getFullYear()}`;
+---
+
+<PageLayout title={`${d.title} — Jurnal BEE112`} description={d.rezumat}>
+  <section style="padding-bottom:0">
+    <div class="shell">
+      <a class="art-back" href="/jurnal">← Înapoi la Jurnal</a>
+      <div class="art-head">
+        {d.eticheta && <span class="tag">{d.eticheta}</span>}
+        <h1>{d.title}</h1>
+        <div class="jrn-meta"><span>Jurnal de teren · {d.locatie}</span><span class="dot"></span><span>{fmt(d.data)}</span></div>
+        <p class="lede" style="margin-top:20px">{d.rezumat}</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:32px">
+    <div class="shell">
+      <figure class="art-figure art-hero">
+        <img src={d.fotoHero} alt={d.fotoHeroCaption || d.title} />
+      </figure>
+      {d.fotoHeroCaption && <div class="art-cap">{d.fotoHeroCaption}</div>}
+
+      <!-- Corpul articolului din Markdown; pozele ![]() devin <img> și deschid lightbox -->
+      <div class="art-body">
+        <Content />
+      </div>
+
+      {d.galerie.length > 0 && (
+        <div class="art-gallery">
+          <div class="eyebrow" style="margin-bottom:20px">Galerie · toate fotografiile</div>
+          <div class="grid">
+            {d.galerie.map((g) => (
+              <div class="cell"><img src={g.imagine} alt={g.legenda || ''} /></div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Lightbox (vanilla, ca scriptul din Header.astro) -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="close" id="lightbox-close" aria-label="Închide">×</button>
+    <img src="" alt="" id="lightbox-img" />
+  </div>
+
+  <script>
+    const lb = document.getElementById('lightbox') as HTMLElement;
+    const lbImg = document.getElementById('lightbox-img') as HTMLImageElement;
+    const close = () => { lb.hidden = true; lbImg.src = ''; };
+    document.querySelectorAll('.art-body img, .art-gallery img').forEach((img) => {
+      const el = img as HTMLImageElement;
+      el.style.cursor = 'zoom-in';
+      el.addEventListener('click', () => { lbImg.src = el.currentSrc || el.src; lb.hidden = false; });
+    });
+    lb.addEventListener('click', close);
+    document.getElementById('lightbox-close')!.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+  </script>
+</PageLayout>

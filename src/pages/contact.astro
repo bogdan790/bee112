@@ -1,15 +1,15 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-const title = 'Contact – BEE112';
-const description = 'Contactează BEE112 pentru salvarea unui roi de albine în București și Ilfov. Telefon: 0761 330 577.';
+import PhoneButton from '../components/PhoneButton.astro';
+import data from '../data/pages/contact.json';
 ---
-<PageLayout title={title} description={description}>
+<PageLayout title={data.seoTitle} description={data.seoDescription}>
   <div class="page-fade">
     <section class="page-head">
       <div class="shell">
-        <div class="eyebrow" style="margin-bottom:18px">Contact BEE112</div>
-        <h1>Apelul telefonic. Întotdeauna apelul.</h1>
-        <p class="lede">Pentru situații care implică albine, apelul telefonic este cea mai rapidă și eficientă soluție. Nu folosim formulare pentru urgențe.</p>
+        <div class="eyebrow" style="margin-bottom:18px">{data.head.eyebrow}</div>
+        <h1>{data.head.h1}</h1>
+        <p class="lede">{data.head.lede}</p>
       </div>
     </section>
 
@@ -17,37 +17,29 @@ const description = 'Contactează BEE112 pentru salvarea unui roi de albine în 
       <div class="shell">
         <div class="contact-grid">
           <div>
-            <a href="tel:+40761330577" class="btn-phone">
-              <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span><span class="lbl">Sună acum</span><span class="num">0761 330 577</span></span>
-            </a>
+            <PhoneButton />
             <p style="margin-top:18px;color:var(--ink-soft);font-size:15px;max-width:46ch">
-              Discutăm calm. Te ghidăm pas cu pas. Stabilim ora intervenției împreună. Fără formulare, fără cont, fără presiune.
+              {data.phoneNote}
             </p>
 
-            <h2 style="font-size:28px;margin-top:56px;margin-bottom:20px;letter-spacing:-0.02em">Limitare geografică</h2>
-            <p style="color:var(--ink-soft);font-size:16px;line-height:1.7;max-width:52ch">
-              BEE112 funcționează exclusiv în <strong>municipiul București și județul Ilfov</strong>. Dacă te afli în alt oraș, încearcă să contactezi un apicultor local sau o asociație apicolă din zonă.
-            </p>
+            <h2 style="font-size:28px;margin-top:56px;margin-bottom:20px;letter-spacing:-0.02em">{data.geo.heading}</h2>
+            <p style="color:var(--ink-soft);font-size:16px;line-height:1.7;max-width:52ch" set:html={data.geo.text}></p>
 
             <div class="callout warn" style="margin-top:28px;max-width:560px">
-              <div class="ttl">Urgență medicală</div>
-              <p>Dacă ai fost înțepat și ești alergic, apelează imediat <strong>112</strong>. Noi suntem apicultori, nu medici.</p>
+              <div class="ttl">{data.emergency.title}</div>
+              <p set:html={data.emergency.text}></p>
             </div>
           </div>
           <div>
             <div class="contact-card">
-              <div class="side-card-title">Date contact</div>
-              <div class="contact-stat"><b>Telefon</b><a href="tel:+40761330577">0761 330 577</a></div>
-              <div class="contact-stat"><b>Email</b><a href="mailto:contact@bee112.ro">contact@bee112.ro</a></div>
-              <div class="contact-stat"><b>Web</b><span>bee112.ro</span></div>
-              <div class="contact-stat"><b>Zona</b><span>București &amp; Ilfov</span></div>
-              <div class="contact-stat"><b>Program</b><span>Lumina zilei</span></div>
-              <div class="contact-stat"><b>Cost</b><span>Gratuit</span></div>
+              <div class="side-card-title">{data.contactCard.title}</div>
+              {data.contactCard.rows.map((r) => (
+                <div class="contact-stat"><b>{r.label}</b>{r.href ? <a href={r.href}>{r.value}</a> : <span>{r.value}</span>}</div>
+              ))}
             </div>
             <div style="margin-top:20px">
-              <a href="https://www.facebook.com/p/Patrula-Apicola-Urbana-100068758055323/?locale=ro_RO" target="_blank" rel="noopener" class="btn-ghost" style="width:100%;justify-content:center">
-                Facebook · Patrula Apicolă Urbană
+              <a href={data.facebook.href} target="_blank" rel="noopener" class="btn-ghost" style="width:100%;justify-content:center">
+                {data.facebook.label}
               </a>
             </div>
           </div>

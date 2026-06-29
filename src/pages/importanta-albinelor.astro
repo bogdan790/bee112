@@ -1,25 +1,24 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-const title = 'Importanța albinelor – BEE112';
-const description = 'De ce albinele sunt esențiale și de ce un roi nu este o amenințare. Ghid de identificare și informații de la BEE112.';
+import PhoneButton from '../components/PhoneButton.astro';
+import data from '../data/pages/importanta-albinelor.json';
 ---
-<PageLayout title={title} description={description}>
+<PageLayout title={data.seoTitle} description={data.seoDescription}>
   <div class="page-fade">
     <section class="page-head">
       <div class="shell">
-        <div class="eyebrow" style="margin-bottom:18px">Educație</div>
-        <h1>Albinele nu sunt doar insecte care produc miere.</h1>
-        <p class="lede">Sunt esențiale pentru polenizarea plantelor, echilibrul naturii și hrana pe care o consumăm zilnic. Fără ele, multe plante nu ar mai putea produce fructe sau semințe.</p>
+        <div class="eyebrow" style="margin-bottom:18px">{data.head.eyebrow}</div>
+        <h1>{data.head.h1}</h1>
+        <p class="lede">{data.head.lede}</p>
       </div>
     </section>
 
     <section style="padding-top:0">
       <div class="shell">
         <div class="stats-strip">
-          <div class="stat"><div class="stat-num">75%</div><div class="stat-lbl">din culturile alimentare globale depind de polenizatori</div></div>
-          <div class="stat"><div class="stat-num">3</div><div class="stat-lbl">din 4 fructe consumate vin via polenizare</div></div>
-          <div class="stat"><div class="stat-num">~90%</div><div class="stat-lbl">din roiurile urbane pot fi salvate intact</div></div>
-          <div class="stat"><div class="stat-num">0</div><div class="stat-lbl">substanțe toxice folosite în intervenții</div></div>
+          {data.stats.map((s) => (
+            <div class="stat"><div class="stat-num">{s.num}</div><div class="stat-lbl">{s.lbl}</div></div>
+          ))}
         </div>
       </div>
     </section>
@@ -27,20 +26,20 @@ const description = 'De ce albinele sunt esențiale și de ce un roi nu este o a
     <section>
       <div class="shell">
         <div class="prose">
-          <h2>Albinele NU sunt agresive</h2>
-          <p>Un lucru important de știut: <strong>albinele nu sunt agresive din fire</strong>. Un roi:</p>
+          <h2>{data.notAggressive.heading}</h2>
+          <p set:html={data.notAggressive.intro}></p>
           <ul>
-            <li>nu are stup</li>
-            <li>nu are miere de apărat</li>
-            <li>este, de obicei, liniștit</li>
+            {data.notAggressive.list.map((li) => (
+              <li>{li}</li>
+            ))}
           </ul>
-          <p>Majoritatea înțepăturilor apar din panică sau din intervenții greșite — niciodată din inițiativă proprie a albinelor.</p>
+          <p>{data.notAggressive.outro}</p>
 
-          <h2>Albine, viespi sau altceva?</h2>
-          <p>Mulți oameni confundă albinele cu viespile, hornetele sau bondarii. Comportamentele lor sunt diferite. Dacă nu ești sigur ce ai găsit, <strong>nu interveni</strong> — sună-ne și te ajutăm să identifici situația.</p>
+          <h2>{data.confusion.heading}</h2>
+          <p set:html={data.confusion.text}></p>
           <div class="callout">
-            <div class="ttl">Spune-ne la telefon</div>
-            <p>Pe baza descrierii — sau a unei poze, dacă poți face — îți confirmăm dacă sunt albine sau altceva. Fără ipoteze, fără riscuri.</p>
+            <div class="ttl">{data.confusion.callout.title}</div>
+            <p>{data.confusion.callout.text}</p>
           </div>
         </div>
       </div>
@@ -50,36 +49,22 @@ const description = 'De ce albinele sunt esențiale și de ce un roi nu este o a
       <div class="shell">
         <div class="sect-head">
           <div>
-            <div class="eyebrow" style="margin-bottom:16px">Identifică</div>
-            <h2>Ce ai în fața ta?</h2>
+            <div class="eyebrow" style="margin-bottom:16px">{data.identify.eyebrow}</div>
+            <h2>{data.identify.heading}</h2>
           </div>
-          <p class="sub">Trei comportamente. Trei reacții potrivite. Pentru orice altceva — sună.</p>
+          <p class="sub">{data.identify.sub}</p>
         </div>
         <div class="id-grid">
-          <div class="id-card">
-            <div class="photo"><img src="/images/roi-albine.jpg" alt="Roi compact de albine staționat pe o creangă" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
-            <div class="body">
-              <span class="verdict ok">Roi compact</span>
-              <h3 style="margin-top:10px">Roi de albine staționat</h3>
-              <p>Bilă densă, agățată de o creangă, balcon sau structură. Calmă. Acesta este momentul potrivit să suni.</p>
+          {data.identify.cards.map((c) => (
+            <div class="id-card">
+              <div class="photo"><img src={c.imgSrc} alt={c.imgAlt} style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+              <div class="body">
+                <span class={`verdict ${c.verdictClass}`}>{c.verdictLabel}</span>
+                <h3 style="margin-top:10px">{c.title}</h3>
+                <p>{c.text}</p>
+              </div>
             </div>
-          </div>
-          <div class="id-card">
-            <div class="photo"><img src="/images/cuib-viespi.jpg" alt="Cuib de viespi gri în formă de balon sub streașină" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
-            <div class="body">
-              <span class="verdict no">Cuib viespi</span>
-              <h3 style="margin-top:10px">Cuib de viespi / hornete</h3>
-              <p>Cuib gri, în formă de balon, sub streașină sau în spații închise. Mai agresive — păstrează distanță.</p>
-            </div>
-          </div>
-          <div class="id-card">
-            <div class="photo"><img src="/images/roirea-albinelor.jpg" alt="Nor dens de albine în zbor în timpul roirii — albinele caută o casă nouă" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
-            <div class="body">
-              <span class="verdict maybe">Roi în zbor</span>
-              <h3 style="margin-top:10px">Roi în mișcare — roirea</h3>
-              <p>Nor dens de mii de albine în zbor. Pare înfricoșător, dar albinele sunt calme — caută o casă nouă. Durează 20–60 de minute. Nu interveni, sună-ne.</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -88,14 +73,11 @@ const description = 'De ce albinele sunt esențiale și de ce un roi nu este o a
       <div class="shell">
         <div class="reassure">
           <div>
-            <h2>Ce se întâmplă dacă un roi este distrus.</h2>
-            <p>Un roi distrus înseamnă o viitoare colonie care nu va mai exista. Pe termen lung, asta afectează ecosistemul — albinele sunt polenizatorii care ne aduc fructele și legumele pe masă. De cele mai multe ori intervențiile sunt <strong>rapide și sigure</strong>. Sună înainte să faci ceva.</p>
+            <h2>{data.reassure.heading}</h2>
+            <p set:html={data.reassure.text}></p>
           </div>
           <div class="right">
-            <a href="tel:+40761330577" class="btn-phone">
-              <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span><span class="lbl">Sună acum</span><span class="num">0761 330 577</span></span>
-            </a>
+            <PhoneButton />
           </div>
         </div>
       </div>

@@ -1,0 +1,37 @@
+{
+  "seoTitle": "Lucrăm cu autoritățile – BEE112",
+  "seoDescription": "BEE112 colaborează cu 112, ISU, ADP și Poliția Locală pentru intervenții în siguranță.",
+  "head": {
+    "eyebrow": "Colaborăm cu autoritățile",
+    "title": "BEE112 nu acționează singur.",
+    "lede": "Intervențiile sunt rezultatul unei colaborări reale între voluntari și autorități. Fiecare entitate are un rol — și cetățeanul panicat nu este lăsat singur."
+  },
+  "authorities": [
+    {
+      "badge": "Prim contact · 24/7",
+      "title": "112 &amp; ISU – Pompierii",
+      "paragraphs": [
+        "În multe situații, cetățenii apelează direct serviciul de urgență 112. În funcție de caz, apelul este redirecționat către structurile competente — inclusiv ISU – Pompierii.",
+        "În situațiile dificile (etaje superioare, acces periculos), pompierii ISU sunt alături de noi. Sunt oameni curajoși care urcă la înălțime și oferă sprijin direct pentru salvarea albinelor."
+      ]
+    },
+    {
+      "badge": "Sectoarele 1–6",
+      "title": "ADP",
+      "paragraphs": [
+        "Administrația Domeniului Public, prin structurile de sector, ne sprijină frecvent cu acces și logistică în intervențiile urbane. Este coloana tăcută a multor recuperări de roiuri — uneori cu nacelă, alteori cu permis de acces."
+      ]
+    },
+    {
+      "badge": "Liant",
+      "title": "Poliția Locală",
+      "paragraphs": [
+        "Poliția Locală este adesea primul contact al cetățeanului și are un rol important în redirecționarea corectă a situațiilor către echipele competente. Este liantul între panică și soluție."
+      ]
+    }
+  ],
+  "note": {
+    "title": "Notă",
+    "text": "BEE112 nu se substituie autorităților. BEE112 colaborează. Asta ne poziționează responsabil, legal și credibil — fără să promitem ce nu ținem."
+  }
+}

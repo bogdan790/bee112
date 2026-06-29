@@ -1,0 +1,7 @@
+name = "bee112-cms-oauth"
+main = "src/worker.js"
+compatibility_date = "2024-11-01"
+
+# Secrets (NU se pun aici — se setează cu `wrangler secret put`):
+#   wrangler secret put GITHUB_CLIENT_ID
+#   wrangler secret put GITHUB_CLIENT_SECRET

@@ -1,16 +1,10 @@
 ---
-const currentPath = Astro.url.pathname;
+// src/components/Header.astro — refactorizat: meniul și brandul vin din JSON.
+import nav from '../data/nav.json';
+import site from '../data/site.json';
 
-const navLinks = [
-  { href: '/cine-suntem', label: 'Cine suntem' },
-  { href: '/cum-functioneaza', label: 'Cum funcționează' },
-  { href: '/importanta-albinelor', label: 'Importanța albinelor' },
-  { href: '/ce-sa-nu-faci', label: 'Ce să NU faci' },
-  { href: '/autoritati', label: 'Autorități' },
-  { href: '/intrebari-frecvente', label: 'Întrebări' },
-  { href: '/voluntariat', label: 'Voluntariat' },
-  { href: '/contact', label: 'Contact' },
-];
+const currentPath = Astro.url.pathname;
+const navLinks = nav.links;
 
 function isActive(href: string): boolean {
   return currentPath === href || currentPath.startsWith(href + '/');
@@ -20,7 +14,7 @@ function isActive(href: string): boolean {
 <div class="nav">
   <div class="shell">
     <div class="nav-inner">
-      <a href="/" class="brand" aria-label="BEE112 — acasă">
+      <a href="/" class="brand" aria-label={`${site.brandName} — acasă`}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 75" style="height:48px;width:auto;display:block;flex-shrink:0">
           <g transform="translate(0,5)">
             <path d="M 0 35 Q 45 28 95 18" stroke="#888b8d" stroke-width="12" stroke-linecap="round" fill="none"/>
@@ -53,10 +47,7 @@ function isActive(href: string): boolean {
     <div class="nav-sheet" id="nav-sheet">
       <a href="/" class={currentPath === '/' ? 'nav-link active' : 'nav-link'}>Acasă</a>
       {navLinks.map((link) => (
-        <a
-          href={link.href}
-          class={isActive(link.href) ? 'nav-link active' : 'nav-link'}
-        >
+        <a href={link.href} class={isActive(link.href) ? 'nav-link active' : 'nav-link'}>
           {link.label}
         </a>
       ))}

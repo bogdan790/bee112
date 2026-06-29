@@ -1,0 +1,36 @@
+{
+  "tagline": "Inițiativă civică de voluntariat. Salvăm roiuri de albine în București și Ilfov, fără substanțe toxice, fără taxe.",
+  "bottomLeft": "BEE112 · Patrula Apicolă Urbană · serviciu voluntar, fără scop comercial",
+  "bottomRight": "© {{year}} bee112.ro",
+  "columns": [
+    {
+      "title": "Site",
+      "links": [
+        { "label": "Acasă", "href": "/" },
+        { "label": "Cine suntem", "href": "/cine-suntem" },
+        { "label": "Cum funcționează", "href": "/cum-functioneaza" },
+        { "label": "Importanța albinelor", "href": "/importanta-albinelor" }
+      ]
+    },
+    {
+      "title": "Resurse",
+      "links": [
+        { "label": "Ce să NU faci", "href": "/ce-sa-nu-faci" },
+        { "label": "Lucrăm cu autoritățile", "href": "/autoritati" },
+        { "label": "Jurnal", "href": "/jurnal" },
+        { "label": "Întrebări frecvente", "href": "/intrebari-frecvente" },
+        { "label": "Voluntariat", "href": "/voluntariat" }
+      ]
+    },
+    {
+      "title": "Contact",
+      "links": [
+        { "label": "0761 330 577", "href": "tel:+40761330577" },
+        { "label": "București & Ilfov", "href": "" },
+        { "label": "contact@bee112.ro", "href": "mailto:contact@bee112.ro" },
+        { "label": "Facebook · Patrula Apicolă", "href": "https://www.facebook.com/p/Patrula-Apicola-Urbana-100068758055323/?locale=ro_RO" },
+        { "label": "Toate datele", "href": "/contact" }
+      ]
+    }
+  ]
+}

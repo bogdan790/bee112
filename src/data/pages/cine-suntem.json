@@ -1,0 +1,51 @@
+{
+  "seoTitle": "Cine suntem – BEE112",
+  "seoDescription": "BEE112 — Patrula Apicolă Urbană este o inițiativă civică de voluntariat, pornită în București, formată din apicultori voluntari care salvează roiuri.",
+  "pageHead": {
+    "eyebrow": "Despre BEE112",
+    "title": "O linie umană pentru albinele orașului.",
+    "lede": "BEE112 — Patrula Apicolă Urbană este o inițiativă civică de voluntariat, pornită în București și extinsă la nivel național printr-o rețea de apicultori voluntari."
+  },
+  "about": {
+    "nameOrigin": {
+      "heading": "De unde vine numele „112\"",
+      "text": "Așa cum 112 este numărul unic pentru urgențe, <strong>BEE112</strong> este punctul de contact pentru situații care implică albine. Nu suntem 112. Dar funcționăm după aceeași logică: suni, discutăm calm, trimitem ajutorul potrivit."
+    },
+    "whatWeDo": {
+      "heading": "Ce facem, concret",
+      "items": [
+        "Salvăm roiuri de albine din copaci, balcoane, clădiri, spații publice.",
+        "Relocăm albinele în stupinele noastre, în siguranță.",
+        "Nu folosim substanțe toxice.",
+        "Nu distrugem coloniile."
+      ],
+      "summary": "<strong>Scopul nostru este salvarea, nu eliminarea.</strong>"
+    },
+    "callout": {
+      "title": "Promisiunea noastră",
+      "text": "Nu distruge. Sună. Rezolvăm."
+    },
+    "people": {
+      "heading": "Oamenii din spatele BEE112",
+      "text": "BEE112 este format din apicultori autorizați, voluntari cu experiență și oameni care cunosc comportamentul albinelor în mediul urban. Validarea echipei nu este birocratică — este <strong>umană</strong>. Contează cum vorbești cu un om panicat. Nu câți stupi ai."
+    },
+    "collaboration": {
+      "heading": "Intervenim prin colaborare",
+      "text": "De-a lungul timpului, am colaborat sau am fost solicitați de serviciul 112, autorități locale, instituții publice, cetățeni. Scopul comun a fost întotdeauna siguranța oamenilor și protejarea albinelor."
+    }
+  },
+  "summaryCard": {
+    "title": "Pe scurt",
+    "stats": [
+      { "label": "Origine", "value": "București, 2021" },
+      { "label": "Acoperire", "value": "București & Ilfov" },
+      { "label": "Tip", "value": "Voluntariat" },
+      { "label": "Mentorat de", "value": "ACA București" },
+      { "label": "Cost intervenție", "value": "0 lei" }
+    ]
+  },
+  "noCharge": {
+    "heading": "Intervenția nu se taxează.",
+    "text": "Această activitate nu este o afacere. Nu există interese pecuniare — suntem iubitori de albine."
+  }
+}

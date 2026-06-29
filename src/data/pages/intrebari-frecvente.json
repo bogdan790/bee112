@@ -1,0 +1,21 @@
+{
+  "seoTitle": "Întrebări frecvente – BEE112",
+  "seoDescription": "Răspunsuri scurte la întrebări reale despre roiuri de albine, intervenții și serviciile BEE112.",
+  "eyebrow": "Întrebări frecvente",
+  "heading": "Răspunsuri scurte la întrebări reale.",
+  "lede": "Întrebări care apar des, în mijlocul situațiilor reale. Răspunsuri date la telefon, transcrise aici pentru cei care vor mai întâi să citească.",
+  "faqItems": [
+    { "question": "Costă intervenția?", "answer": "<p><strong>Intervenția în sine este gratuită.</strong> Suntem voluntari, iar scopul nostru este salvarea albinelor.</p><p>În anumite situații pot apărea costuri colaterale legate de contextul în care se află roiul (acces dificil). Toate detaliile sunt discutate clar la telefon, înainte de orice intervenție.</p>" },
+    { "question": "Ce faceți cu albinele după ce le luați?", "answer": "<p>Albinele sunt relocate în <strong>stupinele noastre</strong>, unde își pot continua viața normal. Preluăm orice mărime de roi.</p>" },
+    { "question": "Este normal să fie atât de multe albine în oraș?", "answer": "<p><strong>Da, este normal.</strong> Există o perioadă a anului — mai ales primăvara, lunile mai–iunie — când albinele devin mult mai vizibile, datorită roirii. Albinele există de milioane de ani și s-au adaptat la prezența noastră.</p>" },
+    { "question": "Interveniți noaptea?", "answer": "<p>În principiu, <strong>nu intervenim noaptea</strong>. Pentru o recuperare sigură este nevoie de vizibilitate. De obicei recuperăm roiurile pe timpul zilei și revenim pe înserat pentru a ridica cutiile.</p>" },
+    { "question": "Ce fac dacă nu sunt sigur că sunt albine?", "answer": "<p>Procedați exact la fel ca și cum ați ști sigur: <strong>ne sunați</strong>. Pe baza descrierii și a unor fotografii vă putem ajuta să identificați corect insecta.</p>" },
+    { "question": "Ce fac dacă sunt viespi?", "answer": "<p>Viespile sunt mai agresive. Nu le provocați, nu încercați să interveniți singur. Sunați-ne și vă oferim explicații clare despre ce să NU faceți și ce opțiuni aveți.</p>" },
+    { "question": "Ce fac dacă roiul este într-o zonă periculoasă?", "answer": "<p>Roiurile de albine <strong>nu sunt agresive</strong>. Am avut intervenții în școli, hoteluri, zone publice. Ce trebuie să faceți: păstrați distanța, nu interveniți, sunați.</p>" },
+    { "question": "Ce fac dacă roiul pleacă singur?", "answer": "<p>Îi urați drum bun 😊. Și — vă rugăm — ne anunțați telefonic, ca să nu venim degeaba și să putem redirecționa intervenția.</p>" },
+    { "question": "Ce fac dacă sunt alergic?", "answer": "<p>Dacă sunteți înțepat și știți că aveți alergie, <strong>apelați imediat serviciile medicale de urgență</strong>. Noi suntem apicultori, nu medici.</p>" },
+    { "question": "Interveniți și în afara Bucureștiului?", "answer": "<p>Intervenim în București, mare parte din Ilfov și localitățile limitrofe. Avem colaboratori și în alte localități și putem redirecționa solicitarea.</p>" },
+    { "question": "Roiul a plecat și echipa e deja pe drum. Ce fac?", "answer": "<p>Sunați-ne cât mai repede. Un simplu apel ne ajută să evităm deplasări inutile și să redirecționăm resursele.</p>" }
+  ],
+  "ctaText": "Nu ai găsit răspunsul? Sună-ne direct — răspundem calm la orice întrebare."
+}

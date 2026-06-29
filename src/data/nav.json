@@ -1,0 +1,13 @@
+{
+  "links": [
+    { "label": "Cine suntem", "href": "/cine-suntem" },
+    { "label": "Cum funcționează", "href": "/cum-functioneaza" },
+    { "label": "Importanța albinelor", "href": "/importanta-albinelor" },
+    { "label": "Ce să NU faci", "href": "/ce-sa-nu-faci" },
+    { "label": "Autorități", "href": "/autoritati" },
+    { "label": "Jurnal", "href": "/jurnal" },
+    { "label": "Întrebări", "href": "/intrebari-frecvente" },
+    { "label": "Voluntariat", "href": "/voluntariat" },
+    { "label": "Contact", "href": "/contact" }
+  ]
+}

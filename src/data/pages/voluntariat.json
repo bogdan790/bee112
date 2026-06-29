@@ -1,0 +1,58 @@
+{
+  "seoTitle": "Voluntariat – BEE112",
+  "seoDescription": "Vrei să fii parte din echipa de voluntari BEE112? Aflați cum poți deveni parte din Patrula Apicolă Urbană.",
+  "head": {
+    "eyebrow": "Patrula Apicolă Urbană",
+    "title": "Vrei să fii parte din echipa de voluntari?",
+    "lede": "Dacă ești apicultor, pasionat de protejarea albinelor sau pur și simplu vrei să ajuți comunitatea, ne poți contacta pentru a deveni voluntar PAB."
+  },
+  "who": {
+    "heading": "Cine poate deveni voluntar",
+    "text": "Apicultori cu experiență, persoane cu cursuri apicole, pasionați dispuși să învețe alături de un mentor. Validarea noastră nu este birocratică — este <strong>umană</strong>."
+  },
+  "looking": {
+    "heading": "Ce căutăm",
+    "items": [
+      "oameni care iubesc albina",
+      "care înțeleg frica omului",
+      "care știu să vorbească calm",
+      "care nu judecă, nu fac scandal"
+    ]
+  },
+  "irrelevant": {
+    "heading": "Ce nu contează",
+    "items": [
+      "câți stupi ai",
+      "ce producție faci",
+      "ce rang ai în asociație"
+    ]
+  },
+  "callout": {
+    "title": "Cel mai simplu mod",
+    "text": "Sună-ne. Discutăm. Dacă ne potrivim, te invităm la o intervenție și vezi cum lucrăm."
+  },
+  "form": {
+    "heading": "Sau scrie-ne câteva rânduri",
+    "intro": "Te contactăm la telefon. Fără birocrație, fără CV.",
+    "nameLabel": "Numele tău",
+    "namePlaceholder": "Cum te cheamă",
+    "phoneLabel": "Telefon",
+    "phonePlaceholder": "07xx xxx xxx",
+    "cityLabel": "Oraș",
+    "cityPlaceholder": "București, Pipera, Otopeni...",
+    "experienceLabel": "Experiență",
+    "experienceOptions": [
+      "Apicultor cu stupi proprii",
+      "Curs apicol absolvit",
+      "Pasionat, vreau să învăț",
+      "Vreau să ajut altcumva"
+    ],
+    "messageLabel": "Câteva rânduri despre tine",
+    "messagePlaceholder": "Ce te-a făcut să vrei să te alături?",
+    "submitLabel": "Trimite"
+  },
+  "thanks": {
+    "title": "Mulțumim",
+    "text": "Mesajul tău a ajuns. Te sunăm în 24–48 ore. Între timp — albinele îți mulțumesc."
+  }
+}

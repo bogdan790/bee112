@@ -1,32 +1,29 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-const title = 'Cum funcționează – BEE112';
-const description = 'Doi pași, o voce umană, zero birocrație. Cum intervine BEE112 pentru salvarea roiurilor de albine.';
+import PhoneButton from '../components/PhoneButton.astro';
+import data from '../data/pages/cum-functioneaza.json';
 ---
 
-<PageLayout title={title} description={description}>
+<PageLayout title={data.seoTitle} description={data.seoDescription}>
   <div class="page-fade">
     <section class="page-head">
       <div class="shell">
-        <div class="eyebrow" style="margin-bottom:18px">Procesul de intervenție</div>
-        <h1>Doi pași. O voce umană. Zero birocrație.</h1>
-        <p class="lede">BEE112 nu colectează formulare în situații de urgență. Discutăm la telefon, ne deplasăm, salvăm roiul. Restul detaliilor le rezolvăm împreună.</p>
+        <div class="eyebrow" style="margin-bottom:18px">{data.pageHead.eyebrow}</div>
+        <h1>{data.pageHead.title}</h1>
+        <p class="lede">{data.pageHead.lede}</p>
       </div>
     </section>
 
     <section>
       <div class="shell">
         <div class="steps">
-          <div class="step">
-            <div class="step-num"><span>01</span><span>Apelul</span></div>
-            <h3>Suni la BEE112</h3>
-            <p>Răspundem direct, fără robot, fără meniu vocal. Te ascultăm calm. Te întrebăm câteva detalii simple — unde este roiul, cât de mare pare, dacă e accesibil.</p>
-          </div>
-          <div class="step">
-            <div class="step-num"><span>02</span><span>Intervenția</span></div>
-            <h3>Trimitem un apicultor voluntar</h3>
-            <p>Stabilim ora împreună. Apicultorul ajunge cu echipament. Recuperează roiul fără substanțe toxice. Te lăsăm cu situația rezolvată.</p>
-          </div>
+          {data.steps.map((s) => (
+            <div class="step">
+              <div class="step-num"><span>{s.num}</span><span>{s.kicker}</span></div>
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -35,23 +32,20 @@ const description = 'Doi pași, o voce umană, zero birocrație. Cum intervine B
       <div class="shell">
         <div class="sect-head">
           <div>
-            <div class="eyebrow" style="margin-bottom:16px">În culise</div>
-            <h2>Cum ajunge apelul la apicultorul potrivit.</h2>
+            <div class="eyebrow" style="margin-bottom:16px">{data.behind.eyebrow}</div>
+            <h2>{data.behind.heading}</h2>
           </div>
-          <p class="sub">Procesul real, în spatele unui apel scurt. Transparent, fără promisiuni nerealiste.</p>
+          <p class="sub">{data.behind.sub}</p>
         </div>
         <div class="prose" style="max-width:820px">
           <ol>
-            <li><strong>Descoperi roiul.</strong> Un copac, un balcon, o clădire — albinele se odihnesc înainte să-și caute o casă.</li>
-            <li><strong>Apelezi BEE112, 112, Poliția Locală sau ADP.</strong> Oricare dintre acestea funcționează. Toate ajung la noi.</li>
-            <li><strong>Sesizarea ajunge la persoana responsabilă</strong> de grup (Marian Pătrașcu).</li>
-            <li><strong>Intervenția este alocată</strong> în funcție de disponibilitate, locație și dificultate.</li>
-            <li><strong>Dacă este nevoie:</strong> ADP — acces și nacelă; ISU — echipamente și sprijin la înălțime.</li>
-            <li><strong>BEE112 aduce know-how-ul apicol.</strong> Pompierii și ADP-ul aduc accesul. Tu ne aduci apelul.</li>
+            {data.behind.items.map((it) => (
+              <li set:html={it}></li>
+            ))}
           </ol>
           <div class="callout warn">
-            <div class="ttl">Important</div>
-            <p>Dacă roiul pleacă singur înainte să ajungem, sună-ne. Comunicarea ne ajută să nu facem drumuri inutile și să redirecționăm intervenția către alt caz.</p>
+            <div class="ttl">{data.behind.callout.title}</div>
+            <p>{data.behind.callout.text}</p>
           </div>
         </div>
       </div>
@@ -61,19 +55,17 @@ const description = 'Doi pași, o voce umană, zero birocrație. Cum intervine B
       <div class="shell">
         <div class="sect-head">
           <div>
-            <div class="eyebrow" style="margin-bottom:16px">Siguranța intervenției</div>
-            <h2>Pentru oameni și pentru albine.</h2>
+            <div class="eyebrow" style="margin-bottom:16px">{data.safety.eyebrow}</div>
+            <h2>{data.safety.heading}</h2>
           </div>
         </div>
         <div class="prose">
-          <p><strong>Nu folosim substanțe toxice.</strong> Insecticidele, fumul agresiv, focul, spuma poliuretanică — toate sunt excluse. La roiuri proaspete nu folosim nici măcar afumătorul.</p>
-          <p>Lucrăm cu calm, mecanic, controlat. Albinele se transferă într-o cutie de transport, iar drumul către stupina permanentă se face pe înserat, când toată colonia este acasă.</p>
+          {data.safety.paragraphs.map((p) => (
+            <p set:html={p}></p>
+          ))}
         </div>
         <div style="margin-top:48px">
-          <a href="tel:+40761330577" class="btn-phone">
-            <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <span><span class="lbl">Sună acum</span><span class="num">0761 330 577</span></span>
-          </a>
+          <PhoneButton />
         </div>
       </div>
     </section>

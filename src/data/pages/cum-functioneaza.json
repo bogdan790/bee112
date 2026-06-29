@@ -1,0 +1,48 @@
+{
+  "seoTitle": "Cum funcționează – BEE112",
+  "seoDescription": "Doi pași, o voce umană, zero birocrație. Cum intervine BEE112 pentru salvarea roiurilor de albine.",
+  "pageHead": {
+    "eyebrow": "Procesul de intervenție",
+    "title": "Doi pași. O voce umană. Zero birocrație.",
+    "lede": "BEE112 nu colectează formulare în situații de urgență. Discutăm la telefon, ne deplasăm, salvăm roiul. Restul detaliilor le rezolvăm împreună."
+  },
+  "steps": [
+    {
+      "num": "01",
+      "kicker": "Apelul",
+      "title": "Suni la BEE112",
+      "text": "Răspundem direct, fără robot, fără meniu vocal. Te ascultăm calm. Te întrebăm câteva detalii simple — unde este roiul, cât de mare pare, dacă e accesibil."
+    },
+    {
+      "num": "02",
+      "kicker": "Intervenția",
+      "title": "Trimitem un apicultor voluntar",
+      "text": "Stabilim ora împreună. Apicultorul ajunge cu echipament. Recuperează roiul fără substanțe toxice. Te lăsăm cu situația rezolvată."
+    }
+  ],
+  "behind": {
+    "eyebrow": "În culise",
+    "heading": "Cum ajunge apelul la apicultorul potrivit.",
+    "sub": "Procesul real, în spatele unui apel scurt. Transparent, fără promisiuni nerealiste.",
+    "items": [
+      "<strong>Descoperi roiul.</strong> Un copac, un balcon, o clădire — albinele se odihnesc înainte să-și caute o casă.",
+      "<strong>Apelezi BEE112, 112, Poliția Locală sau ADP.</strong> Oricare dintre acestea funcționează. Toate ajung la noi.",
+      "<strong>Sesizarea ajunge la persoana responsabilă</strong> de grup (Marian Pătrașcu).",
+      "<strong>Intervenția este alocată</strong> în funcție de disponibilitate, locație și dificultate.",
+      "<strong>Dacă este nevoie:</strong> ADP — acces și nacelă; ISU — echipamente și sprijin la înălțime.",
+      "<strong>BEE112 aduce know-how-ul apicol.</strong> Pompierii și ADP-ul aduc accesul. Tu ne aduci apelul."
+    ],
+    "callout": {
+      "title": "Important",
+      "text": "Dacă roiul pleacă singur înainte să ajungem, sună-ne. Comunicarea ne ajută să nu facem drumuri inutile și să redirecționăm intervenția către alt caz."
+    }
+  },
+  "safety": {
+    "eyebrow": "Siguranța intervenției",
+    "heading": "Pentru oameni și pentru albine.",
+    "paragraphs": [
+      "<strong>Nu folosim substanțe toxice.</strong> Insecticidele, fumul agresiv, focul, spuma poliuretanică — toate sunt excluse. La roiuri proaspete nu folosim nici măcar afumătorul.",
+      "Lucrăm cu calm, mecanic, controlat. Albinele se transferă într-o cutie de transport, iar drumul către stupina permanentă se face pe înserat, când toată colonia este acasă."
+    ]
+  }
+}

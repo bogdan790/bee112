@@ -1,0 +1,54 @@
+{
+  "seoTitle": "Ce să NU faci – BEE112",
+  "seoDescription": "Ghid esențial: ce să nu faci dacă ai găsit un roi de albine. Sfaturi de la Patrula Apicolă Urbană BEE112.",
+  "head": {
+    "eyebrow": "Ghid esențial · 3 minute",
+    "title": "Ce să NU faci dacă ai găsit un roi de albine.",
+    "lede": "Albinele nu sunt agresive în mod normal, însă pot reacționa dacă sunt deranjate. Cele mai multe înțepături apar din panică sau intervenții greșite."
+  },
+  "avoidItems": [
+    {
+      "title": "Nu folosi insecticide sau chimicale",
+      "text": "Poți omorî o parte din albine, dar nu rezolvi nimic — roiul rămâne, iar cele rămase devin agresive. Riscul crește, nu scade."
+    },
+    {
+      "title": "Nu folosi foc sau căldură",
+      "text": "Pericol grav de incendiu. Poți da foc la casă sau vegetație și nu faci decât să agravezi situația — dintr-un roi ajungi la intervenție cu pompierii. Cheamă pe cineva abilitat."
+    },
+    {
+      "title": "Nu pulveriza cu spumă poliuretanică",
+      "text": "Nu funcționează și agravează situația. Albinele ies prin spumă după ce se întărește — furioase. Dintr-un roi calm faci o urgență reală."
+    },
+    {
+      "title": "Nu arunca cu apă, ulei sau alte lichide",
+      "text": "Nu îndepărtează roiul. Doar îl enervează și complică intervenția apicultorului."
+    },
+    {
+      "title": "Nu încerca să muți roiul cu mâna",
+      "text": "Fără echipament și fără experiență, orice mișcare greșită creează discomfort coloniei și riști înțepături multiple. Lasă asta pe seama unui apicultor experimentat."
+    },
+    {
+      "title": "Nu chema deratizatori",
+      "text": "Deratizatorii nu sunt pregătiți pentru albine și, în cel mai bun caz, te vor îndruma să suni un apicultor. Sari peste un pas inutil — sună direct."
+    }
+  ],
+  "instead": {
+    "eyebrow": "Ce să faci, în schimb",
+    "heading": "Trei lucruri simple, înainte să suni.",
+    "steps": [
+      {
+        "num": "01",
+        "kicker": "Distanță",
+        "title": "Păstrează distanța",
+        "text": "3-5 metri sunt suficienți. Roiul nu te va urmări. Mută copiii și animalele din zonă, dar fără panică."
+      },
+      {
+        "num": "02",
+        "kicker": "Acces",
+        "title": "Nu lăsa pe nimeni să intervină",
+        "text": "Vecinii bine intenționați, administratorul de bloc, deratizatorii — niciunul nu are echipament potrivit. Așteaptă apicultorul."
+      }
+    ],
+    "note": "Un apel ne ajută să înțelegem situația și să găsim cea mai bună soluție."
+  }
+}

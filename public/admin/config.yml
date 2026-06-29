@@ -1,0 +1,568 @@
+# Decap CMS — config.yml
+# În Astro, servește acest fișier ca static la /admin/config.yml  →  public/admin/config.yml
+# Accesibil la: https://bee112.ro/admin/
+#
+# Backend GitHub (pentru Cloudflare Pages — NU git-gateway). Necesită GitHub OAuth App + proxy
+# OAuth (Cloudflare Worker). Vezi INSTRUCTIUNI_DECAP_CMS.md §3.
+#
+# FILOZOFIE: tot ce e editabil trăiește ca fișiere în repo (JSON pentru date globale + pagini,
+# Markdown pentru articole). Fiecare .astro CITEȘTE aceste fișiere. CMS-ul doar le editează.
+
+backend:
+  name: github
+  repo: bogdan790/bee112
+  branch: main
+  base_url: https://bee112-cms-oauth.pavel-bogdann.workers.dev
+  auth_endpoint: /auth
+
+# Test local fără GitHub/commit: rulează `npx decap-server` + `npm run dev`,
+# apoi deschide http://localhost:4321/admin/ (scrie direct în fișierele locale).
+# Pe bee112.ro este ignorat automat — acolo se folosește backend-ul github de mai sus.
+local_backend: true
+
+publish_mode: editorial_workflow
+
+media_folder: "public/images"        # toate pozele
+public_folder: "/images"
+
+locale: "ro"
+
+collections:
+  # ═════════════════════════════════════════════════════════════
+  # 1) SETĂRI GLOBALE — meniu, footer, date de contact, butoane.
+  #    "files" = fișiere unice (singletons), nu liste.
+  # ═════════════════════════════════════════════════════════════
+  - name: "setari"
+    label: "Setări site"
+    files:
+      - name: "site"
+        label: "Date generale & butoane"
+        file: "src/data/site.json"
+        fields:
+          - { name: "brandName", label: "Nume brand", widget: "string", default: "BEE112" }
+          - { name: "phone", label: "Telefon (afișat)", widget: "string", default: "0761 330 577" }
+          - { name: "phoneTel", label: "Telefon (link tel:)", widget: "string", default: "+40761330577" }
+          - { name: "email", label: "Email", widget: "string", default: "contact@bee112.ro" }
+          - { name: "coverage", label: "Acoperire", widget: "string", default: "București & Ilfov" }
+          - { name: "phoneBtnLabel", label: "Etichetă buton telefon", widget: "string", default: "Sună acum" }
+          - { name: "stickyCtaLabel", label: "Buton mobil (sticky)", widget: "string", default: "Sună BEE112" }
+          - { name: "secondaryCtaLabel", label: "Buton secundar (hero)", widget: "string", default: "Cum funcționează →" }
+          - { name: "secondaryCtaHref", label: "Link buton secundar", widget: "string", default: "/cum-functioneaza" }
+
+      - name: "nav"
+        label: "Meniu (navigare)"
+        file: "src/data/nav.json"
+        fields:
+          - name: "links"
+            label: "Linkuri meniu"
+            widget: "list"
+            label_singular: "Link"
+            summary: "{{fields.label}}"
+            fields:
+              - { name: "label", label: "Text", widget: "string" }
+              - { name: "href", label: "Adresă (URL)", widget: "string", hint: "ex: /jurnal" }
+
+      - name: "footer"
+        label: "Footer"
+        file: "src/data/footer.json"
+        fields:
+          - { name: "tagline", label: "Descriere scurtă", widget: "text" }
+          - { name: "bottomLeft", label: "Text jos-stânga", widget: "string", required: false }
+          - { name: "bottomRight", label: "Text jos-dreapta (copyright)", widget: "string", required: false }
+          - name: "columns"
+            label: "Coloane footer"
+            widget: "list"
+            label_singular: "Coloană"
+            summary: "{{fields.title}}"
+            fields:
+              - { name: "title", label: "Titlu coloană", widget: "string" }
+              - name: "links"
+                label: "Linkuri"
+                widget: "list"
+                summary: "{{fields.label}}"
+                fields:
+                  - { name: "label", label: "Text", widget: "string" }
+                  - { name: "href", label: "Adresă", widget: "string", required: false, hint: "lasă gol pentru text simplu, fără link" }
+
+  # ═════════════════════════════════════════════════════════════
+  # 2) PAGINI — conținutul fiecărei pagini ca date structurate.
+  #    Fiecare .astro citește JSON-ul corespunzător din src/data/pages/.
+  #    Mai jos: HOME (exemplu complet). Replică același tipar pentru
+  #    celelalte pagini (cine-suntem, cum-functioneaza, etc.).
+  # ═════════════════════════════════════════════════════════════
+  - name: "pagini"
+    label: "Pagini"
+    files:
+      - name: "home"
+        label: "Acasă"
+        file: "src/data/pages/home.json"
+        fields:
+          - { name: "seoTitle", label: "Titlu SEO", widget: "string" }
+          - { name: "seoDescription", label: "Descriere SEO", widget: "text" }
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "Supratitlu", widget: "string" }
+              - { name: "title", label: "Titlu (HTML permis: <span>, <br>)", widget: "text" }
+              - { name: "lede", label: "Subtitlu", widget: "text" }
+              - name: "meta"
+                label: "Etichete (sub butoane)"
+                widget: "list"
+                summary: "{{fields.strong}}{{fields.rest}}"
+                fields:
+                  - { name: "strong", label: "Accent (bold)", widget: "string" }
+                  - { name: "rest", label: "Rest text", widget: "string" }
+          - label: "Card „Despre intervenție”"
+            name: "infoCard"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Titlu card", widget: "string", default: "Despre intervenție" }
+              - name: "rows"
+                label: "Rânduri"
+                widget: "list"
+                summary: "{{fields.label}}: {{fields.value}}"
+                fields:
+                  - { name: "label", label: "Etichetă", widget: "string" }
+                  - { name: "value", label: "Valoare", widget: "string" }
+              - { name: "live", label: "Text bandă „live”", widget: "string" }
+          - label: "Secțiuni"
+            name: "sections"
+            widget: "list"
+            typeKey: "kind"
+            summary: "{{fields.heading}}"
+            types:
+              - label: "Proces (pași)"
+                name: "process"
+                widget: "object"
+                fields:
+                  - { name: "eyebrow", label: "Supratitlu", widget: "string" }
+                  - { name: "heading", label: "Titlu", widget: "string" }
+                  - { name: "sub", label: "Subtitlu", widget: "text" }
+                  - name: "steps"
+                    label: "Pași"
+                    widget: "list"
+                    summary: "{{fields.title}}"
+                    fields:
+                      - { name: "num", label: "Număr", widget: "string" }
+                      - { name: "kicker", label: "Etichetă", widget: "string" }
+                      - { name: "title", label: "Titlu", widget: "string" }
+                      - { name: "text", label: "Text", widget: "text" }
+              - label: "Autorități (carduri)"
+                name: "authorities"
+                widget: "object"
+                fields:
+                  - { name: "eyebrow", label: "Supratitlu", widget: "string" }
+                  - { name: "heading", label: "Titlu", widget: "string" }
+                  - { name: "sub", label: "Subtitlu", widget: "text" }
+                  - name: "cards"
+                    label: "Carduri"
+                    widget: "list"
+                    summary: "{{fields.title}}"
+                    fields:
+                      - { name: "badge", label: "Etichetă", widget: "string" }
+                      - { name: "title", label: "Titlu", widget: "string" }
+                      - { name: "text", label: "Text", widget: "text" }
+              - label: "Ce să NU faci"
+                name: "avoid"
+                widget: "object"
+                fields:
+                  - { name: "eyebrow", label: "Supratitlu", widget: "string" }
+                  - { name: "heading", label: "Titlu", widget: "string" }
+                  - { name: "sub", label: "Subtitlu", widget: "text" }
+                  - name: "items"
+                    label: "Elemente"
+                    widget: "list"
+                    summary: "{{fields.title}}"
+                    fields:
+                      - { name: "title", label: "Titlu", widget: "string" }
+                      - { name: "text", label: "Text", widget: "text" }
+                  - { name: "ctaLabel", label: "Etichetă buton", widget: "string" }
+                  - { name: "ctaHref", label: "Link buton", widget: "string" }
+              - label: "Reasigurare"
+                name: "reassure"
+                widget: "object"
+                fields:
+                  - { name: "heading", label: "Titlu", widget: "string" }
+                  - { name: "text", label: "Text", widget: "text" }
+      - name: "cine-suntem"
+        label: "Cine suntem"
+        file: "src/data/pages/cine-suntem.json"
+        fields:
+          - { name: "seoTitle", label: "Titlu SEO", widget: "string" }
+          - { name: "seoDescription", label: "Descriere SEO", widget: "text" }
+          - name: "pageHead"
+            label: "Antet pagină"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "Supratitlu", widget: "string" }
+              - { name: "title", label: "Titlu", widget: "string" }
+              - { name: "lede", label: "Introducere", widget: "text" }
+          - name: "about"
+            label: "Despre"
+            widget: "object"
+            fields:
+              - name: "nameOrigin"
+                label: "Originea numelui"
+                widget: "object"
+                fields:
+                  - { name: "heading", label: "Titlu", widget: "string" }
+                  - { name: "text", label: "Text", widget: "text" }
+              - name: "whatWeDo"
+                label: "Ce facem"
+                widget: "object"
+                fields:
+                  - { name: "heading", label: "Titlu", widget: "string" }
+                  - { name: "items", label: "Listă", widget: "list", field: { name: "item", label: "Element", widget: "string" } }
+                  - { name: "summary", label: "Concluzie", widget: "text" }
+              - name: "callout"
+                label: "Casetă evidențiată"
+                widget: "object"
+                fields:
+                  - { name: "title", label: "Titlu", widget: "string" }
+                  - { name: "text", label: "Text", widget: "text" }
+              - name: "people"
+                label: "Oamenii"
+                widget: "object"
+                fields:
+                  - { name: "heading", label: "Titlu", widget: "string" }
+                  - { name: "text", label: "Text", widget: "text" }
+              - name: "collaboration"
+                label: "Colaborare"
+                widget: "object"
+                fields:
+                  - { name: "heading", label: "Titlu", widget: "string" }
+                  - { name: "text", label: "Text", widget: "text" }
+          - name: "summaryCard"
+            label: "Card pe scurt"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Titlu", widget: "string" }
+              - name: "stats"
+                label: "Statistici"
+                widget: "list"
+                fields:
+                  - { name: "label", label: "Etichetă", widget: "string" }
+                  - { name: "value", label: "Valoare", widget: "string" }
+          - name: "noCharge"
+            label: "Fără taxare"
+            widget: "object"
+            fields:
+              - { name: "heading", label: "Titlu", widget: "string" }
+              - { name: "text", label: "Text", widget: "text" }
+      - name: "cum-functioneaza"
+        label: "Cum funcționează"
+        file: "src/data/pages/cum-functioneaza.json"
+        fields:
+          - { name: "seoTitle", label: "Titlu SEO", widget: "string" }
+          - { name: "seoDescription", label: "Descriere SEO", widget: "text" }
+          - label: "Antet pagină"
+            name: "pageHead"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "Supratitlu", widget: "string" }
+              - { name: "title", label: "Titlu", widget: "string" }
+              - { name: "lede", label: "Intro", widget: "text" }
+          - label: "Pași"
+            name: "steps"
+            widget: "list"
+            fields:
+              - { name: "num", label: "Număr", widget: "string" }
+              - { name: "kicker", label: "Etichetă", widget: "string" }
+              - { name: "title", label: "Titlu", widget: "string" }
+              - { name: "text", label: "Text", widget: "text" }
+          - label: "În culise"
+            name: "behind"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "Supratitlu", widget: "string" }
+              - { name: "heading", label: "Titlu", widget: "string" }
+              - { name: "sub", label: "Subtitlu", widget: "text" }
+              - { name: "items", label: "Pași listă (acceptă HTML)", widget: "list", field: { name: "item", label: "Element", widget: "text" } }
+              - label: "Casetă important"
+                name: "callout"
+                widget: "object"
+                fields:
+                  - { name: "title", label: "Titlu", widget: "string" }
+                  - { name: "text", label: "Text", widget: "text" }
+          - label: "Siguranță"
+            name: "safety"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "Supratitlu", widget: "string" }
+              - { name: "heading", label: "Titlu", widget: "string" }
+              - { name: "paragraphs", label: "Paragrafe (acceptă HTML)", widget: "list", field: { name: "paragraph", label: "Paragraf", widget: "text" } }
+      - name: "importanta-albinelor"
+        label: "Importanța albinelor"
+        file: "src/data/pages/importanta-albinelor.json"
+        fields:
+          - { name: "seoTitle", label: "Titlu SEO", widget: "string" }
+          - { name: "seoDescription", label: "Descriere SEO", widget: "text" }
+          - label: "Antet pagină"
+            name: "head"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "Etichetă", widget: "string" }
+              - { name: "h1", label: "Titlu H1", widget: "string" }
+              - { name: "lede", label: "Intro", widget: "text" }
+          - label: "Statistici"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { name: "num", label: "Cifră", widget: "string" }
+              - { name: "lbl", label: "Etichetă", widget: "text" }
+          - label: "Albinele nu sunt agresive"
+            name: "notAggressive"
+            widget: "object"
+            fields:
+              - { name: "heading", label: "Titlu", widget: "string" }
+              - { name: "intro", label: "Intro (permite HTML)", widget: "text" }
+              - { name: "list", label: "Listă", widget: "list", field: { name: "item", label: "Element", widget: "string" } }
+              - { name: "outro", label: "Text final", widget: "text" }
+          - label: "Albine, viespi sau altceva?"
+            name: "confusion"
+            widget: "object"
+            fields:
+              - { name: "heading", label: "Titlu", widget: "string" }
+              - { name: "text", label: "Text (permite HTML)", widget: "text" }
+              - label: "Casetă"
+                name: "callout"
+                widget: "object"
+                fields:
+                  - { name: "title", label: "Titlu casetă", widget: "string" }
+                  - { name: "text", label: "Text casetă", widget: "text" }
+          - label: "Identifică"
+            name: "identify"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "Etichetă", widget: "string" }
+              - { name: "heading", label: "Titlu", widget: "string" }
+              - { name: "sub", label: "Subtitlu", widget: "text" }
+              - label: "Carduri"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - { name: "imgSrc", label: "Imagine", widget: "image" }
+                  - { name: "imgAlt", label: "Text alternativ imagine", widget: "string" }
+                  - { name: "verdictClass", label: "Clasă verdict (ok/no/maybe)", widget: "string" }
+                  - { name: "verdictLabel", label: "Etichetă verdict", widget: "string" }
+                  - { name: "title", label: "Titlu card", widget: "string" }
+                  - { name: "text", label: "Text card", widget: "text" }
+          - label: "Reasigurare"
+            name: "reassure"
+            widget: "object"
+            fields:
+              - { name: "heading", label: "Titlu", widget: "string" }
+              - { name: "text", label: "Text (permite HTML)", widget: "text" }
+      - name: "ce-sa-nu-faci"
+        label: "Ce să NU faci"
+        file: "src/data/pages/ce-sa-nu-faci.json"
+        fields:
+          - { name: "seoTitle", label: "Titlu SEO", widget: "string" }
+          - { name: "seoDescription", label: "Descriere SEO", widget: "text" }
+          - name: "head"
+            label: "Antet pagină"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "Etichetă", widget: "string" }
+              - { name: "title", label: "Titlu (H1)", widget: "string" }
+              - { name: "lede", label: "Introducere", widget: "text" }
+          - name: "avoidItems"
+            label: "Ce să NU faci (listă)"
+            widget: "list"
+            fields:
+              - { name: "title", label: "Titlu", widget: "string" }
+              - { name: "text", label: "Text", widget: "text" }
+          - name: "instead"
+            label: "Ce să faci, în schimb"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "Etichetă", widget: "string" }
+              - { name: "heading", label: "Titlu (H2)", widget: "string" }
+              - name: "steps"
+                label: "Pași"
+                widget: "list"
+                fields:
+                  - { name: "num", label: "Număr", widget: "string" }
+                  - { name: "kicker", label: "Kicker", widget: "string" }
+                  - { name: "title", label: "Titlu", widget: "string" }
+                  - { name: "text", label: "Text", widget: "text" }
+              - { name: "note", label: "Notă sub buton", widget: "text" }
+      - name: "autoritati"
+        label: "Autorități"
+        file: "src/data/pages/autoritati.json"
+        fields:
+          - { name: "seoTitle", label: "Titlu SEO", widget: "string" }
+          - { name: "seoDescription", label: "Descriere SEO", widget: "text" }
+          - name: "head"
+            label: "Antet pagină"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "Supratitlu", widget: "string" }
+              - { name: "title", label: "Titlu (H1)", widget: "string" }
+              - { name: "lede", label: "Text introductiv", widget: "text" }
+          - name: "authorities"
+            label: "Autorități"
+            widget: "list"
+            fields:
+              - { name: "badge", label: "Etichetă", widget: "string" }
+              - { name: "title", label: "Titlu", widget: "string" }
+              - { name: "paragraphs", label: "Paragrafe", widget: "list", field: { name: "text", label: "Text", widget: "text" } }
+          - name: "note"
+            label: "Notă"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Titlu", widget: "string" }
+              - { name: "text", label: "Text", widget: "text" }
+      - name: "intrebari-frecvente"
+        label: "Întrebări frecvente"
+        file: "src/data/pages/intrebari-frecvente.json"
+        fields:
+          - { name: "seoTitle", label: "Titlu SEO", widget: "string" }
+          - { name: "seoDescription", label: "Descriere SEO", widget: "text" }
+          - { name: "eyebrow", label: "Etichetă (eyebrow)", widget: "string" }
+          - { name: "heading", label: "Titlu pagină", widget: "string" }
+          - { name: "lede", label: "Introducere", widget: "text" }
+          - name: "faqItems"
+            label: "Întrebări"
+            widget: "list"
+            fields:
+              - { name: "question", label: "Întrebare", widget: "string" }
+              - { name: "answer", label: "Răspuns", widget: "text" }
+          - { name: "ctaText", label: "Text îndemn (CTA)", widget: "text" }
+      - name: "voluntariat"
+        label: "Voluntariat"
+        file: "src/data/pages/voluntariat.json"
+        fields:
+          - { name: "seoTitle", label: "Titlu SEO", widget: "string" }
+          - { name: "seoDescription", label: "Descriere SEO", widget: "text" }
+          - name: "head"
+            label: "Antet pagină"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "Supratitlu", widget: "string" }
+              - { name: "title", label: "Titlu", widget: "string" }
+              - { name: "lede", label: "Introducere", widget: "text" }
+          - name: "who"
+            label: "Cine poate deveni voluntar"
+            widget: "object"
+            fields:
+              - { name: "heading", label: "Titlu", widget: "string" }
+              - { name: "text", label: "Text", widget: "string" }
+          - name: "looking"
+            label: "Ce căutăm"
+            widget: "object"
+            fields:
+              - { name: "heading", label: "Titlu", widget: "string" }
+              - { name: "items", label: "Elemente", widget: "list", field: { name: "item", label: "Element", widget: "string" } }
+          - name: "irrelevant"
+            label: "Ce nu contează"
+            widget: "object"
+            fields:
+              - { name: "heading", label: "Titlu", widget: "string" }
+              - { name: "items", label: "Elemente", widget: "list", field: { name: "item", label: "Element", widget: "string" } }
+          - name: "callout"
+            label: "Casetă evidențiată"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Titlu", widget: "string" }
+              - { name: "text", label: "Text", widget: "text" }
+          - name: "form"
+            label: "Formular"
+            widget: "object"
+            fields:
+              - { name: "heading", label: "Titlu", widget: "string" }
+              - { name: "intro", label: "Introducere", widget: "text" }
+              - { name: "nameLabel", label: "Etichetă nume", widget: "string" }
+              - { name: "namePlaceholder", label: "Placeholder nume", widget: "string" }
+              - { name: "phoneLabel", label: "Etichetă telefon", widget: "string" }
+              - { name: "phonePlaceholder", label: "Placeholder telefon", widget: "string" }
+              - { name: "cityLabel", label: "Etichetă oraș", widget: "string" }
+              - { name: "cityPlaceholder", label: "Placeholder oraș", widget: "string" }
+              - { name: "experienceLabel", label: "Etichetă experiență", widget: "string" }
+              - { name: "experienceOptions", label: "Opțiuni experiență", widget: "list", field: { name: "option", label: "Opțiune", widget: "string" } }
+              - { name: "messageLabel", label: "Etichetă mesaj", widget: "string" }
+              - { name: "messagePlaceholder", label: "Placeholder mesaj", widget: "string" }
+              - { name: "submitLabel", label: "Etichetă buton trimite", widget: "string" }
+          - name: "thanks"
+            label: "Mesaj mulțumire"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Titlu", widget: "string" }
+              - { name: "text", label: "Text", widget: "text" }
+      - name: "contact"
+        label: "Contact"
+        file: "src/data/pages/contact.json"
+        fields:
+          - { name: "seoTitle", label: "Titlu SEO", widget: "string" }
+          - { name: "seoDescription", label: "Descriere SEO", widget: "text" }
+          - label: "Antet pagină"
+            name: "head"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "Etichetă (eyebrow)", widget: "string" }
+              - { name: "h1", label: "Titlu (H1)", widget: "string" }
+              - { name: "lede", label: "Text introductiv", widget: "text" }
+          - { name: "phoneNote", label: "Notă sub buton telefon", widget: "text" }
+          - label: "Limitare geografică"
+            name: "geo"
+            widget: "object"
+            fields:
+              - { name: "heading", label: "Titlu", widget: "string" }
+              - { name: "text", label: "Text (acceptă HTML)", widget: "text" }
+          - label: "Urgență medicală"
+            name: "emergency"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Titlu", widget: "string" }
+              - { name: "text", label: "Text (acceptă HTML)", widget: "text" }
+          - label: "Card date contact"
+            name: "contactCard"
+            widget: "object"
+            fields:
+              - { name: "title", label: "Titlu card", widget: "string" }
+              - label: "Rânduri"
+                name: "rows"
+                widget: "list"
+                fields:
+                  - { name: "label", label: "Etichetă", widget: "string" }
+                  - { name: "value", label: "Valoare", widget: "string" }
+                  - { name: "href", label: "Link (opțional)", widget: "string", required: false }
+          - label: "Buton Facebook"
+            name: "facebook"
+            widget: "object"
+            fields:
+              - { name: "href", label: "URL", widget: "string" }
+              - { name: "label", label: "Etichetă", widget: "string" }
+
+  # ═════════════════════════════════════════════════════════════
+  # 3) JURNAL — arhiva de intervenții (content collection Astro).
+  # ═════════════════════════════════════════════════════════════
+  - name: "jurnal"
+    label: "Jurnal — Intervenții"
+    label_singular: "Articol"
+    folder: "src/content/jurnal"
+    extension: "md"
+    format: "frontmatter"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{data}} — {{title}}"
+    sortable_fields: ["data", "title"]
+    fields:
+      - { name: "title", label: "Titlu", widget: "string" }
+      - { name: "locatie", label: "Locație", widget: "string", hint: "ex: Rădulești, lângă Videle" }
+      - { name: "data", label: "Dată", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", picker_utc: true }
+      - { name: "eticheta", label: "Etichetă (SEO / tip)", widget: "string", required: false }
+      - { name: "rezumat", label: "Rezumat (card + lede)", widget: "text" }
+      - { name: "fotoHero", label: "Foto principală (hero)", widget: "image" }
+      - { name: "fotoHeroCaption", label: "Legendă foto principală", widget: "string", required: false }
+      - { name: "featured", label: "Afișează mare (featured)", widget: "boolean", default: false }
+      - { name: "body", label: "Conținut articol", widget: "markdown" }
+      - name: "galerie"
+        label: "Galerie"
+        widget: "list"
+        required: false
+        summary: "{{fields.imagine}}"
+        fields:
+          - { name: "imagine", label: "Imagine", widget: "image" }
+          - { name: "legenda", label: "Legendă", widget: "string", required: false }

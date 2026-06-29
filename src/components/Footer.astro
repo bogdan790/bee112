@@ -1,5 +1,8 @@
 ---
+// src/components/Footer.astro — refactorizat: tagline, coloane, linkuri din footer.json.
+import footer from '../data/footer.json';
 const currentYear = new Date().getFullYear();
+const bottomRight = (footer.bottomRight || '').replace('{{year}}', String(currentYear));
 ---
 
 <footer>
@@ -18,42 +21,30 @@ const currentYear = new Date().getFullYear();
             <text x="105" y="52" font-family="var(--font-heading,ui-sans-serif,system-ui,sans-serif)" font-size="36" font-weight="900" fill="#ffffff" letter-spacing="-0.5">BEE<tspan fill="var(--primary)">112</tspan></text>
           </svg>
         </div>
-        <p style="max-width:32ch;font-size:14px;line-height:1.6">
-          Inițiativă civică de voluntariat. Salvăm roiuri de albine în București și Ilfov, fără substanțe toxice, fără taxe.
-        </p>
+        <p style="max-width:32ch;font-size:14px;line-height:1.6">{footer.tagline}</p>
       </div>
-      <div>
-        <h4>Site</h4>
-        <ul>
-          <li><a href="/">Acasă</a></li>
-          <li><a href="/cine-suntem">Cine suntem</a></li>
-          <li><a href="/cum-functioneaza">Cum funcționează</a></li>
-          <li><a href="/importanta-albinelor">Importanța albinelor</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Resurse</h4>
-        <ul>
-          <li><a href="/ce-sa-nu-faci">Ce să NU faci</a></li>
-          <li><a href="/autoritati">Lucrăm cu autoritățile</a></li>
-          <li><a href="/intrebari-frecvente">Întrebări frecvente</a></li>
-          <li><a href="/voluntariat">Voluntariat</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="tel:+40761330577">0761 330 577</a></li>
-          <li>București &amp; Ilfov</li>
-          <li><a href="mailto:contact@bee112.ro">contact@bee112.ro</a></li>
-          <li><a href="https://www.facebook.com/p/Patrula-Apicola-Urbana-100068758055323/?locale=ro_RO" target="_blank" rel="noopener">Facebook · Patrula Apicolă</a></li>
-          <li><a href="/contact">Toate datele</a></li>
-        </ul>
-      </div>
+
+      {footer.columns.map((col) => (
+        <div>
+          <h4>{col.title}</h4>
+          <ul>
+            {col.links.map((link) => {
+              const ext = link.href.startsWith('http');
+              return (
+                <li>
+                  {link.href
+                    ? <a href={link.href} {...(ext ? { target: '_blank', rel: 'noopener' } : {})}>{link.label}</a>
+                    : link.label}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ))}
     </div>
     <div class="foot-bottom">
-      <span>BEE112 · Patrula Apicolă Urbană · serviciu voluntar, fără scop comercial</span>
-      <span>© {currentYear} bee112.ro</span>
+      <span>{footer.bottomLeft}</span>
+      <span>{bottomRight}</span>
     </div>
   </div>
 </footer>

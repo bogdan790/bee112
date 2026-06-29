@@ -1,15 +1,14 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-const title = 'Lucrăm cu autoritățile – BEE112';
-const description = 'BEE112 colaborează cu 112, ISU, ADP și Poliția Locală pentru intervenții în siguranță.';
+import data from '../data/pages/autoritati.json';
 ---
-<PageLayout title={title} description={description}>
+<PageLayout title={data.seoTitle} description={data.seoDescription}>
   <div class="page-fade">
     <section class="page-head">
       <div class="shell">
-        <div class="eyebrow" style="margin-bottom:18px">Colaborăm cu autoritățile</div>
-        <h1>BEE112 nu acționează singur.</h1>
-        <p class="lede">Intervențiile sunt rezultatul unei colaborări reale între voluntari și autorități. Fiecare entitate are un rol — și cetățeanul panicat nu este lăsat singur.</p>
+        <div class="eyebrow" style="margin-bottom:18px">{data.head.eyebrow}</div>
+        <h1>{data.head.title}</h1>
+        <p class="lede">{data.head.lede}</p>
       </div>
     </section>
 
@@ -18,30 +17,30 @@ const description = 'BEE112 colaborează cu 112, ISU, ADP și Poliția Locală p
         <div class="auth-grid" style="grid-template-columns:1fr;gap:16px">
           <div class="auth-card" style="flex-direction:row;align-items:flex-start;gap:40px;padding:40px">
             <div style="flex:0 0 200px">
-              <span class="badge">Prim contact · 24/7</span>
-              <h3 style="margin-top:12px;font-size:32px">112 &amp; ISU – Pompierii</h3>
+              <span class="badge">{data.authorities[0].badge}</span>
+              <h3 style="margin-top:12px;font-size:32px" set:html={data.authorities[0].title}></h3>
             </div>
             <div style="flex:1">
-              <p style="color:var(--ink-soft);font-size:17px;line-height:1.7;margin-bottom:16px">În multe situații, cetățenii apelează direct serviciul de urgență 112. În funcție de caz, apelul este redirecționat către structurile competente — inclusiv ISU – Pompierii.</p>
-              <p style="color:var(--ink-soft);font-size:16px;line-height:1.65">În situațiile dificile (etaje superioare, acces periculos), pompierii ISU sunt alături de noi. Sunt oameni curajoși care urcă la înălțime și oferă sprijin direct pentru salvarea albinelor.</p>
+              <p style="color:var(--ink-soft);font-size:17px;line-height:1.7;margin-bottom:16px">{data.authorities[0].paragraphs[0]}</p>
+              <p style="color:var(--ink-soft);font-size:16px;line-height:1.65">{data.authorities[0].paragraphs[1]}</p>
             </div>
           </div>
           <div class="auth-card" style="flex-direction:row;align-items:flex-start;gap:40px;padding:40px">
             <div style="flex:0 0 200px">
-              <span class="badge">Sectoarele 1–6</span>
-              <h3 style="margin-top:12px;font-size:32px">ADP</h3>
+              <span class="badge">{data.authorities[1].badge}</span>
+              <h3 style="margin-top:12px;font-size:32px" set:html={data.authorities[1].title}></h3>
             </div>
             <div style="flex:1">
-              <p style="color:var(--ink-soft);font-size:17px;line-height:1.7">Administrația Domeniului Public, prin structurile de sector, ne sprijină frecvent cu acces și logistică în intervențiile urbane. Este coloana tăcută a multor recuperări de roiuri — uneori cu nacelă, alteori cu permis de acces.</p>
+              <p style="color:var(--ink-soft);font-size:17px;line-height:1.7">{data.authorities[1].paragraphs[0]}</p>
             </div>
           </div>
           <div class="auth-card" style="flex-direction:row;align-items:flex-start;gap:40px;padding:40px">
             <div style="flex:0 0 200px">
-              <span class="badge">Liant</span>
-              <h3 style="margin-top:12px;font-size:32px">Poliția Locală</h3>
+              <span class="badge">{data.authorities[2].badge}</span>
+              <h3 style="margin-top:12px;font-size:32px" set:html={data.authorities[2].title}></h3>
             </div>
             <div style="flex:1">
-              <p style="color:var(--ink-soft);font-size:17px;line-height:1.7">Poliția Locală este adesea primul contact al cetățeanului și are un rol important în redirecționarea corectă a situațiilor către echipele competente. Este liantul între panică și soluție.</p>
+              <p style="color:var(--ink-soft);font-size:17px;line-height:1.7">{data.authorities[2].paragraphs[0]}</p>
             </div>
           </div>
         </div>
@@ -51,8 +50,8 @@ const description = 'BEE112 colaborează cu 112, ISU, ADP și Poliția Locală p
     <section class="section-alt">
       <div class="shell">
         <div class="callout" style="max-width:820px;margin:0 auto">
-          <div class="ttl">Notă</div>
-          <p>BEE112 nu se substituie autorităților. BEE112 colaborează. Asta ne poziționează responsabil, legal și credibil — fără să promitem ce nu ținem.</p>
+          <div class="ttl">{data.note.title}</div>
+          <p>{data.note.text}</p>
         </div>
       </div>
     </section>

@@ -1,0 +1,33 @@
+{
+  "seoTitle": "Contact – BEE112",
+  "seoDescription": "Contactează BEE112 pentru salvarea unui roi de albine în București și Ilfov. Telefon: 0761 330 577.",
+  "head": {
+    "eyebrow": "Contact BEE112",
+    "h1": "Apelul telefonic. Întotdeauna apelul.",
+    "lede": "Pentru situații care implică albine, apelul telefonic este cea mai rapidă și eficientă soluție. Nu folosim formulare pentru urgențe."
+  },
+  "phoneNote": "Discutăm calm. Te ghidăm pas cu pas. Stabilim ora intervenției împreună. Fără formulare, fără cont, fără presiune.",
+  "geo": {
+    "heading": "Limitare geografică",
+    "text": "BEE112 funcționează exclusiv în <strong>municipiul București și județul Ilfov</strong>. Dacă te afli în alt oraș, încearcă să contactezi un apicultor local sau o asociație apicolă din zonă."
+  },
+  "emergency": {
+    "title": "Urgență medicală",
+    "text": "Dacă ai fost înțepat și ești alergic, apelează imediat <strong>112</strong>. Noi suntem apicultori, nu medici."
+  },
+  "contactCard": {
+    "title": "Date contact",
+    "rows": [
+      { "label": "Telefon", "value": "0761 330 577", "href": "tel:+40761330577" },
+      { "label": "Email", "value": "contact@bee112.ro", "href": "mailto:contact@bee112.ro" },
+      { "label": "Web", "value": "bee112.ro" },
+      { "label": "Zona", "value": "București & Ilfov" },
+      { "label": "Program", "value": "Lumina zilei" },
+      { "label": "Cost", "value": "Gratuit" }
+    ]
+  },
+  "facebook": {
+    "href": "https://www.facebook.com/p/Patrula-Apicola-Urbana-100068758055323/?locale=ro_RO",
+    "label": "Facebook · Patrula Apicolă Urbană"
+  }
+}
