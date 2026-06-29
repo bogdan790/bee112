@@ -52,23 +52,52 @@ const fmt = (dt: Date) => `${luni[dt.getMonth()]} ${dt.getFullYear()}`;
     </div>
   </section>
 
-  <!-- Lightbox (vanilla, ca scriptul din Header.astro) -->
+  <!-- Lightbox (vanilla) cu navigare ‹ › între poze -->
   <div class="lightbox" id="lightbox" hidden>
     <button class="close" id="lightbox-close" aria-label="Închide">×</button>
+    <button class="nav prev" id="lightbox-prev" aria-label="Imaginea anterioară">‹</button>
     <img src="" alt="" id="lightbox-img" />
+    <button class="nav next" id="lightbox-next" aria-label="Imaginea următoare">›</button>
   </div>
 
   <script>
     const lb = document.getElementById('lightbox') as HTMLElement;
     const lbImg = document.getElementById('lightbox-img') as HTMLImageElement;
+    const prevBtn = document.getElementById('lightbox-prev') as HTMLButtonElement;
+    const nextBtn = document.getElementById('lightbox-next') as HTMLButtonElement;
+    const imgs = Array.from(document.querySelectorAll('.art-body img, .art-gallery img')) as HTMLImageElement[];
+    let idx = 0;
+
+    // ascunde săgețile dacă e o singură poză
+    const multi = imgs.length > 1;
+    prevBtn.hidden = !multi;
+    nextBtn.hidden = !multi;
+
+    const show = (i: number) => {
+      idx = (i + imgs.length) % imgs.length;
+      const el = imgs[idx];
+      lbImg.src = el.currentSrc || el.src;
+      lbImg.alt = el.alt || '';
+    };
+    const open = (i: number) => { show(i); lb.hidden = false; };
     const close = () => { lb.hidden = true; lbImg.src = ''; };
-    document.querySelectorAll('.art-body img, .art-gallery img').forEach((img) => {
-      const el = img as HTMLImageElement;
+    const prev = () => show(idx - 1);
+    const next = () => show(idx + 1);
+
+    imgs.forEach((el, i) => {
       el.style.cursor = 'zoom-in';
-      el.addEventListener('click', () => { lbImg.src = el.currentSrc || el.src; lb.hidden = false; });
+      el.addEventListener('click', () => open(i));
     });
-    lb.addEventListener('click', close);
-    document.getElementById('lightbox-close')!.addEventListener('click', close);
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
+    nextBtn.addEventListener('click', (e) => { e.stopPropagation(); next(); });
+    document.getElementById('lightbox-close')!.addEventListener('click', (e) => { e.stopPropagation(); close(); });
+    // click pe fundalul întunecat închide; click pe imagine/butoane nu
+    lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (lb.hidden) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft' && multi) prev();
+      else if (e.key === 'ArrowRight' && multi) next();
+    });
   </script>
 </PageLayout>
