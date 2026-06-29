@@ -1039,7 +1039,7 @@ footer .foot-cta:hover { background: var(--primary-deep); color: white; }
 .art-body blockquote{margin:28px 0;padding:22px 26px;background:var(--bg-alt);border-left:3px solid var(--primary);border-radius:var(--radius-sm);color:var(--ink);font-style:normal;}
 .art-gallery{max-width:1000px;margin:64px auto 0;}
 .art-gallery .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-.art-gallery .cell{position:relative;aspect-ratio:1/1;border-radius:var(--radius);overflow:hidden;background:var(--bg-alt);}
+.art-gallery .cell{position:relative;aspect-ratio:3/4;border-radius:var(--radius);overflow:hidden;background:var(--bg-alt);}
 .art-gallery .cell img{width:100%;height:100%;object-fit:cover;cursor:zoom-in;}
 @media (max-width:920px){.art-gallery .grid{grid-template-columns:1fr 1fr;}.art-body{font-size:17px;margin-top:36px;}.art-hero{aspect-ratio:4/3;}}
 
