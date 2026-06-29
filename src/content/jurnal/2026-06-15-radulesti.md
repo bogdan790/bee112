@@ -24,7 +24,6 @@ galerie:
   - imagine: /images/jurnal/radulesti-radacini.jpg
     legenda: Rădăcinile teilor
 ---
-
 Iar această intervenție a testat tot ce aveam mai bun în mine: echipament, stăpânire de sine și valori.
 
 ## Recomandarea unui algoritm
@@ -41,7 +40,7 @@ Când am ajuns la fața locului, realitatea de aproape a lovit greu. Cei doi tei
 
 Proprietarul ne-a povestit că de când bunica lui trecuse în neființă, cei doi tei au început să se usuce. Tehnic însă, caria mâncase lemnul, transformând interiorul într-o capcană tăcută.
 
-![Detaliu de trunchi — interiorul afectat de carie.](/images/jurnal/radulesti-trunchi-carie.jpg)
+![Detaliu de trunchi — interiorul afectat de carie.](/images/trunchi_tei_-afectat.jpg)
 
 Am urcat. Proprietarul și un prieten din sat se ocupau de sol, sub coordonarea tatălui meu.
 
@@ -49,23 +48,23 @@ Am urcat. Proprietarul și un prieten din sat se ocupau de sol, sub coordonarea 
 
 La jumătatea înălțimii, am văzut un cuib de coțofană cu doi pui mici, care nu puteau zbura. Am coborât cuibul cu grijă, intact, și l-am mutat într-un corcoduș din apropiere.
 
-![Cei doi pui de coțofană, în roinița de polistiren.](/images/jurnal/radulesti-cotofana.jpg)
+![Cei doi pui de coțofană, în roinița de polistiren.](/images/pui_cotofana.jpg)
 
 ## Opt metri și 150 de kilograme
 
 Un segment de trunchi de 1,8 metri și ~150 de kilograme adăpostea familia de albine. Soluția a fost o manevră de ancorare de teiul geamăn — segmentul a coborât lin, perfect.
 
-![Coborârea segmentului de trunchi.](/images/jurnal/radulesti-coborare.jpg)
+![Coborârea segmentului de trunchi.](/images/trunchi_tei.jpg)
 
 ## Teiul geamăn
 
 Am urcat din nou. O creangă pe care mă sprijineam a cedat fără avertisment. Singurul lucru care a contat a fost că hamul era montat corect.
 
-![În teiul geamăn — înălțimea față de sol.](/images/jurnal/radulesti-tei-geaman.jpg)
+![În teiul geamăn — înălțimea față de sol.](/images/in-teiul-geaman.jpg)
 
 Șase ore de muncă brută, la 35 de grade.
 
-![Rădăcinile celor doi tei gemeni, la final.](/images/jurnal/radulesti-radacini.jpg)
+![Rădăcinile celor doi tei gemeni, la final.](/images/radacini-tei-final.jpg)
 
 ## Plecarea cu demnitate
 
