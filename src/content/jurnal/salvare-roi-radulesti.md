@@ -98,7 +98,7 @@ După ce și al doilea tei a fost coborât la sol, am găsit în tăietură cuib
 
 După șase ore de muncă brută la 35 de grade, la final tatăl meu, cel care fusese sceptic de la început, privea ce rămăsese în urmă. Nu e un om care vorbește mult, dar mi-a spus că nu-i venea să creadă ce văzuse în ziua aceea. A fost cel mai frumos compliment primit vreodată de la el.
 
-Proprietarul a înțeles și el o lecție prețioasă. Albinele acelea trăiseră acolo de ani de zile, în timp ce copiii lui se jucau în curte. Nu pățise nimeni nimic. Ne temem doar de ceea ce descoperim, nu de ceea ce există deja. Distrugem din frică, iar frica dispare doar prin informar, educație.
+Proprietarul a înțeles și el o lecție prețioasă. Albinele acelea trăiseră acolo de ani de zile, în timp ce copiii lui se jucau în curte. Nu pățise nimeni nimic. Ne temem doar de ceea ce descoperim, nu de ceea ce există deja. Distrugem din frică, iar frica dispare doar prin informare, educație.
 
 Am plecat de la Rădulești epuizat, dar cu o familie de albine salvată și cu speranța că doi pui de coțofană au primit o șansă. Am lăsat în urmă rădăcinile a doi tei care adăpostiseră viață până la capăt și au plecat cu demnitate.
 
