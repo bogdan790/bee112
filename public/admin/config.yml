@@ -546,7 +546,7 @@ collections:
     extension: "md"
     format: "frontmatter"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     summary: "{{data}} — {{title}}"
     sortable_fields: ["data", "title"]
     fields:
