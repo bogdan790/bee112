@@ -66,9 +66,9 @@ Am urcat din nou. O creangă pe care mă sprijineam a cedat fără avertisment. 
 
 ![Rădăcinile celor doi tei gemeni, la final.](/images/radacina-tei.jpg)
 
-## Plecarea cu demnitate
+## A meritat fiecare oră
 
-Am plecat de la Rădulești epuizat, dar cu o familie de albine salvată și cu speranța că doi pui de coțofană au primit o șansă.
+Am plecat din Rădulești frânt de oboseală, dar cu inima ușoară: o familie de albine în siguranță și doi pui de coțofană mutați la adăpost. Asta facem, de fapt — dăm naturii o șansă, fără otravă.
 
 > Dacă măcar un om va învăța să pună mâna pe telefon în loc să folosească insecticidul, atunci a meritat. Tehnologia și natura pot lucra împreună.
 
