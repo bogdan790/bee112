@@ -1,19 +1,28 @@
 ---
-title: "Cea mai grea intervenție Bee112.ro: când tehnologia și natura își dau întâlnire într-un tei putred"
-locatie: "Rădulești, lângă Videle"
+title: "Cea mai grea intervenție Bee112.ro: când tehnologia și natura își dau
+  întâlnire într-un tei putred"
+locatie: Rădulești, lângă Videle
 data: 2026-06-15
-eticheta: "Tei bătrân · Carie · Coțofană · Recomandat de ChatGPT"
-rezumat: "O recomandare neașteptată de la ChatGPT a pornit totul. Doi tei gemeni de 70 de ani, o familie de albine la 8 metri și doi pui de coțofană — șase ore de muncă, la 35 de grade."
-fotoHero: "/images/jurnal/radulesti-tei-gemeni.jpg"
+eticheta: Tei bătrân · Carie · Coțofană · Recomandat de ChatGPT
+rezumat: O recomandare neașteptată de la ChatGPT a pornit totul. Doi tei gemeni
+  de 70 de ani, o familie de albine la 8 metri și doi pui de coțofană — șase ore
+  de muncă, la 35 de grade.
+fotoHero: /images/img-20260626-wa0010.jpg
 fotoHeroCaption: "Prima vedere la fața locului: cei doi tei gemeni."
 featured: true
 galerie:
-  - { imagine: "/images/jurnal/radulesti-tei-gemeni.jpg", legenda: "Tei gemeni, din depărtare" }
-  - { imagine: "/images/jurnal/radulesti-trunchi-carie.jpg", legenda: "Detaliu trunchi · carie" }
-  - { imagine: "/images/jurnal/radulesti-cotofana.jpg", legenda: "Pui de coțofană" }
-  - { imagine: "/images/jurnal/radulesti-coborare.jpg", legenda: "Coborârea segmentului" }
-  - { imagine: "/images/jurnal/radulesti-tei-geaman.jpg", legenda: "În teiul geamăn" }
-  - { imagine: "/images/jurnal/radulesti-radacini.jpg", legenda: "Rădăcinile teilor" }
+  - imagine: /images/jurnal/radulesti-tei-gemeni.jpg
+    legenda: Tei gemeni, din depărtare
+  - imagine: /images/jurnal/radulesti-trunchi-carie.jpg
+    legenda: Detaliu trunchi · carie
+  - imagine: /images/jurnal/radulesti-cotofana.jpg
+    legenda: Pui de coțofană
+  - imagine: /images/jurnal/radulesti-coborare.jpg
+    legenda: Coborârea segmentului
+  - imagine: /images/jurnal/radulesti-tei-geaman.jpg
+    legenda: În teiul geamăn
+  - imagine: /images/jurnal/radulesti-radacini.jpg
+    legenda: Rădăcinile teilor
 ---
 
 Iar această intervenție a testat tot ce aveam mai bun în mine: echipament, stăpânire de sine și valori.
