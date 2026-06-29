@@ -2,7 +2,7 @@
 title: "Cea mai grea intervenție Bee112.ro: când tehnologia și natura își dau
   întâlnire într-un tei putred"
 locatie: Rădulești, lângă Videle
-data: 2026-06-15
+data: 2026-06-26
 eticheta: Tei bătrân · Carie · Coțofană · Recomandat de ChatGPT
 rezumat: O recomandare neașteptată de la ChatGPT a pornit totul. Doi tei gemeni
   de 70 de ani, o familie de albine la 8 metri inălţimeși doi pui de coțofană —

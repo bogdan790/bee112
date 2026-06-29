@@ -11,7 +11,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 const d = post.data;
 const luni = ['ianuarie','februarie','martie','aprilie','mai','iunie','iulie','august','septembrie','octombrie','noiembrie','decembrie'];
-const fmt = (dt: Date) => `${luni[dt.getMonth()]} ${dt.getFullYear()}`;
+const fmt = (dt: Date) => `${dt.getUTCDate()} ${luni[dt.getUTCMonth()]} ${dt.getUTCFullYear()}`;
 ---
 
 <PageLayout title={`${d.title} — Jurnal BEE112`} description={d.rezumat}>
