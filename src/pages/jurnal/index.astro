@@ -24,7 +24,7 @@ const [featured, ...rest] = posts;
       {featured && (
         <a class="jrn-feature" href={`/jurnal/${featured.id}`}>
           <div class="ph">
-            <img src={featured.data.fotoHero} alt={featured.data.title} />
+            <img src={featured.data.fotoHero} alt={featured.data.fotoHeroAlt || featured.data.title} />
             {featured.data.eticheta && <span class="tag">{featured.data.eticheta}</span>}
           </div>
           <div class="body">
@@ -42,7 +42,7 @@ const [featured, ...rest] = posts;
           {rest.map((p) => (
             <a class="jrn-card" href={`/jurnal/${p.id}`}>
               <div class="ph">
-                <img src={p.data.fotoHero} alt={p.data.title} />
+                <img src={p.data.fotoHero} alt={p.data.fotoHeroAlt || p.data.title} />
                 {p.data.eticheta && <span class="tag">{p.data.eticheta}</span>}
               </div>
               <div class="body">

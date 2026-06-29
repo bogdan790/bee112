@@ -10,6 +10,7 @@ const jurnal = defineCollection({
     eticheta: z.string().optional(),     // SEO/tip: "Tei bătrân · Carie · Coțofană"
     rezumat: z.string(),                 // text pe card + lede articol
     fotoHero: z.string(),                // "/images/jurnal/...jpg"
+    fotoHeroAlt: z.string().optional(),  // text alternativ (accesibilitate/SEO)
     fotoHeroCaption: z.string().optional(),
     featured: z.boolean().default(false),
     galerie: z.array(z.object({

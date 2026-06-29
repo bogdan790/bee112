@@ -30,7 +30,7 @@ const fmt = (dt: Date) => `${luni[dt.getMonth()]} ${dt.getFullYear()}`;
   <section style="padding-top:32px">
     <div class="shell">
       <figure class="art-figure art-hero">
-        <img src={d.fotoHero} alt={d.fotoHeroCaption || d.title} />
+        <img src={d.fotoHero} alt={d.fotoHeroAlt || d.fotoHeroCaption || d.title} />
       </figure>
       {d.fotoHeroCaption && <div class="art-cap">{d.fotoHeroCaption}</div>}
 

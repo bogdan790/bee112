@@ -555,6 +555,7 @@ collections:
       - { name: "eticheta", label: "Etichetă (SEO / tip)", widget: "string", required: false }
       - { name: "rezumat", label: "Rezumat (card + lede)", widget: "text" }
       - { name: "fotoHero", label: "Foto principală (hero)", widget: "image" }
+      - { name: "fotoHeroAlt", label: "Text alternativ foto principală (ALT)", widget: "string", required: false, hint: "descriere scurtă a imaginii — pentru accesibilitate și SEO" }
       - { name: "fotoHeroCaption", label: "Legendă foto principală", widget: "string", required: false }
       - { name: "featured", label: "Afișează mare (featured)", widget: "boolean", default: false }
       - { name: "body", label: "Conținut articol", widget: "markdown" }
