@@ -11,18 +11,7 @@ fotoHero: /images/img-20260626-wa0010.jpg
 fotoHeroCaption: "Prima vedere la fața locului: cei doi tei gemeni."
 featured: true
 galerie:
-  - imagine: /images/jurnal/radulesti-tei-gemeni.jpg
-    legenda: Tei gemeni, din depărtare
-  - imagine: /images/jurnal/radulesti-trunchi-carie.jpg
-    legenda: Detaliu trunchi · carie
-  - imagine: /images/jurnal/radulesti-cotofana.jpg
-    legenda: Pui de coțofană
-  - imagine: /images/jurnal/radulesti-coborare.jpg
-    legenda: Coborârea segmentului
-  - imagine: /images/jurnal/radulesti-tei-geaman.jpg
-    legenda: În teiul geamăn
-  - imagine: /images/jurnal/radulesti-radacini.jpg
-    legenda: Rădăcinile teilor
+  - imagine: /images/pregatire-ham.jpg
 ---
 Iar această intervenție a testat tot ce aveam mai bun în mine: echipament, stăpânire de sine și valori.
 
@@ -66,9 +55,9 @@ Am urcat din nou. O creangă pe care mă sprijineam a cedat fără avertisment. 
 
 ![Rădăcinile celor doi tei gemeni, la final.](/images/radacina-tei.jpg)
 
-## A meritat fiecare oră
+## Plecarea cu demnitate
 
-Am plecat din Rădulești frânt de oboseală, dar cu inima ușoară: o familie de albine în siguranță și doi pui de coțofană mutați la adăpost. Asta facem, de fapt — dăm naturii o șansă, fără otravă.
+Am plecat de la Rădulești epuizat, dar cu o familie de albine salvată și cu speranța că doi pui de coțofană au primit o șansă.
 
 > Dacă măcar un om va învăța să pună mâna pe telefon în loc să folosească insecticidul, atunci a meritat. Tehnologia și natura pot lucra împreună.
 
